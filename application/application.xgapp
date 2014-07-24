@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gate.util.persistence.GateApplication>
+  <urlList class="gate.util.persistence.CollectionPersistence">
+    <localList>
+      <gate.util.persistence.PersistenceManager-URLHolder>
+        <urlString>$relpath$plugins/ru-morph-tagger-0.2/</urlString>
+      </gate.util.persistence.PersistenceManager-URLHolder>
+      <gate.util.persistence.PersistenceManager-URLHolder>
+        <urlString>$relpath$plugins/Lang_Russian/</urlString>
+      </gate.util.persistence.PersistenceManager-URLHolder>
+      <gate.util.persistence.PersistenceManager-URLHolder>
+        <urlString>$relpath$plugins/Tools/</urlString>
+      </gate.util.persistence.PersistenceManager-URLHolder>
+      <gate.util.persistence.PersistenceManager-URLHolder>
+        <urlString>$relpath$plugins/ANNIE/</urlString>
+      </gate.util.persistence.PersistenceManager-URLHolder>
+      <gate.util.persistence.PersistenceManager-URLHolder>
+        <urlString>$relpath$plugins/ANNIE-2/</urlString>
+      </gate.util.persistence.PersistenceManager-URLHolder>
+      <gate.util.persistence.PersistenceManager-URLHolder>
+        <urlString>$relpath$plugins/Tools-2/</urlString>
+      </gate.util.persistence.PersistenceManager-URLHolder>
+      <gate.util.persistence.PersistenceManager-URLHolder>
+        <urlString>$relpath$plugins/JAPE_Plus/</urlString>
+      </gate.util.persistence.PersistenceManager-URLHolder>
+    </localList>
+    <collectionType>java.util.ArrayList</collectionType>
+  </urlList>
+  <application class="gate.util.persistence.ConditionalSerialAnalyserControllerPersistence">
+    <corpus class="gate.util.persistence.CorpusPersistence">
+      <docList>
+        <gate.util.persistence.LRPersistence>
+          <resourceType>gate.corpora.DocumentImpl</resourceType>
+          <resourceName>GATE Document_00012</resourceName>
+          <initParams class="gate.util.persistence.MapPersistence">
+            <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+            <localMap>
+              <entry>
+                <string>markupAware</string>
+                <boolean>true</boolean>
+              </entry>
+              <entry>
+                <string>stringContent</string>
+                <string />
+              </entry>
+              <entry>
+                <string>encoding</string>
+                <string>windows-1251</string>
+              </entry>
+              <entry>
+                <string>sourceUrlStartOffset</string>
+                <null />
+              </entry>
+              <entry>
+                <string>preserveOriginalContent</string>
+                <boolean>false</boolean>
+              </entry>
+              <entry>
+                <string>collectRepositioningInfo</string>
+                <boolean>false</boolean>
+              </entry>
+              <entry>
+                <string>sourceUrl</string>
+                <null />
+              </entry>
+              <entry>
+                <string>mimeType</string>
+                <null />
+              </entry>
+              <entry>
+                <string>sourceUrlEndOffset</string>
+                <null />
+              </entry>
+            </localMap>
+          </initParams>
+        </gate.util.persistence.LRPersistence>
+      </docList>
+      <resourceType>gate.corpora.CorpusImpl</resourceType>
+      <resourceName>Corpus for GATE Document_00012</resourceName>
+      <initParams class="gate.util.persistence.MapPersistence">
+        <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+        <localMap>
+          <entry>
+            <string>documentsList</string>
+            <null />
+          </entry>
+        </localMap>
+      </initParams>
+    </corpus>
+    <strategiesList class="gate.util.persistence.CollectionPersistence">
+      <localList />
+      <collectionType>java.util.ArrayList</collectionType>
+    </strategiesList>
+    <prList class="gate.util.persistence.CollectionPersistence">
+      <localList />
+      <collectionType>java.util.ArrayList</collectionType>
+    </prList>
+    <resourceType>gate.creole.ConditionalSerialAnalyserController</resourceType>
+    <resourceName>RussIE</resourceName>
+    <initParams class="gate.util.persistence.MapPersistence">
+      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+      <localMap />
+    </initParams>
+    <features class="gate.util.persistence.MapPersistence">
+      <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+      <localMap>
+        <entry>
+          <string>gate.gui.icon</string>
+          <string>Russian</string>
+        </entry>
+        <entry>
+          <string>gate.app.MetadataURL</string>
+          <gate.util.persistence.PersistenceManager-URLHolder>
+            <urlString>$relpath$plugins/Lang_Russian/resources/.russie-metadata/metadata.xml</urlString>
+          </gate.util.persistence.PersistenceManager-URLHolder>
+        </entry>
+      </localMap>
+    </features>
+  </application>
+</gate.util.persistence.GateApplication>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">MimeType</Name>
+  <Value className="java.lang.String">text/plain</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">file:/C:/Users/Usp/IdeaProjects/Test_folder/SemanticFilter/TestCorpus/1.txt</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">docNewLineType</Name>
+  <Value className="java.lang.String">CRLF</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes><Node id="0"/>Сегодня около Охтинской улицы чуть не сломал ногу, когда буквально провалился в асфальт&#xd;
+<Node id="89"/>&#xd;
+<Node id="91"/>...на проспекте Фрунзе как были ямы на дорогах, так и есть .интересно когда службы благоустройства рапортуют о выполнении работ, кто их проверяет?&#xd;
+<Node id="239"/>&#xd;
+<Node id="241"/>... вечером 13 мая в Чебоксарах в районе улицы Маркса провалился асфальт&#xd;
+<Node id="315"/>&#xd;
+<Node id="317"/>....на улице Победы между тротуаром и дорогой зияет дырища&#xd;
+<Node id="377"/>&#xd;
+<Node id="379"/>В Москве в ночь на 16 апреля 2014 года во дворе жилого дома №16 по Филипповскому переулку просел грунт. Над ямой глубиной около 3 метров и площадью почти 15 квадратных метров завис автомобиль.<Node id="571"/></TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Original markups">
+<Annotation Id="0" Type="paragraph" StartNode="0" EndNode="89">
+</Annotation>
+<Annotation Id="1" Type="paragraph" StartNode="91" EndNode="239">
+</Annotation>
+<Annotation Id="2" Type="paragraph" StartNode="241" EndNode="315">
+</Annotation>
+<Annotation Id="3" Type="paragraph" StartNode="317" EndNode="377">
+</Annotation>
+<Annotation Id="4" Type="paragraph" StartNode="379" EndNode="571">
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>
