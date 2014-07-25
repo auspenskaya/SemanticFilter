@@ -1,0 +1,18 @@
+Phase:  Address
+Input: Token Split Lookup
+Options: control = appelt
+
+
+ 
+Rule: Address //яма на яме
+(
+(({Lookup.majorType == street}) ({Token.string == "."})?
+({Token.orth == upperInitial })) 
+|
+(({Token.orth == upperInitial })
+({Lookup.majorType == street}))
+)
+
+:bind -->
+:bind.Address = {rule = "Address"}
+
