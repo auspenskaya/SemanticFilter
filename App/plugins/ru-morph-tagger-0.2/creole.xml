@@ -1,0 +1,20 @@
+<CREOLE-DIRECTORY>
+    <CREOLE>
+
+        <!-- MyStem - MorphTagger-->
+        <RESOURCE>
+            <NAME>Russian MorphTagger</NAME>
+            <CLASS>ru.itbrains.gate.morph.MorphTagger</CLASS>
+            <JAR>ru-morph-tagger.jar</JAR>
+            <COMMENT>MorphTagger for russian language, based on MyStem Yandex' parser</COMMENT>
+            <PARAMETER NAME="document" COMMENT="The document to be parsed" RUNTIME="true">gate.Document</PARAMETER>
+            <PARAMETER NAME="nativeFolder"
+                       COMMENT="Path to the folder, where native mystem components are located (native/ folder inside work dir by default) "
+                       OPTIONAL="true"
+                       RUNTIME="true">java.lang.String</PARAMETER>
+            <PARAMETER NAME="encoding" COMMENT="Input document encoding for MyStem (UTF-8 by default)"
+                       OPTIONAL="false"
+                       RUNTIME="true">java.lang.String</PARAMETER>
+        </RESOURCE>
+    </CREOLE>
+</CREOLE-DIRECTORY>
