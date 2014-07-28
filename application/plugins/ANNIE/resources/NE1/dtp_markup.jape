@@ -1,0 +1,42 @@
+Phase:  dtp_markup
+Input: Lookup Morph
+Options: control = appelt
+
+Rule: hole 
+({Lookup.majorType == hole})
+:bind -->
+  :bind.Lookup_hole= {rule = "Lookup_hole"}
+  
+Rule: road 
+({Lookup.majorType == road})
+:bind -->
+  :bind.Lookup_road= {rule = "Lookup_road"}  
+  
+  Rule: object 
+({Lookup.majorType == object})
+:bind -->
+  :bind.Lookup_object= {rule = "Lookup_object"}  
+  
+  Rule: light 
+({Lookup.majorType == light})
+:bind -->
+  :bind.Lookup_light= {rule = "Lookup_light"} 
+  
+  Rule: structure 
+({Lookup.majorType == structure})
+:bind -->
+  :bind.Lookup_structure= {rule = "Lookup_structure"}  
+    
+  Rule: destroy_verb 
+({Lookup.majorType == destroy_verb})
+:bind -->
+  :bind.Lookup_destroy_verb= {rule = "Lookup_destroy_verb"}
+  
+  Rule: occur_verb 
+({Lookup.majorType == occur_verb})
+:bind -->
+  :bind.Lookup_occur_verb= {rule = "Lookup_occur_verb"}
+ 
+ 
+
+
