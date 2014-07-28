@@ -1,0 +1,1610 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">MimeType</Name>
+  <Value className="java.lang.String">text/plain</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">file:/C:/Users/Usp/IdeaProjects/Test_folder/SemanticFilter/TestCorpus/1.txt</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">docNewLineType</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes><Node id="0"/>Сегодня<Node id="7"/> <Node id="8"/>около<Node id="13"/> <Node id="14"/>Охтинской<Node id="23"/> <Node id="24"/>улицы<Node id="29"/> <Node id="30"/>чуть<Node id="34"/> <Node id="35"/>не<Node id="37"/> <Node id="38"/>сломал<Node id="44"/> <Node id="45"/>ногу<Node id="49"/>,<Node id="50"/> <Node id="51"/>когда<Node id="56"/> <Node id="57"/>буквально<Node id="66"/> <Node id="67"/>провалился<Node id="77"/> <Node id="78"/>в<Node id="79"/> <Node id="80"/>асфальт<Node id="87"/></TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+<Annotation Id="1" Type="Token" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">7</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">upperInitial</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">Сегодня</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2" Type="SpaceToken" StartNode="7" EndNode="8">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="3" Type="Token" StartNode="8" EndNode="13">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">5</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">lowercase</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">около</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4" Type="SpaceToken" StartNode="13" EndNode="14">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="5" Type="Token" StartNode="14" EndNode="23">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">9</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">upperInitial</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">Охтинской</Value>
+</Feature>
+</Annotation>
+<Annotation Id="6" Type="SpaceToken" StartNode="23" EndNode="24">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="7" Type="Token" StartNode="24" EndNode="29">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">5</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">lowercase</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">улицы</Value>
+</Feature>
+</Annotation>
+<Annotation Id="8" Type="SpaceToken" StartNode="29" EndNode="30">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="9" Type="Token" StartNode="30" EndNode="34">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">4</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">lowercase</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">чуть</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10" Type="SpaceToken" StartNode="34" EndNode="35">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="11" Type="Token" StartNode="35" EndNode="37">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">2</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">lowercase</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">не</Value>
+</Feature>
+</Annotation>
+<Annotation Id="12" Type="SpaceToken" StartNode="37" EndNode="38">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="13" Type="Token" StartNode="38" EndNode="44">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">6</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">lowercase</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">сломал</Value>
+</Feature>
+</Annotation>
+<Annotation Id="14" Type="SpaceToken" StartNode="44" EndNode="45">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="15" Type="Token" StartNode="45" EndNode="49">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">4</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">lowercase</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">ногу</Value>
+</Feature>
+</Annotation>
+<Annotation Id="17" Type="SpaceToken" StartNode="50" EndNode="51">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="16" Type="Token" StartNode="49" EndNode="50">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">punctuation</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">,</Value>
+</Feature>
+</Annotation>
+<Annotation Id="19" Type="SpaceToken" StartNode="56" EndNode="57">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="18" Type="Token" StartNode="51" EndNode="56">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">5</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">lowercase</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">когда</Value>
+</Feature>
+</Annotation>
+<Annotation Id="21" Type="SpaceToken" StartNode="66" EndNode="67">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="20" Type="Token" StartNode="57" EndNode="66">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">9</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">lowercase</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">буквально</Value>
+</Feature>
+</Annotation>
+<Annotation Id="23" Type="SpaceToken" StartNode="77" EndNode="78">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="22" Type="Token" StartNode="67" EndNode="77">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">10</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">lowercase</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">провалился</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25" Type="SpaceToken" StartNode="79" EndNode="80">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">space</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String"> </Value>
+</Feature>
+</Annotation>
+<Annotation Id="24" Type="Token" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">lowercase</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+</Annotation>
+<Annotation Id="27" Type="Sentence" StartNode="0" EndNode="87">
+</Annotation>
+<Annotation Id="26" Type="Token" StartNode="80" EndNode="87">
+<Feature>
+  <Name className="java.lang.String">length</Name>
+  <Value className="java.lang.String">7</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">orth</Name>
+  <Value className="java.lang.String">lowercase</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">word</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">string</Name>
+  <Value className="java.lang.String">асфальт</Value>
+</Feature>
+</Annotation>
+<Annotation Id="29" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">nominative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="28" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">adverb</Value>
+</Feature>
+</Annotation>
+<Annotation Id="31" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">genitive</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="30" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">nominative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="34" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">dative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="35" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">accusative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="32" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">genitive</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">dative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="38" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">instrumental</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="39" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">ablative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="36" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">accusative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="37" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">instrumental</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="42" Type="Morph" StartNode="8" EndNode="13">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">около</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">preposition</Value>
+</Feature>
+</Annotation>
+<Annotation Id="43" Type="Morph" StartNode="14" EndNode="23">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">feminine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">охтинский</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">genitive</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">form</Name>
+  <Value className="java.lang.String">full</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">adjective</Value>
+</Feature>
+</Annotation>
+<Annotation Id="40" Type="Morph" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сегодня</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">ablative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="41" Type="Morph" StartNode="8" EndNode="13">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">около</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">adverb</Value>
+</Feature>
+</Annotation>
+<Annotation Id="46" Type="Morph" StartNode="14" EndNode="23">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">feminine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">охтинский</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">ablative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">form</Name>
+  <Value className="java.lang.String">full</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">adjective</Value>
+</Feature>
+</Annotation>
+<Annotation Id="47" Type="Morph" StartNode="24" EndNode="29">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">feminine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">улица</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">nominative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="44" Type="Morph" StartNode="14" EndNode="23">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">feminine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">охтинский</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">dative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">form</Name>
+  <Value className="java.lang.String">full</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">adjective</Value>
+</Feature>
+</Annotation>
+<Annotation Id="45" Type="Morph" StartNode="14" EndNode="23">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">feminine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">охтинский</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">instrumental</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">form</Name>
+  <Value className="java.lang.String">full</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">adjective</Value>
+</Feature>
+</Annotation>
+<Annotation Id="51" Type="Morph" StartNode="30" EndNode="34">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">чуть</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">particle</Value>
+</Feature>
+</Annotation>
+<Annotation Id="50" Type="Morph" StartNode="30" EndNode="34">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">чуть</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">adverb</Value>
+</Feature>
+</Annotation>
+<Annotation Id="49" Type="Morph" StartNode="24" EndNode="29">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">feminine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">улица</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">accusative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="48" Type="Morph" StartNode="24" EndNode="29">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">feminine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">улица</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">genitive</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="55" Type="Morph" StartNode="45" EndNode="49">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">feminine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">нога</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">accusative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="54" Type="Morph" StartNode="38" EndNode="44">
+<Feature>
+  <Name className="java.lang.String">aspect</Name>
+  <Value className="java.lang.String">perfect</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tense</Name>
+  <Value className="java.lang.String">past</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">mood</Name>
+  <Value className="java.lang.String">indicative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">transitivity</Name>
+  <Value className="java.lang.String">transitive</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">masculine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">сломать</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">verb</Value>
+</Feature>
+</Annotation>
+<Annotation Id="53" Type="Morph" StartNode="35" EndNode="37">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">не</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">particle</Value>
+</Feature>
+</Annotation>
+<Annotation Id="52" Type="Morph" StartNode="30" EndNode="34">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">чуть</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">conjunction</Value>
+</Feature>
+</Annotation>
+<Annotation Id="59" Type="Morph" StartNode="57" EndNode="66">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">буквально</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">adverb</Value>
+</Feature>
+</Annotation>
+<Annotation Id="58" Type="Morph" StartNode="57" EndNode="66">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">neuter</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">буквальный</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">form</Name>
+  <Value className="java.lang.String">brief</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">adjective</Value>
+</Feature>
+</Annotation>
+<Annotation Id="57" Type="Morph" StartNode="51" EndNode="56">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">когда</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">conjunction</Value>
+</Feature>
+</Annotation>
+<Annotation Id="56" Type="Morph" StartNode="51" EndNode="56">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">когда</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">adv-pronoun</Value>
+</Feature>
+</Annotation>
+<Annotation Id="63" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">nominative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="62" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">nominative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="61" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">preposition</Value>
+</Feature>
+</Annotation>
+<Annotation Id="60" Type="Morph" StartNode="67" EndNode="77">
+<Feature>
+  <Name className="java.lang.String">aspect</Name>
+  <Value className="java.lang.String">perfect</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tense</Name>
+  <Value className="java.lang.String">past</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">mood</Name>
+  <Value className="java.lang.String">indicative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">transitivity</Name>
+  <Value className="java.lang.String">nontransitive</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">masculine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">проваливаться</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">verb</Value>
+</Feature>
+</Annotation>
+<Annotation Id="68" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">accusative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="69" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">accusative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="70" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">instrumental</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="71" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">instrumental</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="64" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">genitive</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="65" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">genitive</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">dative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="67" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">dative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="76" Type="Lookup" StartNode="24" EndNode="29">
+<Feature>
+  <Name className="java.lang.String">ProperName</Name>
+  <Value className="java.lang.String">улица</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">majorType</Name>
+  <Value className="java.lang.String">road</Value>
+</Feature>
+</Annotation>
+<Annotation Id="77" Type="Lookup" StartNode="24" EndNode="29">
+<Feature>
+  <Name className="java.lang.String">majorType</Name>
+  <Value className="java.lang.String">street</Value>
+</Feature>
+</Annotation>
+<Annotation Id="78" Type="Lookup" StartNode="67" EndNode="77">
+<Feature>
+  <Name className="java.lang.String">ProperName</Name>
+  <Value className="java.lang.String">проваливаться</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">majorType</Name>
+  <Value className="java.lang.String">destroy_verb</Value>
+</Feature>
+</Annotation>
+<Annotation Id="79" Type="Lookup" StartNode="67" EndNode="77">
+<Feature>
+  <Name className="java.lang.String">majorType</Name>
+  <Value className="java.lang.String">ridein_verb</Value>
+</Feature>
+</Annotation>
+<Annotation Id="72" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">ablative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="73" Type="Morph" StartNode="78" EndNode="79">
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">в</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">ablative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">plural</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">abbreviation</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="74" Type="Morph" StartNode="80" EndNode="87">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">masculine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">асфальт</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">nominative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="75" Type="Morph" StartNode="80" EndNode="87">
+<Feature>
+  <Name className="java.lang.String">gender</Name>
+  <Value className="java.lang.String">masculine</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">baseForm</Name>
+  <Value className="java.lang.String">асфальт</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">case</Name>
+  <Value className="java.lang.String">accusative</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">multiplicity</Name>
+  <Value className="java.lang.String">singular</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">animation</Name>
+  <Value className="java.lang.String">inanimate</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">pos</Name>
+  <Value className="java.lang.String">substantive</Value>
+</Feature>
+</Annotation>
+<Annotation Id="85" Type="Upper" StartNode="14" EndNode="23">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">Upper</Value>
+</Feature>
+</Annotation>
+<Annotation Id="87" Type="Address" StartNode="14" EndNode="29">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">Address</Value>
+</Feature>
+</Annotation>
+<Annotation Id="81" Type="Lookup" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">majorType</Name>
+  <Value className="java.lang.String">time_key</Value>
+</Feature>
+</Annotation>
+<Annotation Id="80" Type="Lookup" StartNode="80" EndNode="87">
+<Feature>
+  <Name className="java.lang.String">ProperName</Name>
+  <Value className="java.lang.String">асфальт</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">majorType</Name>
+  <Value className="java.lang.String">road</Value>
+</Feature>
+</Annotation>
+<Annotation Id="83" Type="Lookup" StartNode="24" EndNode="29">
+<Feature>
+  <Name className="java.lang.String">minorType</Name>
+  <Value className="java.lang.String">post</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">majorType</Name>
+  <Value className="java.lang.String">loc_key</Value>
+</Feature>
+</Annotation>
+<Annotation Id="82" Type="Lookup" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">majorType</Name>
+  <Value className="java.lang.String">date_key</Value>
+</Feature>
+</Annotation>
+<Annotation Id="93" Type="Lookup_road" StartNode="24" EndNode="29">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">Lookup_road</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92" Type="Known" StartNode="80" EndNode="87">
+</Annotation>
+<Annotation Id="95" Type="Lookup_road" StartNode="80" EndNode="87">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">Lookup_road</Value>
+</Feature>
+</Annotation>
+<Annotation Id="94" Type="Lookup_destroy_verb" StartNode="67" EndNode="77">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">Lookup_destroy_verb</Value>
+</Feature>
+</Annotation>
+<Annotation Id="89" Type="Known" StartNode="0" EndNode="7">
+</Annotation>
+<Annotation Id="88" Type="Date" StartNode="0" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">rule1</Name>
+  <Value className="java.lang.String">GazDateWords</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">kind</Name>
+  <Value className="java.lang.String">date</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">rule2</Name>
+  <Value className="java.lang.String">DateOnlyFinal</Value>
+</Feature>
+</Annotation>
+<Annotation Id="91" Type="Known" StartNode="67" EndNode="77">
+</Annotation>
+<Annotation Id="90" Type="Known" StartNode="14" EndNode="29">
+</Annotation>
+<Annotation Id="96" Type="Threat_RoadAccident" StartNode="67" EndNode="87">
+<Feature>
+  <Name className="java.lang.String">threat_indicator</Name>
+  <Value className="java.lang.String">hole_on_road</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Original markups">
+<Annotation Id="0" Type="paragraph" StartNode="0" EndNode="87">
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>
