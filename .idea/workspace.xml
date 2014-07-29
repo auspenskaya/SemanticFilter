@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9e7720b-1a25-42c6-97ec-c6b03fbc4995" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Usp\IdeaProjects\Test_folder\SemanticFilter\native\win32\mystem.exe" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="C:\Users\Usp\IdeaProjects\Test_folder\SemanticFilter\.idea\workspace.xml" afterPath="" />
     </list>
     <ignored path="SemanticFilter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,21 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BatchProcessApp.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BatchProcessApp.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sheffield/examples/BatchProcessApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3570">
+            <state vertical-scroll-proportion="1.1172291" vertical-offset="0" max-vertical-offset="3570">
               <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="1.txt.out.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TestCorpus/1.txt.out.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64363635" vertical-offset="26608" max-vertical-offset="27472">
-              <caret line="1586" column="34" selection-start-line="1586" selection-start-column="34" selection-end-line="1586" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -122,6 +111,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="SemanticFilter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SemanticFilter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SemanticFilter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestCorpus" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -330,7 +333,11 @@
       <created>1406630488912</created>
       <updated>1406630488912</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="...">
+      <created>1406630554469</created>
+      <updated>1406630554469</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -492,16 +499,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sheffield/examples/BatchProcessApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3570">
+        <state vertical-scroll-proportion="1.1172291" vertical-offset="0" max-vertical-offset="3570">
           <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCorpus/1.txt.out.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64363635" vertical-offset="26608" max-vertical-offset="27472">
-          <caret line="1586" column="34" selection-start-line="1586" selection-start-column="34" selection-end-line="1586" selection-end-column="34" />
           <folding />
         </state>
       </provider>
