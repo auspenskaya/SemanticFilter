@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9e7720b-1a25-42c6-97ec-c6b03fbc4995" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Usp\IdeaProjects\Test_folder\SemanticFilter\out\production\SemanticFilter\sheffield\examples\BatchProcessApp.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="SemanticFilter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -342,7 +341,11 @@
       <created>1406631847885</created>
       <updated>1406631847885</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="...">
+      <created>1406632061546</created>
+      <updated>1406632061546</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
