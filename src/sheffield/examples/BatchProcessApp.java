@@ -23,14 +23,12 @@ import gate.CorpusController;
 import gate.AnnotationSet;
 import gate.Gate;
 import gate.Factory;
+import gate.annotation.AnnotationImpl;
 import gate.util.*;
 import gate.util.persistence.PersistenceManager;
+//import org.json.simple.JSONObject;
 
-import java.util.Set;
-import java.util.HashSet;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -92,38 +90,8 @@ public class BatchProcessApp {
             // remove the document from the corpus again
             corpus.clear();
 
-            String docXMLString = null;
             // if we want to just write out specific annotation types, we must
             // extract the annotations into a Set
-            if(annotTypesToWrite != null) {
-                // Create a temporary Set to hold the annotations we wish to write out
-                Set annotationsToWrite = new HashSet();
-
-                // we only extract annotations from the default (unnamed) AnnotationSet
-                // in this example
-                AnnotationSet defaultAnnots = doc.getAnnotations();
-                Iterator annotTypesIt = annotTypesToWrite.iterator();
-                while(annotTypesIt.hasNext()) {
-                    // extract all the annotations of each requested type and add them to
-                    // the temporary set
-                    AnnotationSet annotsOfThisType =
-                            defaultAnnots.get((String)annotTypesIt.next());
-                    if(annotsOfThisType != null) {
-                        annotationsToWrite.addAll(annotsOfThisType);
-                    }
-                }
-
-                // create the XML string using these annotations
-                docXMLString = doc.toXml(annotationsToWrite);
-            }
-            // otherwise, just write out the whole document as GateXML
-            else {
-                docXMLString = doc.toXml();
-            }
-
-            // Release the document, as it is no longer needed
-            Factory.deleteResource(doc);
-
             // output the XML to <inputFile>.out.xml
             String outputFileName = docFile.getName() + ".out.xml";
             File outputFile = new File(docFile.getParentFile(), outputFileName);
@@ -138,8 +106,54 @@ public class BatchProcessApp {
             else {
                 out = new OutputStreamWriter(bos, encoding);
             }
+            AnnotationSet set = doc.getAnnotations();
+            Iterator it = set.iterator();
+            while (it.hasNext()) {
+                AnnotationImpl ann = (AnnotationImpl) it.next();
+                gate.FeatureMap map = ann.getFeatures();
+                Iterator fit = map.entrySet().iterator();
+                while (fit.hasNext()) {
+                    Map.Entry thisEntry = (Map.Entry) fit.next();
 
-            out.write(docXMLString);
+                    out.write(thisEntry.getKey() + ": " + thisEntry.getValue() + " \n ");
+//                    JSONObject
+                }
+//                out.write(docXMLString);
+//
+            }
+
+
+//            if(annotTypesToWrite != null) {
+//                // Create a temporary Set to hold the annotations we wish to write out
+//                Set annotationsToWrite = new HashSet();
+//
+//                // we only extract annotations from the default (unnamed) AnnotationSet
+//                // in this example
+//                AnnotationSet defaultAnnots = doc.getAnnotations();
+//                Iterator annotTypesIt = annotTypesToWrite.iterator();
+//                while(annotTypesIt.hasNext()) {
+//                    // extract all the annotations of each requested type and add them to
+//                    // the temporary set
+//                    AnnotationSet annotsOfThisType =
+//                            defaultAnnots.get((String)annotTypesIt.next());
+//                    if(annotsOfThisType != null) {
+//                        annotationsToWrite.addAll(annotsOfThisType);
+//                    }
+//                }
+//
+//                // create the XML string using these annotations
+//                docXMLString = doc.toXml(annotationsToWrite);
+//            }
+//            // otherwise, just write out the whole document as GateXML
+//            else {
+//                docXMLString = doc.toXml();
+//            }
+
+            // Release the document, as it is no longer needed
+            Factory.deleteResource(doc);
+
+
+
 
             out.close();
             System.out.println("done");
