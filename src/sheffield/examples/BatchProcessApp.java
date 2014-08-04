@@ -25,8 +25,10 @@ import gate.Gate;
 import gate.Factory;
 import gate.annotation.AnnotationImpl;
 import gate.util.*;
+import gate.util.asm.Type;
 import gate.util.persistence.PersistenceManager;
-//import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.util.*;
 
@@ -108,20 +110,38 @@ public class BatchProcessApp {
             }
             AnnotationSet set = doc.getAnnotations();
             Iterator it = set.iterator();
+            String Token = "Token";
             while (it.hasNext()) {
                 AnnotationImpl ann = (AnnotationImpl) it.next();
-                gate.FeatureMap map = ann.getFeatures();
-                Iterator fit = map.entrySet().iterator();
-                while (fit.hasNext()) {
-                    Map.Entry thisEntry = (Map.Entry) fit.next();
+                String Type = ann.getType().toString();
+                JSONObject resultJson = new JSONObject();
+                JSONArray ar = new JSONArray();
+                JSONObject indicator = new JSONObject();
+                String getKey = new String();
+                String getValue = new String();
+                String ThreatType = new String();
+                if (Type.equals("Threat_RoadAccident")) {
+                    gate.FeatureMap map = ann.getFeatures();
+                    Iterator fit = map.entrySet().iterator();
+                    while (fit.hasNext()) {
+                        System.out.print("...fit.hasNext ");
+                        Map.Entry thisEntry = (Map.Entry) fit.next();
+                        ThreatType.equals(Type);
+                        getKey.equals(thisEntry.getKey().toString());
+                        getValue.equals(thisEntry.getValue().toString());
+//                        ar.add(indicator);
 
-                    out.write(thisEntry.getKey() + ": " + thisEntry.getValue() + " \n ");
-//                    JSONObject
+                    }
                 }
+                indicator.put("AnnType", ThreatType);
+                indicator.put(getKey, getValue);
+                ar.add(indicator);
+                resultJson.put("indicators", ar);
+                out.write(resultJson.toString());
 //                out.write(docXMLString);
+
 //
             }
-
 
 //            if(annotTypesToWrite != null) {
 //                // Create a temporary Set to hold the annotations we wish to write out
