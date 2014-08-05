@@ -124,9 +124,10 @@ public class BatchProcessApp {
                     gate.FeatureMap map = ann.getFeatures();
                     Iterator fit = map.entrySet().iterator();
                     while (fit.hasNext()) {
-                        System.out.print("...fit.hasNext ");
                         Map.Entry thisEntry = (Map.Entry) fit.next();
                         ThreatType.equals(Type);
+                        System.out.print(" | ThreatType = " + ThreatType + " | ");
+                        System.out.print(" | Type = " + Type  + " | ");
                         getKey.equals(thisEntry.getKey().toString());
                         getValue.equals(thisEntry.getValue().toString());
 //                        ar.add(indicator);
