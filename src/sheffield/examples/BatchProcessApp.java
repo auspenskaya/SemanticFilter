@@ -17,12 +17,7 @@
  */
 package sheffield.examples;
 
-import gate.Document;
-import gate.Corpus;
-import gate.CorpusController;
-import gate.AnnotationSet;
-import gate.Gate;
-import gate.Factory;
+import gate.*;
 import gate.annotation.AnnotationImpl;
 import gate.util.*;
 import gate.util.asm.Type;
@@ -113,29 +108,41 @@ public class BatchProcessApp {
             while (it.hasNext()) {
                 AnnotationImpl ann = (AnnotationImpl) it.next();
                 String Type = ann.getType().toString();
+                gate.FeatureMap map = ann.getFeatures();
+                Iterator fit = map.entrySet().iterator();
+                Integer StartNode = ann.getStartNode().getOffset().intValue();
+                Integer EndNode = ann.getEndNode().getOffset().intValue();
+                JSONObject resultJson = new JSONObject();
+                JSONArray ar = new JSONArray();
+                JSONObject address = new JSONObject();
 
-                if (Type.equals("Threat_RoadAccident")) {
-                    gate.FeatureMap map = ann.getFeatures();
-                    Iterator fit = map.entrySet().iterator();
+// цикл добавления адреса
+                if (Type.equals("Address")) {
                     while (fit.hasNext()) {
-                        JSONObject resultJson = new JSONObject();
-                        JSONArray ar = new JSONArray();
-                        JSONObject indicator = new JSONObject();
-                        String getKey = new String();
-                        String getValue = new String();
-                        Map.Entry thisEntry = (Map.Entry) fit.next();
-                        System.out.print(" | Type = " + Type  + " | ");
-                        getKey = thisEntry.getKey().toString();
-                        getValue = thisEntry.getValue().toString();
-                        ar.add(indicator);
-                        indicator.put("AnnType", Type);
-                        indicator.put(getKey, getValue);
-                        ar.add(indicator);
-                        resultJson.put("indicators", ar);
-                        out.write(resultJson.toString());
-
+                        address.put("StartNode", StartNode);
+                        address.put("EndNode", EndNode);
                     }
+                    resultJson.put("Address", address);
                 }
+
+// цикл добавления признаков угроз
+//                if (Type.equals("Threat_RoadAccident")) {
+//                    while (fit.hasNext()) {
+//                        JSONObject indicator = new JSONObject();
+//                        Map.Entry thisEntry = (Map.Entry) fit.next();
+//                        String getKey = thisEntry.getKey().toString();
+//                        String getValue = thisEntry.getValue().toString();
+//                        indicator.put("AnnType", Type);
+//                        indicator.put("StartNode", StartNode);
+//                        indicator.put("EndNode", EndNode);
+//                        indicator.put(getKey, getValue);
+//                        ar.add(indicator);
+//                    }
+//                    resultJson.put("indicators", ar);
+//                }
+
+                if (resultJson != null)
+                out.write(resultJson.toString());
 
 //                out.write(docXMLString);
 
