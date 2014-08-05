@@ -110,35 +110,33 @@ public class BatchProcessApp {
             }
             AnnotationSet set = doc.getAnnotations();
             Iterator it = set.iterator();
-            String Token = "Token";
             while (it.hasNext()) {
                 AnnotationImpl ann = (AnnotationImpl) it.next();
                 String Type = ann.getType().toString();
-                JSONObject resultJson = new JSONObject();
-                JSONArray ar = new JSONArray();
-                JSONObject indicator = new JSONObject();
-                String getKey = new String();
-                String getValue = new String();
-                String ThreatType = new String();
+
                 if (Type.equals("Threat_RoadAccident")) {
                     gate.FeatureMap map = ann.getFeatures();
                     Iterator fit = map.entrySet().iterator();
                     while (fit.hasNext()) {
+                        JSONObject resultJson = new JSONObject();
+                        JSONArray ar = new JSONArray();
+                        JSONObject indicator = new JSONObject();
+                        String getKey = new String();
+                        String getValue = new String();
                         Map.Entry thisEntry = (Map.Entry) fit.next();
-                        ThreatType.equals(Type);
-                        System.out.print(" | ThreatType = " + ThreatType + " | ");
                         System.out.print(" | Type = " + Type  + " | ");
-                        getKey.equals(thisEntry.getKey().toString());
-                        getValue.equals(thisEntry.getValue().toString());
-//                        ar.add(indicator);
+                        getKey = thisEntry.getKey().toString();
+                        getValue = thisEntry.getValue().toString();
+                        ar.add(indicator);
+                        indicator.put("AnnType", Type);
+                        indicator.put(getKey, getValue);
+                        ar.add(indicator);
+                        resultJson.put("indicators", ar);
+                        out.write(resultJson.toString());
 
                     }
                 }
-                indicator.put("AnnType", ThreatType);
-                indicator.put(getKey, getValue);
-                ar.add(indicator);
-                resultJson.put("indicators", ar);
-                out.write(resultJson.toString());
+
 //                out.write(docXMLString);
 
 //
