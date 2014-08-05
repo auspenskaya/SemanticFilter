@@ -117,29 +117,29 @@ public class BatchProcessApp {
                 JSONObject address = new JSONObject();
 
 // цикл добавления адреса
-                if (Type.equals("Address")) {
-                    while (fit.hasNext()) {
-                        address.put("StartNode", StartNode);
-                        address.put("EndNode", EndNode);
-                    }
-                    resultJson.put("Address", address);
-                }
+//                if (Type.equals("Address")) {
+//                    while (fit.hasNext()) {
+//                        address.put("StartNode", StartNode);
+//                        address.put("EndNode", EndNode);
+//                    }
+//                    resultJson.put("Address", address);
+//                }
 
 // цикл добавления признаков угроз
-//                if (Type.equals("Threat_RoadAccident")) {
-//                    while (fit.hasNext()) {
-//                        JSONObject indicator = new JSONObject();
-//                        Map.Entry thisEntry = (Map.Entry) fit.next();
-//                        String getKey = thisEntry.getKey().toString();
-//                        String getValue = thisEntry.getValue().toString();
-//                        indicator.put("AnnType", Type);
-//                        indicator.put("StartNode", StartNode);
-//                        indicator.put("EndNode", EndNode);
-//                        indicator.put(getKey, getValue);
-//                        ar.add(indicator);
-//                    }
-//                    resultJson.put("indicators", ar);
-//                }
+                if (Type.equals("Threat_RoadAccident")) {
+                    while (fit.hasNext()) {
+                        JSONObject indicator = new JSONObject();
+                        Map.Entry thisEntry = (Map.Entry) fit.next();
+                        String getKey = thisEntry.getKey().toString();
+                        String getValue = thisEntry.getValue().toString();
+                        indicator.put("AnnType", Type);
+                        indicator.put("StartNode", StartNode);
+                        indicator.put("EndNode", EndNode);
+                        indicator.put(getKey, getValue);
+                        ar.add(indicator);
+                    }
+                    resultJson.put("indicators", ar);
+                }
 
                 if (resultJson != null)
                 out.write(resultJson.toString());
