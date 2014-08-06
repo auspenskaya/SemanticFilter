@@ -117,14 +117,11 @@ public class BatchProcessApp {
                 JSONObject address = new JSONObject();
 
 // цикл добавления адреса
-//                if (Type.equals("Address")) {
-//                    while (fit.hasNext()) {
-//                        address.put("StartNode", StartNode);
-//                        address.put("EndNode", EndNode);
-//                    }
-//                    resultJson.put("Address", address);
-//                }
-
+                if (Type.equals("Address")) {
+                        address.put("StartNode", StartNode);
+                        address.put("EndNode", EndNode);
+                        resultJson.put("Address", address);
+                    }
 // цикл добавления признаков угроз
                 if (Type.equals("Threat_RoadAccident")) {
                     while (fit.hasNext()) {
@@ -141,7 +138,7 @@ public class BatchProcessApp {
                     resultJson.put("indicators", ar);
                 }
 
-                if (resultJson != null)
+                if (resultJson.toString() != null)
                 out.write(resultJson.toString());
 
 //                out.write(docXMLString);

@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact name="SemanticFilter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SemanticFilter_jar</output-path>
+    <root id="root">
+      <element id="archive" name="SemanticFilter.jar">
+        <element id="module-output" name="SemanticFilter" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/lib/json-simple-1.1.1.jar" />
+      <element id="library" level="project" name="gate" />
+      <element id="library" level="project" name="lib" />
+      <element id="file-copy" path="$PROJECT_DIR$/run.cmd" />
+      <element id="file-copy" path="$PROJECT_DIR$/gate-8.0/gate.xml" />
+      <element id="file-copy" path="$PROJECT_DIR$/Application/application.xgapp" />
+    </root>
+  </artifact>
+</component>
