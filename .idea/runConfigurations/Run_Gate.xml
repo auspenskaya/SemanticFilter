@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Run Gate" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="sheffield.examples.BatchProcessApp" />
+    <option name="MAIN_CLASS_NAME" value="team112.gate.BatchProcessApp" />
     <option name="VM_PARAMETERS" value="" />
-    <option name="PROGRAM_PARAMETERS" value="-g Application/application.xgapp TestCorpus/1.txt" />
-    <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    <option name="PROGRAM_PARAMETERS" value="-g application.xgapp ../TestCorpus/1.txt" />
+    <option name="WORKING_DIRECTORY" value="file://Application/" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
     <option name="ALTERNATIVE_JRE_PATH" value="" />
     <option name="ENABLE_SWING_INSPECTOR" value="false" />

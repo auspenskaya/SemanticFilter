@@ -1,2 +1,2 @@
-"C:\Program Files\Java\jdk1.7.0_51\bin\java"  -Dfile.encoding=UTF-8 -classpath "C:\Users\Usp\IdeaProjects\Test_folder\SemanticFilter\out\artifacts\application\lib\SemanticFilter.jar" sheffield.examples.BatchProcessApp -g application.xgapp TestCorpus\1.txt  
+java  -Dfile.encoding=UTF-8 -classpath "lib\SemanticFilter.jar" team112.gate.BatchProcessApp -g application.xgapp TestCorpus\1.txt 
 pause 

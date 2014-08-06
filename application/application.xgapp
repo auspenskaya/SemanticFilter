@@ -321,7 +321,7 @@
                 </entry>
                 <entry>
                   <string>nativeFolder</string>
-                  <string>Application\</string>
+                  <string></string>
                 </entry>
               </localMap>
             </runtimeParams>
