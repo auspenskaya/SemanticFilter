@@ -91,6 +91,8 @@ public class BatchProcessApp {
             }
             AnnotationSet set = doc.getAnnotations();
             Iterator it = set.iterator();
+            JSONObject resultJson = new JSONObject();
+            JSONArray ar = new JSONArray();
             while (it.hasNext()) {
                 AnnotationImpl ann = (AnnotationImpl) it.next();
                 String Type = ann.getType().toString();
@@ -98,10 +100,8 @@ public class BatchProcessApp {
                 Iterator fit = map.entrySet().iterator();
                 Integer StartNode = ann.getStartNode().getOffset().intValue();
                 Integer EndNode = ann.getEndNode().getOffset().intValue();
-                JSONObject resultJson = new JSONObject();
-                JSONArray ar = new JSONArray();
                 JSONObject address = new JSONObject();
-
+                JSONObject indicator = new JSONObject();
 // цикл добавления адреса
                 if (Type.equals("Address")) {
                         address.put("StartNode", StartNode);
@@ -111,7 +111,6 @@ public class BatchProcessApp {
 // цикл добавления признаков угроз
                 if (Type.equals("Threat_RoadAccident")) {
                     while (fit.hasNext()) {
-                        JSONObject indicator = new JSONObject();
                         Map.Entry thisEntry = (Map.Entry) fit.next();
                         String getKey = thisEntry.getKey().toString();
                         String getValue = thisEntry.getValue().toString();
@@ -121,16 +120,15 @@ public class BatchProcessApp {
                         indicator.put(getKey, getValue);
                         ar.add(indicator);
                     }
-                    resultJson.put("indicators", ar);
                 }
-
-                if (resultJson.toString() != null)
+            }
+            if (ar.size() != 0)
+                resultJson.put("indicators", ar);
+            if (resultJson.size() != 0)
                 out.write(resultJson.toString());
 
-//                out.write(docXMLString);
 
-//
-            }
+
 
 //            if(annotTypesToWrite != null) {
 //                // Create a temporary Set to hold the annotations we wish to write out
