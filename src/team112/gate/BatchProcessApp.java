@@ -76,7 +76,7 @@ public class BatchProcessApp {
             // if we want to just write out specific annotation types, we must
             // extract the annotations into a Set
             // output the XML to <inputFile>.out.xml
-            String outputFileName = docFile.getName() + ".out.xml";
+            String outputFileName = docFile.getName() + ".out.json";
             File outputFile = new File(docFile.getParentFile(), outputFileName);
 
             // Write output files using the same encoding as the original
@@ -217,7 +217,7 @@ public class BatchProcessApp {
     private static final void usage() {
         System.err.println(
                 "Usage:\n" +
-                        "   java sheffield.examples.BatchProcessApp -g <gappFile> [-e encoding]\n" +
+                        "   java team112.gate.BatchProcessApp -g <gappFile> [-e encoding]\n" +
                         "            [-a annotType] [-a annotType] file1 file2 ... fileN\n" +
                         "\n" +
                         "-g gappFile : (required) the path to the saved application state we are\n" +
