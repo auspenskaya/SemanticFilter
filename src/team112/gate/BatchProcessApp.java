@@ -10,13 +10,10 @@ import gate.util.asm.Type;
 import gate.util.persistence.PersistenceManager;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
+import java.io.*;
 import java.util.*;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.BufferedOutputStream;
-import java.io.OutputStreamWriter;
 
 /**
  * This class ilustrates how to do simple batch processing with GATE.  It loads
@@ -62,7 +59,12 @@ public class BatchProcessApp {
             // load the document (using the specified encoding if one was given)
             File docFile = new File(args[i]);
             System.out.print("Processing document " + docFile + "...");
-            Document doc = Factory.newDocument(docFile.toURL(), encoding);
+
+            String jsonInput = readFile(docFile);
+            JSONObject obj= (JSONObject) JSONValue.parse(jsonInput);
+            JSONObject dataObject = (JSONObject) obj.get("data");
+            String textValue = dataObject.get("text").toString();
+            Document doc = Factory.newDocument(textValue);
 
             // put the document in the corpus
             corpus.add(doc);
@@ -76,8 +78,8 @@ public class BatchProcessApp {
             // if we want to just write out specific annotation types, we must
             // extract the annotations into a Set
             // output the XML to <inputFile>.out.xml
-            String outputFileName = docFile.getName() + ".out.json";
-            File outputFile = new File(docFile.getParentFile(), outputFileName);
+            String outputFileName = docFile.getName() + "_out.json";
+            File outputFile = new File(docFile.getParentFile() + File.separator + "out", outputFileName);
 
             // Write output files using the same encoding as the original
             FileOutputStream fos = new FileOutputStream(outputFile);
@@ -248,13 +250,33 @@ public class BatchProcessApp {
                         "-a type     : (optional) write out just the annotations of this type as\n" +
                         "              inline XML tags.  Multiple -a options are allowed, and\n" +
                         "              annotations of all the specified types will be output.\n" +
-                        "              This is the equivalent of \"save preserving format\" in the\n" +
+                        "              T`his is the equivalent of \"save preserving format\" in the\n" +
                         "              GATE GUI.  If no -a option is given the whole of each\n" +
                         "              processed document will be output as GateXML (the equivalent\n" +
                         "              of \"save as XML\")."
         );
 
         System.exit(1);
+    }
+
+    private static String readFile(File file) throws IOException {
+
+        StringBuilder fileContents = new StringBuilder((int)file.length());
+        Scanner scanner;
+        if (encoding == null)
+            scanner = new Scanner(file);
+        else
+            scanner = new Scanner(file, encoding);
+        String lineSeparator = System.getProperty("line.separator");
+
+        try {
+            while(scanner.hasNextLine()) {
+                fileContents.append(scanner.nextLine() + lineSeparator);
+            }
+            return fileContents.toString();
+        } finally {
+            scanner.close();
+        }
     }
 
     /** Index of the first non-option argument on the command line. */

@@ -1,0 +1,33 @@
+{
+   "images" : null,
+   "meta_data" : {
+      "author_profile_url" : "http://vk.com/id205426649",
+      "duplicate_id" : null,
+      "author_nickname" : "id205426649",
+      "author_lastname" : "Щечкин",
+      "author_spam_flag" : null,
+      "author_fullname" : "Макс Щечкин",
+      "address" : null,
+      "city_name" : "Москва",
+      "author_birthday" : null,
+      "country_name" : "Россия",
+      "region_name" : null,
+      "duplicate_count" : 0,
+      "query_string" : "смог",
+      "tone_mark" : null,
+      "author_education" : null,
+      "author_firstname" : "Макс",
+      "post_created" : "1407243140",
+      "fuzzy_duplicate_count" : null,
+      "spam_flag" : null
+   },
+   "data" : {
+      "source" : "029996d9a708cc90496706f9de0b1441",
+      "docs_source" : "vk.com",
+      "coordinates" : null,
+      "text" : "становится всё труднее<br>каждый. чертов. день.<br>я даже не знаю как долго еще я смогу справляться с этим.",
+      "url" : "http://vk.com/id205426649/21983",
+      "file" : null,
+      "title" : "становится всё труднее каждый. чертов. день. я даже не знаю как долго еще я смогу справляться с этим...."
+   }
+}

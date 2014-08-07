@@ -1,0 +1,39 @@
+{
+   "images" : [
+      {
+         "coordinates" : null,
+         "file" : "/var/skopd_data/spool/img/09dd1c19b1c9bdd2ef4bf08177ad3e9d.jpg",
+         "url" : "http://scontent-a.cdninstagram.com/hphotos-xpa1/t51.2885-15/925349_673870999370864_1156918163_n.jpg",
+         "title" : "Под окном горела трава,теперь дома пахнет гарью,бе #огонь #пожар #костер #трава #дом"
+      }
+   ],
+   "meta_data" : {
+      "author_profile_url" : "http://instagram.com/nechaeval_l",
+      "duplicate_id" : null,
+      "author_nickname" : "nechaeval_l",
+      "author_fullname" : "nechaeval_l",
+      "author_spam_flag" : null,
+      "address" : null,
+      "city_name" : null,
+      "author_birthday" : null,
+      "country_name" : null,
+      "region_name" : null,
+      "duplicate_count" : null,
+      "query_string" : "пожар",
+      "tone_mark" : null,
+      "tags" : "трава пожар костер дом огонь ",
+      "author_education" : null,
+      "post_created" : "1407238098",
+      "fuzzy_duplicate_count" : null,
+      "spam_flag" : null
+   },
+   "data" : {
+      "source" : "1e054bf3fc52a86f22f76bbea642f923",
+      "docs_source" : "instagram.com",
+      "coordinates" : "58.0266945 55.832625",
+      "text" : "Под окном горела трава,теперь дома пахнет гарью,бе #огонь #пожар #костер #трава #дом",
+      "url" : "http://instagram.com/p/rUJ5t5SM1f/",
+      "file" : null,
+      "title" : "Под окном горела трава,теперь дома пахнет гарью,бе #огонь #пожар #костер #трава #дом"
+   }
+}
