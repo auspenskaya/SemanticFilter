@@ -1,18 +1,64 @@
 Phase:  Address
-Input: Token Split Lookup
+Input: Token Split Lookup Morph
 Options: control = appelt
 
 
  
-Rule: Address //яма на яме
+Rule: Address_inv
 (
-(({Lookup.majorType == street}) ({Token.string == "."})?
-({Token.orth == upperInitial })) 
-|
-(({Token.orth == upperInitial })
-({Lookup.majorType == street}))
-)
+(({Token.orth == upperInitial }) : name
+({Lookup.majorType == street}): st)
+) : bind
+ -->
+
+// :bind.Address = {rule = "Address"}
+
+{
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
+gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
+String name = morphAnn.getFeatures().get("baseForm").toString();
+gate.AnnotationSet strSet = (gate.AnnotationSet)bindings.get("st");
+gate.Annotation strAnn = (gate.Annotation)strSet.iterator().next();
+String street = strAnn.getFeatures().get("ProperName").toString();
+String n = name.substring(name.length()-2, name.length());
+if (street.equals("улица") &&  ( n.equals("ий") || n.equals("ый") ))
+ {name = name.substring(0, name.length()-2) + "ая";}
+if (street.equals("шоссе") &&  ( n.equals("ий") || n.equals("ый") ))
+ {name = name.substring(0, name.length()-2) + "ое";}
+gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
+gate.Annotation bindAnn = (gate.Annotation)bindSet.iterator().next();
+String street_name = street + " " + name;
+gate.FeatureMap features_bind = Factory.newFeatureMap();
+features_bind.put("String", street_name);
+outputAS.add(bindSet.firstNode(), bindSet.lastNode(), "Placement", features_bind);
+}
+
+Rule: Address
+((({Lookup.majorType == street}): st ({Token.string == "."})?)
+({Token.orth == upperInitial }): name)
 
 :bind -->
-:bind.Address = {rule = "Address"}
+
+{
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
+gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
+String name = morphAnn.getFeatures().get("baseForm").toString();
+gate.AnnotationSet strSet = (gate.AnnotationSet)bindings.get("st");
+gate.Annotation strAnn = (gate.Annotation)strSet.iterator().next();
+String street = strAnn.getFeatures().get("ProperName").toString();
+String n = name.substring(name.length()-2, name.length());
+if (street.equals("улица") &&  ( n.equals("ий") || n.equals("ый") ))
+ {name = name.substring(0, name.length()-2) + "ая";}
+if (street.equals("шоссе") &&  ( n.equals("ий") || n.equals("ый") ))
+ {name = name.substring(0, name.length()-2) + "ое";}
+gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
+gate.Annotation bindAnn = (gate.Annotation)bindSet.iterator().next();
+String street_name = street + " " + name;
+gate.FeatureMap features_bind = Factory.newFeatureMap();
+features_bind.put("String", street_name);
+outputAS.add(bindSet.firstNode(), bindSet.lastNode(), "Placement", features_bind);
+}
+
 

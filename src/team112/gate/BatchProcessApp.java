@@ -93,6 +93,7 @@ public class BatchProcessApp {
             Iterator it = set.iterator();
             JSONObject resultJson = new JSONObject();
             JSONArray ar = new JSONArray();
+            Integer rank = 0;
             while (it.hasNext()) {
                 AnnotationImpl ann = (AnnotationImpl) it.next();
                 String Type = ann.getType().toString();
@@ -102,11 +103,19 @@ public class BatchProcessApp {
                 Integer EndNode = ann.getEndNode().getOffset().intValue();
                 JSONObject address = new JSONObject();
                 JSONObject indicator = new JSONObject();
+
 // цикл добавления адреса
-                if (Type.equals("Address")) {
-                        address.put("StartNode", StartNode);
-                        address.put("EndNode", EndNode);
-                        resultJson.put("Address", address);
+                if (Type.equals("Placement")) {
+                    address.put("StartNode", StartNode);
+                    address.put("EndNode", EndNode);
+                    while (fit.hasNext()) {
+                        Map.Entry thisEntry = (Map.Entry) fit.next();
+                        String getKey = thisEntry.getKey().toString();
+                        String getValue = thisEntry.getValue().toString();
+                        address.put(getKey, getValue);
+                    }
+
+                        resultJson.put("Placement", address);
                     }
 // цикл добавления признаков угроз
                 if (Type.equals("Threat_RoadAccident")) {
@@ -114,16 +123,24 @@ public class BatchProcessApp {
                         Map.Entry thisEntry = (Map.Entry) fit.next();
                         String getKey = thisEntry.getKey().toString();
                         String getValue = thisEntry.getValue().toString();
-                        indicator.put("AnnType", Type);
+                        indicator.put("AccidentType", Type);
                         indicator.put("StartNode", StartNode);
                         indicator.put("EndNode", EndNode);
                         indicator.put(getKey, getValue);
                         ar.add(indicator);
+                        int rank_value = 0;
+                        if (getKey.equals("rank")) {
+                            rank_value = Integer.valueOf(getValue);
+                        }
+                        //System.out.println("rank = " + rank);
+                        rank = rank + rank_value;
                     }
+                    resultJson.put("message_type", "threat");
                 }
             }
             if (ar.size() != 0)
-                resultJson.put("indicators", ar);
+            resultJson.put("rank", rank);
+            resultJson.put("indicators", ar);
             if (resultJson.size() != 0)
                 out.write(resultJson.toString());
 

@@ -1,0 +1,16 @@
+Phase:  Rank
+Input: Threat_RoadAccident
+Options: control = appelt
+
+Rule: Rank
+(
+{Threat_RoadAccident}
+)
+:bind -->
+{
+gate.AnnotationSet threatSet = (gate.AnnotationSet)bindings.get("bind");
+gate.Annotation threatAnn = (gate.Annotation)threatSet.iterator().next();
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("hole_on_road"))
+    threatAnn.getFeatures().put("rank", 2);
+}
+ 

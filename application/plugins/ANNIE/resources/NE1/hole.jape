@@ -15,7 +15,7 @@ Macro: ROAD
 (ADJ)*{Lookup.majorType == road}(ADJ)?
 ) 
  
-Rule: HoleOnHole //яма на яме
+Rule: HoleOnHole //яма на яме ...
 (
 (({Lookup.majorType == hole}) : hole1)
 ({Morph.pos == preposition, Morph.baseForm == "на"})

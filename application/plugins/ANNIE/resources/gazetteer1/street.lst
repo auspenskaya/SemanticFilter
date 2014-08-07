@@ -1,7 +1,7 @@
-улица
-ул.
-переулок
-пер.
-проспект
-пр.
-шоссе
+улица:ProperName=улица
+ул.:ProperName=улица
+переулок:ProperName=переулок
+пер.:ProperName=переулок
+проспект:ProperName=проспект
+пр.:ProperName=проспект
+шоссе:ProperName=шоссе
