@@ -1,1 +1,1 @@
-{"indicators":[],"Placement":{"StartNode":557,"String":"улица киров","EndNode":569}}
+{"rank":4,"AccidentType":"Threat_RoadAccident","indicators":[{"rank":"2","StartNode":93,"threat_indicator":"hole_on_road","EndNode":106},{"rank":"2","StartNode":67,"threat_indicator":"hole_on_road","EndNode":87}],"message_type":"threat","Placement":{"StartNode":14,"String":"улица охтинская","EndNode":29}}

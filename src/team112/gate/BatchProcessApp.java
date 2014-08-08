@@ -125,11 +125,10 @@ public class BatchProcessApp {
                         Map.Entry thisEntry = (Map.Entry) fit.next();
                         String getKey = thisEntry.getKey().toString();
                         String getValue = thisEntry.getValue().toString();
-                        indicator.put("AccidentType", Type);
                         indicator.put("StartNode", StartNode);
                         indicator.put("EndNode", EndNode);
                         indicator.put(getKey, getValue);
-                        ar.add(indicator);
+
                         int rank_value = 0;
                         if (getKey.equals("rank")) {
                             rank_value = Integer.valueOf(getValue);
@@ -137,6 +136,8 @@ public class BatchProcessApp {
                         //System.out.println("rank = " + rank);
                         rank = rank + rank_value;
                     }
+                    ar.add(indicator);
+                    resultJson.put("AccidentType", Type);
                     resultJson.put("message_type", "threat");
                 }
             }

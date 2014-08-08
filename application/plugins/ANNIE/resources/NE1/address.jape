@@ -3,7 +3,7 @@ Input: Token Split Lookup Morph
 Options: control = appelt
 
 
- 
+
 Rule: Address_inv
 (
 (({Token.orth == upperInitial }) : name
@@ -60,5 +60,3 @@ gate.FeatureMap features_bind = Factory.newFeatureMap();
 features_bind.put("String", street_name);
 outputAS.add(bindSet.firstNode(), bindSet.lastNode(), "Placement", features_bind);
 }
-
-
