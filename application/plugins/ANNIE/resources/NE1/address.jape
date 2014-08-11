@@ -18,6 +18,7 @@ gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
 gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
 gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
 String name = morphAnn.getFeatures().get("baseForm").toString();
+System.out.println("name = " + name);
 gate.AnnotationSet strSet = (gate.AnnotationSet)bindings.get("st");
 gate.Annotation strAnn = (gate.Annotation)strSet.iterator().next();
 String street = strAnn.getFeatures().get("ProperName").toString();
@@ -29,6 +30,7 @@ if (street.equals("шоссе") &&  ( n.equals("ий") || n.equals("ый") ))
 gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
 gate.Annotation bindAnn = (gate.Annotation)bindSet.iterator().next();
 String street_name = street + " " + name;
+System.out.println("street_name = " + street_name);
 gate.FeatureMap features_bind = Factory.newFeatureMap();
 features_bind.put("String", street_name);
 outputAS.add(bindSet.firstNode(), bindSet.lastNode(), "Placement", features_bind);

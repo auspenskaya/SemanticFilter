@@ -1,0 +1,12 @@
+Phase:  Wildfire
+Input: Token Lookup
+Options: control = appelt
+
+Rule: Wildfire // мусор в лесу
+(
+({Lookup.majorType == rubbish})
+(({Token, Token.string == "в"})|({Token, Token.string == "на"}))
+({Lookup.majorType == forest})
+)
+:bind -->
+:bind.Threat_Wildfire = {threat_indicator = "rubbish"}

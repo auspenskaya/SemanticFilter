@@ -1,8 +1,8 @@
 Phase:  Rank
-Input: Threat_RoadAccident
+Input: Threat_RoadAccident Wildfire
 Options: control = appelt
 
-Rule: Rank
+Rule: Threat_RoadAccident
 (
 {Threat_RoadAccident}
 )
@@ -10,7 +10,35 @@ Rule: Rank
 {
 gate.AnnotationSet threatSet = (gate.AnnotationSet)bindings.get("bind");
 gate.Annotation threatAnn = (gate.Annotation)threatSet.iterator().next();
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("road_marking_damage"))
+    threatAnn.getFeatures().put("rank", 1);
 if (threatAnn.getFeatures().get("threat_indicator").toString().equals("hole_on_road"))
     threatAnn.getFeatures().put("rank", 2);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("gulley_manhole_damage"))
+    threatAnn.getFeatures().put("rank", 3);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("fence_damage"))
+    threatAnn.getFeatures().put("rank", 4);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("road_sign_damage"))
+    threatAnn.getFeatures().put("rank", 5);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("railway_crossing_damage"))
+    threatAnn.getFeatures().put("rank", 6);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("signal_damage"))
+    threatAnn.getFeatures().put("rank", 7);
 }
  
+Rule: Wildfire
+(
+{Wildfire}
+)
+:bind -->
+{
+gate.AnnotationSet threatSet = (gate.AnnotationSet)bindings.get("bind");
+gate.Annotation threatAnn = (gate.Annotation)threatSet.iterator().next();
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("withered_grass"))
+    threatAnn.getFeatures().put("rank", 1);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("dry_trees"))
+        threatAnn.getFeatures().put("rank", 2);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("rubbish"))
+    threatAnn.getFeatures().put("rank", 3);
+}
+

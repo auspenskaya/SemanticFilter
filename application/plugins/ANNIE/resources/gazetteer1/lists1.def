@@ -8,6 +8,9 @@ dtp_ridein_verb.lst:ridein_verb
 dtp_defective.lst:defective
 dtp_structure.lst:structure
 dtp_flood.lst:flood
+fire_rubbish.lst:rubbish
+fire_forest.lst:forest
+fire_litter_verb.lst:fire_litter_verb
 cities.lst:location:city::City
 street.lst:street
 year.lst:year

@@ -120,7 +120,7 @@ public class BatchProcessApp {
                         resultJson.put("Placement", address);
                     }
 // цикл добавления признаков угроз
-                if (Type.equals("Threat_RoadAccident")) {
+                if (Type.equals("Threat_RoadAccident")| Type.equals("Threat_Wildfire") ) {
                     while (fit.hasNext()) {
                         Map.Entry thisEntry = (Map.Entry) fit.next();
                         String getKey = thisEntry.getKey().toString();
