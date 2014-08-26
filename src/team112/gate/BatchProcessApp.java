@@ -79,7 +79,7 @@ public class BatchProcessApp {
             // extract the annotations into a Set
             // output the XML to <inputFile>.out.xml
             String outputFileName = docFile.getName() + "_out.meta";
-            File outputFile = new File(docFile.getParentFile() /* + File.separator + "out" */  , outputFileName);
+            File outputFile = new File(docFile.getParentFile() /* + File.separator + "out" */  , outputFileName); // в ту же папку
 
             // Write output files using the same encoding as the original
             FileOutputStream fos = new FileOutputStream(outputFile);
