@@ -78,8 +78,8 @@ public class BatchProcessApp {
             // if we want to just write out specific annotation types, we must
             // extract the annotations into a Set
             // output the XML to <inputFile>.out.xml
-            String outputFileName = docFile.getName() + "_out.json";
-            File outputFile = new File(docFile.getParentFile() + File.separator + "out", outputFileName);
+            String outputFileName = docFile.getName() + "_out.meta";
+            File outputFile = new File(docFile.getParentFile() /* + File.separator + "out" */  , outputFileName);
 
             // Write output files using the same encoding as the original
             FileOutputStream fos = new FileOutputStream(outputFile);
@@ -108,8 +108,8 @@ public class BatchProcessApp {
 
 // цикл добавления адреса
                 if (Type.equals("Placement")) {
-                    address.put("StartNode", StartNode);
-                    address.put("EndNode", EndNode);
+                    address.put("start_node", StartNode);
+                    address.put("end_node", EndNode);
                     while (fit.hasNext()) {
                         Map.Entry thisEntry = (Map.Entry) fit.next();
                         String getKey = thisEntry.getKey().toString();
@@ -125,8 +125,8 @@ public class BatchProcessApp {
                         Map.Entry thisEntry = (Map.Entry) fit.next();
                         String getKey = thisEntry.getKey().toString();
                         String getValue = thisEntry.getValue().toString();
-                        indicator.put("StartNode", StartNode);
-                        indicator.put("EndNode", EndNode);
+                        indicator.put("start_node", StartNode);
+                        indicator.put("end_node", EndNode);
                         indicator.put(getKey, getValue);
 
                         int rank_value = 0;
@@ -137,7 +137,7 @@ public class BatchProcessApp {
                         rank = rank + rank_value;
                     }
                     ar.add(indicator);
-                    resultJson.put("AccidentType", Type);
+                    resultJson.put("accident_type", Type);
                     resultJson.put("message_type", "threat");
                 }
             }
