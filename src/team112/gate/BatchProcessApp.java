@@ -78,7 +78,7 @@ public class BatchProcessApp {
             // if we want to just write out specific annotation types, we must
             // extract the annotations into a Set
             // output the XML to <inputFile>.out.xml
-            String outputFileName = docFile.getName() + "_out.meta";
+            String outputFileName = docFile.getName() + ".meta";
             File outputFile = new File(docFile.getParentFile() /* + File.separator + "out" */  , outputFileName); // в ту же папку
 
             // Write output files using the same encoding as the original
