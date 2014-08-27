@@ -182,7 +182,7 @@ public class BatchProcessApp {
             System.out.println("done");
         }
         catch (Exception e) {
-            System.out.println("Исключение");
+            System.out.println("Exception " + e);
         }
 
         } // for each file
