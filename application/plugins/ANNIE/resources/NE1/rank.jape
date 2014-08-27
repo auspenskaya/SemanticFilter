@@ -1,5 +1,5 @@
 Phase:  Rank
-Input: Threat_RoadAccident Wildfire
+Input: Threat_RoadAccident Threat_Wildfire
 Options: control = appelt
 
 Rule: Threat_RoadAccident
@@ -28,7 +28,7 @@ if (threatAnn.getFeatures().get("threat_indicator").toString().equals("signal_da
  
 Rule: Wildfire
 (
-{Wildfire}
+{Threat_Wildfire}
 )
 :bind -->
 {

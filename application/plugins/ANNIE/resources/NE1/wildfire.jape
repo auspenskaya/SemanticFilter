@@ -4,7 +4,7 @@ Options: control = appelt
 
 Rule: Wildfire // мусор в лесу
 (
-({Lookup.majorType == rubbish})
+({Lookup.majorType == rubbish, fire_litter_verb})
 (({Token, Token.string == "в"})|({Token, Token.string == "на"}))
 ({Lookup.majorType == forest})
 )

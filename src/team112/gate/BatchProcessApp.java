@@ -56,12 +56,13 @@ public class BatchProcessApp {
 
         // process the files one by one
         for(int i = firstFile; i < args.length; i++) {
+            try {
             // load the document (using the specified encoding if one was given)
             File docFile = new File(args[i]);
             System.out.print("Processing document " + docFile + "...");
 
             String jsonInput = readFile(docFile);
-            JSONObject obj= (JSONObject) JSONValue.parse(jsonInput);
+            JSONObject obj = (JSONObject) JSONValue.parse(jsonInput);
             JSONObject dataObject = (JSONObject) obj.get("data");
             String textValue = dataObject.get("text").toString();
             Document doc = Factory.newDocument(textValue);
@@ -79,16 +80,15 @@ public class BatchProcessApp {
             // extract the annotations into a Set
             // output the XML to <inputFile>.out.xml
             String outputFileName = docFile.getName() + ".meta";
-            File outputFile = new File(docFile.getParentFile() /* + File.separator + "out" */  , outputFileName); // в ту же папку
+            File outputFile = new File(docFile.getParentFile() /* + File.separator + "out" */, outputFileName); // в ту же папку
 
             // Write output files using the same encoding as the original
             FileOutputStream fos = new FileOutputStream(outputFile);
             BufferedOutputStream bos = new BufferedOutputStream(fos);
             OutputStreamWriter out;
-            if(encoding == null) {
+            if (encoding == null) {
                 out = new OutputStreamWriter(bos);
-            }
-            else {
+            } else {
                 out = new OutputStreamWriter(bos, encoding);
             }
             AnnotationSet set = doc.getAnnotations();
@@ -117,10 +117,10 @@ public class BatchProcessApp {
                         address.put(getKey, getValue);
                     }
 
-                        resultJson.put("Placement", address);
-                    }
+                    resultJson.put("Placement", address);
+                }
 // цикл добавления признаков угроз
-                if (Type.equals("Threat_RoadAccident")| Type.equals("Threat_Wildfire") ) {
+                if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")) {
                     while (fit.hasNext()) {
                         Map.Entry thisEntry = (Map.Entry) fit.next();
                         String getKey = thisEntry.getKey().toString();
@@ -142,12 +142,10 @@ public class BatchProcessApp {
                 }
             }
             if (ar.size() != 0)
-            resultJson.put("rank", rank);
+                resultJson.put("rank", rank);
             resultJson.put("indicators", ar);
             if (resultJson.size() != 0)
                 out.write(resultJson.toString());
-
-
 
 
 //            if(annotTypesToWrite != null) {
@@ -180,10 +178,13 @@ public class BatchProcessApp {
             Factory.deleteResource(doc);
 
 
-
-
             out.close();
             System.out.println("done");
+        }
+        catch (Exception e) {
+            System.out.println("Исключение");
+        }
+
         } // for each file
 
         System.out.println("All done");
