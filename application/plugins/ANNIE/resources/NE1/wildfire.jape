@@ -2,9 +2,9 @@ Phase:  Wildfire
 Input: Token Lookup
 Options: control = appelt
 
-Rule: Wildfire // мусор в лесу
+Rule: Rubbish // мусор, намусорили в лесу
 (
-({Lookup.majorType == rubbish, fire_litter_verb})
+(({Lookup.majorType == rubbish})|({Lookup.majorType == fire_litter_verb}))
 (({Token, Token.string == "в"})|({Token, Token.string == "на"}))
 ({Lookup.majorType == forest})
 )

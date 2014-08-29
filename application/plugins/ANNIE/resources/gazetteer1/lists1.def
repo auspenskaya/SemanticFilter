@@ -6,6 +6,8 @@ dtp_destroy_verb.lst:destroy_verb
 dtp_occur_verb.lst:occur_verb
 dtp_ridein_verb.lst:ridein_verb
 dtp_defective.lst:defective
+dtp_open.lst:open
+dtp_lack_for.lst:lack_for
 dtp_structure.lst:structure
 dtp_flood.lst:flood
 fire_rubbish.lst:rubbish

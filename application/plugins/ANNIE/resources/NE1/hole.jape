@@ -1,5 +1,5 @@
 Phase:  Hole
-Input: Morph Lookup Split
+Input: Morph Lookup Split Token
 Options: control = appelt
 
  Macro: ADJ
@@ -18,7 +18,7 @@ Macro: ROAD
 Rule: HoleOnHole //яма на яме ...
 (
 (({Lookup.majorType == hole}) : hole1)
-({Morph.pos == preposition, Morph.baseForm == "на"})
+({Morph.pos == preposition})
 (({Lookup.majorType == hole}): hole2)
 )
 :bind -->
@@ -144,16 +144,16 @@ Rule: RoadDestroy // 2 грунт провалился, разрушился а�
 
 Rule: BadRoad // плохая дорога, дорога очень плохая
  (
-(({Lookup.majorType == defective}) ({Morph.pos == adverb} )?
-(ROAD))|  							 
+((({Lookup.majorType == defective, Lookup.mess_type != "fact"})|({Lookup.majorType == lack_for}))
+({Morph.pos == adverb} )?  (ROAD))|
 (((ROAD)) ({Morph.pos == adverb} )?
-({Lookup.majorType == defective}))
+({Lookup.majorType == defective, Lookup.mess_type != "fact"}))
 ) 
 :bind -->
 :bind.Threat_RoadAccident = {threat_indicator = "hole_on_road"}
 
-Rule: BadObject // неисправный светофор
-(({Lookup.majorType == defective}) ({Morph.pos == adverb} )?
+Rule: BadObject // неисправный светофор, нет разметки,
+((({Lookup.majorType == defective})|({Lookup.majorType == lack_for}))  ({Morph.pos == adverb} )?
 (({Lookup.majorType == object}):obj))
 :bind -->
 {gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
@@ -167,7 +167,7 @@ inputAS.removeAll(obj);
 
 Rule: BadObject2 // светофор неисправен
 (((({Lookup.majorType == object}):obj)) ({Morph.pos == adverb} )?
-({Lookup.majorType == defective}))
+(({Lookup.majorType == defective})|({Lookup.majorType == lack_for})))
 :bind -->
 {gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
 gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
@@ -176,7 +176,14 @@ features.put("threat_indicator", objAnn.getFeatures().get("threat_indicator"));
 gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
 outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
 inputAS.removeAll(obj);
-}  
+}
+
+Rule: Gulley // открытый дождеприемник
+(({Lookup.majorType == open}) (({Morph.pos == preposition, Morph.baseForm == "на"})(ROAD))? ({Morph.pos == adverb} )?
+(({Lookup.majorType == object, Lookup.threat_indicator == "gulley_manhole_damage" }):obj))
+:bind -->
+:bind.Threat_RoadAccident = {threat_indicator = "gulley_manhole_damage"}
+
 
 Rule: Flood // затопило мост, дорога подтоплена
  (
@@ -187,3 +194,16 @@ Rule: Flood // затопило мост, дорога подтоплена
 :bind -->
 :bind.Threat_RoadAccident = {threat_indicator = "sewerage_damage"}
 
+
+ //({Lookup.majorType == defective, Lookup.mess_type == "fact"}))
+
+
+Rule: FactRoadDestroy // разрушена дорога
+ (
+(({Lookup.majorType == defective, Lookup.mess_type == "fact"})
+({Morph.pos == adverb} )?  (ROAD))|
+(((ROAD)) ({Morph.pos == adverb} )?
+({Lookup.majorType == defective, Lookup.mess_type == "fact"}))
+)
+:bind -->
+:bind.Fact_RoadAccident = {threat_indicator = "road_destroy"}

@@ -4,4 +4,4 @@
 тоннель:ProperName=тоннель
 туннель:ProperName=тоннель
 переход:ProperName=переход
-переезд:ProperName=переезд
+переезд:ProperName=переезд:threat_indicator=railway_crossing_damage
