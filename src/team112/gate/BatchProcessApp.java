@@ -119,7 +119,7 @@ public class BatchProcessApp {
 
                     resultJson.put("Placement", address);
                 }
-// цикл добавления признаков угроз
+// цикл для угроз
                 if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")) {
                     while (fit.hasNext()) {
                         Map.Entry thisEntry = (Map.Entry) fit.next();
@@ -139,6 +139,28 @@ public class BatchProcessApp {
                     ar.add(indicator);
                     resultJson.put("accident_type", Type);
                     resultJson.put("message_type", "threat");
+                }
+
+// цикл для фактов
+                if (Type.equals("Fact_RoadAccident") | Type.equals("Fact_Wildfire")) {
+                    while (fit.hasNext()) {
+                        Map.Entry thisEntry = (Map.Entry) fit.next();
+                        String getKey = thisEntry.getKey().toString();
+                        String getValue = thisEntry.getValue().toString();
+                        indicator.put("start_node", StartNode);
+                        indicator.put("end_node", EndNode);
+                        indicator.put(getKey, getValue);
+
+                        int rank_value = 0;
+                        if (getKey.equals("rank")) {
+                            rank_value = Integer.valueOf(getValue);
+                        }
+                        //System.out.println("rank = " + rank);
+                        rank = rank + rank_value;
+                    }
+                    ar.add(indicator);
+                    resultJson.put("accident_type", Type);
+                    resultJson.put("message_type", "fact");
                 }
             }
             if (ar.size() != 0)
