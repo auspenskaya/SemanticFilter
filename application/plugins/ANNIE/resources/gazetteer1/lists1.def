@@ -13,6 +13,8 @@ dtp_flood.lst:flood
 fire_rubbish.lst:rubbish
 fire_forest.lst:forest
 fire_litter_verb.lst:fire_litter_verb
+fire_grass.lst:grass
+fire_dry.lst:dry
 cities.lst:location:city::City
 street.lst:street
 year.lst:year
