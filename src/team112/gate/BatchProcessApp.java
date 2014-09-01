@@ -120,7 +120,8 @@ public class BatchProcessApp {
                     resultJson.put("Placement", address);
                 }
 // цикл для угроз
-                if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")) {
+                if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")
+                        | Type.equals("Threat_BuildingCollapse")  ) {
                     while (fit.hasNext()) {
                         Map.Entry thisEntry = (Map.Entry) fit.next();
                         String getKey = thisEntry.getKey().toString();
@@ -142,7 +143,8 @@ public class BatchProcessApp {
                 }
 
 // цикл для фактов
-                if (Type.equals("Fact_RoadAccident") | Type.equals("Fact_Wildfire")) {
+                if (Type.equals("Fact_RoadAccident") | Type.equals("Fact_Wildfire")
+                        | Type.equals("Fact_BuildingCollapse") ) {
                     while (fit.hasNext()) {
                         Map.Entry thisEntry = (Map.Entry) fit.next();
                         String getKey = thisEntry.getKey().toString();

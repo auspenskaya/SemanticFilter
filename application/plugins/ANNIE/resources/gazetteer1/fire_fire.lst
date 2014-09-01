@@ -1,0 +1,6 @@
+пожар
+возгорание
+огонь
+смог:threat_indicator=smoke
+задымление:threat_indicator=smoke
+дым:threat_indicator=smoke

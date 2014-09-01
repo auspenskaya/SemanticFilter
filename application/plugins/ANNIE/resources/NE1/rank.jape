@@ -1,8 +1,8 @@
 Phase:  Rank
-Input: Threat_RoadAccident Threat_Wildfire
+Input: Threat_RoadAccident Threat_Wildfire Threat_BuildingCollapse
 Options: control = appelt
 
-Rule: Threat_RoadAccident
+Rule: RoadAccident
 (
 {Threat_RoadAccident}
 )
@@ -40,5 +40,27 @@ if (threatAnn.getFeatures().get("threat_indicator").toString().equals("dry_trees
         threatAnn.getFeatures().put("rank", 2);
 if (threatAnn.getFeatures().get("threat_indicator").toString().equals("rubbish"))
     threatAnn.getFeatures().put("rank", 3);
+}
+
+Rule: BuildingCollapse
+(
+{Threat_BuildingCollapse}
+)
+:bind -->
+{
+gate.AnnotationSet threatSet = (gate.AnnotationSet)bindings.get("bind");
+gate.Annotation threatAnn = (gate.Annotation)threatSet.iterator().next();
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("crack_in_wall"))
+    threatAnn.getFeatures().put("rank", 6);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("crooked_wall"))
+    threatAnn.getFeatures().put("rank", 5);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("building_surface_damage"))
+    threatAnn.getFeatures().put("rank", 3);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("building_flood"))
+    threatAnn.getFeatures().put("rank", 2);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("vibration_near_building"))
+    threatAnn.getFeatures().put("rank", 1);
+if (threatAnn.getFeatures().get("threat_indicator").toString().equals("hole_near_building"))
+    threatAnn.getFeatures().put("rank", 4);
 }
 
