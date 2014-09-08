@@ -1,0 +1,69 @@
+Phase:  Collapse
+Input: Token Lookup Split Morph
+Options: control = appelt
+
+ Macro: ADJ
+(
+({Morph.pos == adverb})?
+({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )?
+({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )?
+({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )?
+)
+
+Rule: Crack // по дому пошла трещина
+((
+(({Token.string == "по"})|({Token.string == "По"})|
+({Token.string == "на"})|({Token.string == "На"})|
+({Token.string == "в"})|({Token.string == "В"}))
+(ADJ)
+({Lookup.majorType == building})
+({Lookup.majorType == being})?
+({Lookup.majorType == crack})
+)|
+(
+({Lookup.majorType == crack})    // трещина в доме
+({Lookup.majorType == being})?
+(({Token.string == "по"})|({Token.string == "на"})|({Token.string == "в"}))
+(ADJ)
+({Lookup.majorType == building})
+))
+:bind -->
+:bind.Threat_BuildingCollapse = {threat_indicator = "crack_in_wall", rule = "Crack"}
+
+Rule: Crooked // здание просело, фундамент просел
+(
+({Lookup.majorType == building})
+({Lookup.majorType == destroy_verb, Lookup.ProperName == "проседать"})
+)
+:bind -->
+:bind.Threat_BuildingCollapse = {threat_indicator = "crooked_wall"}
+
+Rule: Flood // подвал затопило
+(
+(({Lookup.majorType == flood})({Lookup.majorType == building})) |
+(({Lookup.majorType == building})({Lookup.majorType == flood}))
+)
+:bind -->
+:bind.Threat_BuildingCollapse = {threat_indicator = "building_flood"}
+
+Rule: Skip // Каждая попытка делает трещину в стене, за которой находится твоя цель.
+
+(({Token.string == "попытка"})
+({Token.string == "делает"})
+({Token.string == "трещину"})
+({Token.string == "в"})
+({Token.string == "стене"})):skip
+ -->
+{gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
+inputAS.removeAll(sk);
+}
+
+Rule: Fact // здание обвалилось
+(
+(({Lookup.majorType == building})
+({Lookup.majorType == destroy_verb, Lookup.ProperName != "проседать"}))|
+(({Lookup.majorType == destroy_verb, Lookup.ProperName != "проседать"})
+({Lookup.majorType == building}))
+)
+:bind -->
+:bind.Fact_BuildingCollapse = {threat_indicator = "collapse"}

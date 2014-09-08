@@ -1,5 +1,5 @@
 проседать:ProperName=проседать
-просесть:ProperName=просесть
+просесть:ProperName=проседать
 провалиться:ProperName=провалиться:mess_type=fact
 проваливаться:ProperName=проваливаться:mess_type=fact
 провал
@@ -8,3 +8,4 @@
 обвал:mess_type=fact
 разрушаться:ProperName=разрушаться:mess_type=fact
 разрушиться:ProperName=разрушиться:mess_type=fact
+обрушиваться:mess_type=fact

@@ -186,8 +186,7 @@ Rule: Gulley // открытый дождеприемник
 
 
 Rule: Flood // затопило мост, дорога подтоплена
- (
-(({Lookup.majorType == flood})((ROAD)|({Lookup.majorType == object})))
+ ((({Lookup.majorType == flood})((ROAD)|({Lookup.majorType == object})))
 |  							 
 ((((ROAD)|({Lookup.majorType == object})))({Lookup.majorType == flood}))
 ) 
@@ -195,7 +194,20 @@ Rule: Flood // затопило мост, дорога подтоплена
 :bind.Threat_RoadAccident = {threat_indicator = "sewerage_damage"}
 
 
- //({Lookup.majorType == defective, Lookup.mess_type == "fact"}))
+Rule: Skip
+(
+(({Token.string == "неисправным"})
+({Token.string == "светофорам"})
+({Token.string == "звоните"}))
+|
+((({Token.string == "Открытый"})|({Token.string == "открытый"}))
+({Token.string == "люк"})
+(({Token.string == "космодесантного"})|({Token.string == "бота"})))
+)
+:skip -->
+{gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
+inputAS.removeAll(sk);
+}
 
 
 Rule: FactRoadDestroy // разрушена дорога
