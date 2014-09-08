@@ -1,3 +1,5 @@
+aux_street.lst:street
+aux_region.lst:region
 dtp_hole.lst:hole
 dtp_road.lst:road
 dtp_object.lst:object
@@ -27,7 +29,6 @@ collapse_building.lst:building
 collapse_crack.lst:crack
 collapse_being.lst:being
 cities.lst:location:city::City
-street.lst:street
 year.lst:year
 location.lst:location
 continents.lst:location:continent
