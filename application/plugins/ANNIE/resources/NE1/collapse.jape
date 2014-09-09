@@ -46,13 +46,22 @@ Rule: Flood // подвал затопило
 :bind -->
 :bind.Threat_BuildingCollapse = {threat_indicator = "building_flood"}
 
-Rule: Skip // Каждая попытка делает трещину в стене, за которой находится твоя цель.
+Rule: Skip
+// Каждая попытка делает трещину в стене, за которой находится твоя цель.
+//трещины на потолке напоминают
 
-(({Token.string == "попытка"})
+((({Token.string == "попытка"})
 ({Token.string == "делает"})
 ({Token.string == "трещину"})
 ({Token.string == "в"})
-({Token.string == "стене"})):skip
+({Token.string == "стене"}))
+|
+(({Token.string == "трещинs"})
+({Token.string == "на"})
+({Token.string == "потолке"})
+({Token.string == "напоминают"})))
+
+:skip
  -->
 {gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
 inputAS.removeAll(sk);
