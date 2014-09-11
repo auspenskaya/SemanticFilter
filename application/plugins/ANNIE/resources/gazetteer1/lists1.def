@@ -28,7 +28,7 @@ fire_rubbish_adj.lst:rubbish_adj
 collapse_building.lst:building
 collapse_crack.lst:crack
 collapse_being.lst:being
-cities.lst:location:city::City
+cities.lst:location:::Loc
 year.lst:year
 location.lst:location
 continents.lst:location:continent

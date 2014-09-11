@@ -117,3 +117,11 @@ Rule: Fire // пожар под
 )
 :bind -->
 :pl.Placement = {String = "String"}
+
+
+Rule: Location
+(
+({Lookup.majorType == location})
+)
+:bind -->
+:bind.Placement = {String = "String"}

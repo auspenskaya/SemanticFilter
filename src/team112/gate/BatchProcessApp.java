@@ -95,6 +95,7 @@ public class BatchProcessApp {
             Iterator it = set.iterator();
             JSONObject resultJson = new JSONObject();
             JSONArray ar = new JSONArray();
+            JSONArray aPlace = new JSONArray();
             Integer rank = 0;
             while (it.hasNext()) {
                 AnnotationImpl ann = (AnnotationImpl) it.next();
@@ -116,8 +117,7 @@ public class BatchProcessApp {
                         String getValue = thisEntry.getValue().toString();
                         address.put(getKey, getValue);
                     }
-
-                    resultJson.put("Placement", address);
+                    aPlace.add(address);
                 }
 // цикл для угроз
                 if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")
@@ -166,8 +166,9 @@ public class BatchProcessApp {
                 }
             }
             if (ar.size() != 0)
-                resultJson.put("rank", rank);
+            resultJson.put("rank", rank);
             resultJson.put("indicators", ar);
+            resultJson.put("Placement", aPlace);
             if (resultJson.size() != 0)
                 out.write(resultJson.toString());
 
