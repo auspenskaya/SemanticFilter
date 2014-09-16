@@ -1,0 +1,48 @@
+Phase:  Location
+Input: Loc Morph
+Options: control = appelt
+
+Rule: Loc_lower
+({Loc})
+: bind  -->
+{
+gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
+gate.AnnotationSet tokenSet = inputAS.getContained(bindSet.firstNode().getOffset(), bindSet.lastNode().getOffset()).get("Token");
+gate.Annotation tokenAnn = (gate.Annotation)tokenSet.iterator().next();
+if (tokenAnn.getFeatures().get("orth").equals("lowercase"))
+inputAS.removeAll(bindSet);
+}
+
+Rule: Loc_type_right // город справа
+(
+({Loc, Loc.type_checked == "false"}) : loc
+({Morph}) : type
+)
+: bind  -->
+{
+gate.AnnotationSet locSet = (gate.AnnotationSet)bindings.get("loc");
+gate.Annotation locAnn = (gate.Annotation)locSet.iterator().next();
+gate.AnnotationSet typeSet = (gate.AnnotationSet)bindings.get("type");
+gate.Annotation typeAnn = (gate.Annotation)typeSet.iterator().next();
+if (locAnn.getFeatures().get("locType").equals(typeAnn.getFeatures().get("baseForm")))
+{
+locAnn.getFeatures().put("type_checked", "true");
+System.out.println("type_checked Loc_type_right");
+}}
+
+Rule: Loc_type_left
+(
+({Morph}) : type
+({Loc, Loc.type_checked == "false"}) : loc
+)
+: bind  -->
+{
+gate.AnnotationSet locSet = (gate.AnnotationSet)bindings.get("loc");
+gate.Annotation locAnn = (gate.Annotation)locSet.iterator().next();
+gate.AnnotationSet typeSet = (gate.AnnotationSet)bindings.get("type");
+gate.Annotation typeAnn = (gate.Annotation)typeSet.iterator().next();
+if (locAnn.getFeatures().get("locType").equals(typeAnn.getFeatures().get("baseForm")))
+{
+locAnn.getFeatures().put("type_checked", "true");
+System.out.println("type_checked Loc_type_left");
+}}

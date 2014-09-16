@@ -1,0 +1,16 @@
+Phase:  Delete_false
+Input: Loc
+Options: control = appelt
+
+
+Rule: Delete_false //последнее правило, удаляет непроверенные местоположения
+(
+({Loc, Loc.type_checked == "false"})
+//|({Loc, Loc.region_checked == "false"})
+)
+: bind  -->
+{
+System.out.println("Delete_false ");
+gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
+inputAS.removeAll(bindSet);
+}
