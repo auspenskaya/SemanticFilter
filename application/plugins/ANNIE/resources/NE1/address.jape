@@ -40,7 +40,7 @@ gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind"); // 1
 gate.Annotation bindAnn = (gate.Annotation)bindSet.iterator().next();
 String street_name = street + " " + name;
 gate.FeatureMap features_bind = Factory.newFeatureMap(); // 2
-features_bind.put("String", street_name);
+features_bind.put("ViewName", street_name);
 outputAS.add(bindSet.firstNode(), bindSet.lastNode(), "Placement", features_bind);
 }
 
@@ -82,7 +82,7 @@ gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
 gate.Annotation bindAnn = (gate.Annotation)bindSet.iterator().next();
 String street_name = street + " " + name;
 gate.FeatureMap features_bind = Factory.newFeatureMap();
-features_bind.put("String", street_name);
+features_bind.put("ViewName", street_name);
 outputAS.add(bindSet.firstNode(), bindSet.lastNode(), "Placement", features_bind);
 }
 
@@ -103,13 +103,13 @@ gate.Annotation rAnn = (gate.Annotation)rSet.iterator().next();
 String r = rAnn.getFeatures().get("ProperName").toString();
 String region_name = name + " " + r;
 gate.FeatureMap features_pl = Factory.newFeatureMap();
-features_pl.put("String", region_name);
+features_pl.put("ViewName", region_name);
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 }
 }
 
-Rule: Fire // пожар под
+/*Rule: Fire // пожар под
 (
 ({Lookup.majorType == fire, Lookup.ProperName == "пожар"}):f
 ({Token, Token.string == "под"})
@@ -124,4 +124,4 @@ Rule: Location
 ({Lookup.majorType == location})
 )
 :bind -->
-:bind.Placement = {String = "String"}
+:bind.Placement = {String = "String"}*/

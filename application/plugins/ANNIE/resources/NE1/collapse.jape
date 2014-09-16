@@ -49,8 +49,10 @@ Rule: Flood // подвал затопило
 Rule: Skip
 // Каждая попытка делает трещину в стене, за которой находится твоя цель.
 //трещины на потолке напоминают
+//смотреть на эти трещины в потолке
 
-((({Token.string == "попытка"})
+(
+(({Token.string == "попытка"})
 ({Token.string == "делает"})
 ({Token.string == "трещину"})
 ({Token.string == "в"})
@@ -59,7 +61,16 @@ Rule: Skip
 (({Token.string == "трещинs"})
 ({Token.string == "на"})
 ({Token.string == "потолке"})
-({Token.string == "напоминают"})))
+({Token.string == "напоминают"}))
+|
+(({Token.string == "смотреть"})
+({Token.string == "на"})
+({Token.string == "эти"})
+({Token.string == "трещины"})
+//({Token.string == "в"})
+// ({Token.string == "потолке"})
+)
+)
 
 :skip
  -->

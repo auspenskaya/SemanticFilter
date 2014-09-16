@@ -97,6 +97,8 @@ public class BatchProcessApp {
             JSONArray ar = new JSONArray();
             JSONArray aPlace = new JSONArray();
             Integer rank = 0;
+            Boolean rus = false;
+            Boolean no_rus = false;
             while (it.hasNext()) {
                 AnnotationImpl ann = (AnnotationImpl) it.next();
                 String Type = ann.getType().toString();
@@ -119,6 +121,37 @@ public class BatchProcessApp {
                     }
                     aPlace.add(address);
                 }
+
+// цикл добавления местоположения
+                if (Type.equals("Loc")) {
+                    address.put("start_node", StartNode);
+                    address.put("end_node", EndNode);
+                    while (fit.hasNext()) {
+                        Map.Entry thisEntry = (Map.Entry) fit.next();
+                        String getKey = thisEntry.getKey().toString();
+                        if (getKey.equals("ProperName"))
+                        {
+                            String getValue = thisEntry.getValue().toString();
+                            address.put("ViewName", getValue);
+                        }
+                        if (getKey.equals("Parent")|getKey.equals("PreParent")|getKey.equals("PrePreParent")|getKey.equals("PrePrePreParent") )
+                        {
+                            String getValue = thisEntry.getValue().toString();
+//                            System.out.println("Parent getValue " + getValue);
+                            if (getValue.equals("Россия"))
+                            {
+                                rus = true;
+//                                System.out.println("Россия " + rus);
+                            }
+                        }
+
+                    }
+                    if (!rus.equals(true))no_rus = true;
+                    aPlace.add(address);
+//                    System.out.println("Loc rus = " + rus);
+//                    System.out.println("no_rus = " + no_rus);
+                }
+
 // цикл для угроз
                 if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")
                         | Type.equals("Threat_BuildingCollapse")  ) {
@@ -169,6 +202,11 @@ public class BatchProcessApp {
             resultJson.put("rank", rank);
             resultJson.put("indicators", ar);
             resultJson.put("Placement", aPlace);
+//            System.out.println("rus = " + rus);
+//            System.out.println("no_rus = " + no_rus);
+            if (rus.equals(true) &&  no_rus.equals(false)) resultJson.put("Russia", true);
+            if (rus.equals(false) &&  no_rus.equals(true)) resultJson.put("Russia", false);
+
             if (resultJson.size() != 0)
                 out.write(resultJson.toString());
 
