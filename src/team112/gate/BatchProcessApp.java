@@ -132,7 +132,7 @@ public class BatchProcessApp {
                         if (getKey.equals("ProperName"))
                         {
                             String getValue = thisEntry.getValue().toString();
-                            address.put("ViewName", getValue);
+                            address.put("view_name", getValue);
                         }
                         if (getKey.equals("Parent")|getKey.equals("PreParent")|getKey.equals("PrePreParent")|getKey.equals("PrePrePreParent") )
                         {
@@ -201,11 +201,11 @@ public class BatchProcessApp {
             if (ar.size() != 0)
             resultJson.put("rank", rank);
             resultJson.put("indicators", ar);
-            resultJson.put("Placement", aPlace);
+            resultJson.put("placement", aPlace);
 //            System.out.println("rus = " + rus);
 //            System.out.println("no_rus = " + no_rus);
-            if (rus.equals(true) &&  no_rus.equals(false)) resultJson.put("Russia", true);
-            if (rus.equals(false) &&  no_rus.equals(true)) resultJson.put("Russia", false);
+            if (rus.equals(true) &&  no_rus.equals(false)) resultJson.put("russia", true);
+            if (rus.equals(false) &&  no_rus.equals(true)) resultJson.put("russia", false);
 
             if (resultJson.size() != 0)
                 out.write(resultJson.toString());
