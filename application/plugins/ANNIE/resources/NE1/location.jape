@@ -30,7 +30,7 @@ locAnn.getFeatures().put("type_checked", "true");
 System.out.println("type_checked Loc_type_right");
 }}
 
-Rule: Loc_type_left
+Rule: Loc_type_left // город справа
 (
 ({Morph}) : type
 ({Loc, Loc.type_checked == "false"}) : loc
@@ -46,3 +46,10 @@ if (locAnn.getFeatures().get("locType").equals(typeAnn.getFeatures().get("baseFo
 locAnn.getFeatures().put("type_checked", "true");
 System.out.println("type_checked Loc_type_left");
 }}
+
+/*Rule: Loc_type_left // город справа
+(
+({Morph}) : type
+({Loc, Loc.type_checked == "false"}) : loc
+)
+: bind  -->*/

@@ -28,6 +28,7 @@ import java.util.*;
  * To keep the example simple, we do not do any exception handling - any error
  * will cause the process to abort.
  */
+
 public class BatchProcessApp {
 
     /**
@@ -62,17 +63,17 @@ public class BatchProcessApp {
             System.out.print("Processing document " + docFile + "...");
 
             String jsonInput = readFile(docFile);
-            JSONObject obj = (JSONObject) JSONValue.parse(jsonInput);
+            Object o =  JSONValue.parse(jsonInput);
+            JSONObject obj = (JSONObject) o;
+            //JSONObject obj = (JSONObject) JSONValue.parse(jsonInput);
             JSONObject dataObject = (JSONObject) obj.get("data");
             String textValue = dataObject.get("text").toString();
             Document doc = Factory.newDocument(textValue);
-
             // put the document in the corpus
+            String content = doc.getContent().toString();
             corpus.add(doc);
-
-            // run the application
+              // run the application
             application.execute();
-
             // remove the document from the corpus again
             corpus.clear();
 
@@ -104,6 +105,7 @@ public class BatchProcessApp {
                 String Type = ann.getType().toString();
                 gate.FeatureMap map = ann.getFeatures();
                 Iterator fit = map.entrySet().iterator();
+
                 Integer StartNode = ann.getStartNode().getOffset().intValue();
                 Integer EndNode = ann.getEndNode().getOffset().intValue();
                 JSONObject address = new JSONObject();
@@ -144,7 +146,6 @@ public class BatchProcessApp {
 //                                System.out.println("Россия " + rus);
                             }
                         }
-
                     }
                     if (!rus.equals(true))no_rus = true;
                     aPlace.add(address);
