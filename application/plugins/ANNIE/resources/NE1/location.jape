@@ -8,9 +8,11 @@ Rule: Loc_lower
 {
 gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
 gate.AnnotationSet tokenSet = inputAS.getContained(bindSet.firstNode().getOffset(), bindSet.lastNode().getOffset()).get("Token");
+if (tokenSet != null &&  tokenSet.size() > 0 ){
 gate.Annotation tokenAnn = (gate.Annotation)tokenSet.iterator().next();
 if (tokenAnn.getFeatures().get("orth").equals("lowercase"))
 inputAS.removeAll(bindSet);
+}
 }
 
 Rule: Loc_type_right // город справа
