@@ -100,6 +100,7 @@ public class BatchProcessApp {
             Integer rank = 0;
             Boolean rus = false;
             Boolean no_rus = false;
+                int k = 0;
             while (it.hasNext()) {
                 AnnotationImpl ann = (AnnotationImpl) it.next();
                 String Type = ann.getType().toString();
@@ -198,10 +199,13 @@ public class BatchProcessApp {
                     resultJson.put("accident_type", Type);
                     resultJson.put("message_type", "fact");
                 }
+                k++;
+//                System.out.println("==== " + k);
             }
-            if (ar.size() != 0)
             resultJson.put("rank", rank);
-            resultJson.put("indicators", ar);
+            if (ar.size() != 0) {
+                resultJson.put("indicators", ar);
+            }
             resultJson.put("placement", aPlace);
 //            System.out.println("rus = " + rus);
 //            System.out.println("no_rus = " + no_rus);
@@ -247,6 +251,7 @@ public class BatchProcessApp {
         }
         catch (Exception e) {
             System.out.println("Exception " + e);
+            corpus.clear();
         }
 
         } // for each file

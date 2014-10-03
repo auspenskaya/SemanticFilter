@@ -1,0 +1,24 @@
+{
+   "images" : null,
+   "meta_data" : {
+      "country_name" : null,
+      "region_name" : null,
+      "author_profile_url" : "https://twitter.com/Emercom112",
+      "query_string" : "пожар",
+      "tags" : null,
+      "author_nickname" : "Emercom112",
+      "post_created" : 1411613542,
+      "author_fullname" : "МЧС ХМАО",
+      "address" : "Russia",
+      "city_name" : null
+   },
+   "data" : {
+      "source" : "2f9b774daf676d69e2f80296c4c60639",
+      "coordinates" : null,
+      "docs_source" : "twitter.com",
+      "text" : "Пожар в г. Ханты-Мансийск, ул. Малиновая: 24.09.14 г. 23:22 (мск) В городе Ханты-Мансийске по улице Мал... http://t.co/s1HBOcyP8f",
+      "file" : null,
+      "url" : "https://twitter.com/Emercom112/status/514970637710807040",
+      "title" : "Пожар в г. Ханты-Мансийск, ул. Малиновая: 24.09.14 г. 23:22 (мск) В городе Ханты-Мансийске по улице Мал... "
+   }
+}

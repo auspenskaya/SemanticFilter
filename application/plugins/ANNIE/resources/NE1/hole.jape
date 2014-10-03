@@ -11,8 +11,11 @@ Options: control = appelt
 )
 
 Macro: ROAD
-(
-(ADJ)*{Lookup.majorType == road}(ADJ)?
+((
+((ADJ)*{Lookup.majorType == road, Lookup.ProperName != "покрытие"})|
+({Lookup.majorType == road, Lookup.ProperName == "покрытие"})
+)
+(ADJ)?
 ) 
  
 Rule: HoleOnHole //яма на яме ...
@@ -200,12 +203,21 @@ Rule: Skip
 ({Token.string == "светофорам"})
 ({Token.string == "звоните"}))
 |
-((({Token.string == "Открытый"})|({Token.string == "открытый"}))
+(({Token.string == "когда"})
+({Token.string == "нет"})
+({Token.string == "светофора"}))
+|
+(
+({Token.string == "открыли"})?
 ({Token.string == "люк"})
-(({Token.string == "космодесантного"})|({Token.string == "бота"})))
+(({Token.string == "космодесантного"})|({Token.string == "бота"})|
+(({Token.string == "в"})
+({Token.string == "доме"})))
+ )
 )
 :skip -->
-{gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
+{
+gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
 inputAS.removeAll(sk);
 }
 

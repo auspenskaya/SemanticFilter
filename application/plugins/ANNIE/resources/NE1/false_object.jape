@@ -1,0 +1,32 @@
+Phase:  False_Object
+Input:  Threat_RoadAccident Threat_Wildfire Threat_BuildingCollapse Fact_RoadAccident Fact_Wildfire Fact_BuildingCollapse
+Options: control = appelt
+
+
+Rule: False_Object
+(
+//({Lookup.majorType == false_object})|
+({Threat_RoadAccident})|
+({Threat_Wildfire})|
+({Threat_BuildingCollapse})|
+({Fact_RoadAccident})|
+({Fact_Wildfire})|
+({Fact_BuildingCollapse})
+ )
+: bind
+ -->
+{
+//System.out.println("False_Object");
+gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
+/*gate.Annotation bindAnn = (gate.Annotation)bindSet.iterator().next();
+gate.AnnotationSet falseSet = (gate.AnnotationSet)annotations.get("False_Object");
+if (falseSet)
+if (bindAnn.getType().equals("Lookup"))
+{System.out.println("Lookup");
+    gate.Annotation threatAnn = (gate.Annotation)bindSet.iterator().next();
+    if (!threatAnn.getType().equals("Lookup"))
+    {System.out.println("removeAll");
+    inputAS.removeAll(bindSet);
+    }
+}*/
+}

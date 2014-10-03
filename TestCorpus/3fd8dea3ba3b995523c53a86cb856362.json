@@ -1,0 +1,24 @@
+{
+   "images" : null,
+   "meta_data" : {
+      "country_name" : null,
+      "region_name" : null,
+      "author_profile_url" : "https://twitter.com/obojniw99",
+      "query_string" : "возгорание",
+      "tags" : null,
+      "author_nickname" : "obojniw99",
+      "post_created" : 1411609832,
+      "author_fullname" : "obojniw99",
+      "address" : "Россия",
+      "city_name" : null
+   },
+   "data" : {
+      "source" : "3fd8dea3ba3b995523c53a86cb856362",
+      "coordinates" : null,
+      "docs_source" : "twitter.com",
+      "text" : "Ночью на \"Распадской\" произошло возгорание",
+      "file" : null,
+      "url" : "https://twitter.com/obojniw99/status/514955077547601921",
+      "title" : "Ночью наРаспадскойпроизошло возгорание..."
+   }
+}

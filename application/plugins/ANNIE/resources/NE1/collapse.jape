@@ -50,6 +50,8 @@ Rule: Skip
 // Каждая попытка делает трещину в стене, за которой находится твоя цель.
 //трещины на потолке напоминают
 //смотреть на эти трещины в потолке
+ // избегать трещин на стенах
+ //затопили подвалы
 
 (
 (({Token.string == "попытка"})
@@ -58,7 +60,7 @@ Rule: Skip
 ({Token.string == "в"})
 ({Token.string == "стене"}))
 |
-(({Token.string == "трещинs"})
+(({Token.string == "трещины"})
 ({Token.string == "на"})
 ({Token.string == "потолке"})
 ({Token.string == "напоминают"}))
@@ -70,6 +72,18 @@ Rule: Skip
 //({Token.string == "в"})
 // ({Token.string == "потолке"})
 )
+|
+(({Token.string == "избегать"})
+({Token.string == "трещин"})
+({Token.string == "на"})
+({Token.string == "стенах"}))
+|
+(({Token.string == "немцы"})
+({Token.string == "затопили"})
+({Token.string == "подвалы"}))
+
+//|(({Token})
+//({Token.string == "дома"}))
 )
 
 :skip

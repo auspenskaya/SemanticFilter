@@ -10,7 +10,7 @@ Rule: Delete_false //последнее правило, удаляет непр�
 )
 : bind  -->
 {
-System.out.println("Delete_false ");
+//System.out.println("Delete_false ");
 gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
 inputAS.removeAll(bindSet);
 }

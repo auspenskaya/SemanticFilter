@@ -1,0 +1,24 @@
+{
+   "images" : null,
+   "meta_data" : {
+      "country_name" : null,
+      "region_name" : null,
+      "author_profile_url" : "https://twitter.com/ldyDicell",
+      "query_string" : "обрушение",
+      "tags" : null,
+      "author_nickname" : "ldyDicell",
+      "post_created" : 1411601038,
+      "author_fullname" : "Тарас Прохоров",
+      "address" : "Нижний Новгород",
+      "city_name" : null
+   },
+   "data" : {
+      "source" : "2efbe2038151cb65ecbe208bd19b7659",
+      "coordinates" : null,
+      "docs_source" : "twitter.com",
+      "text" : "Обрушение на Енисейской: штраф – 1,5 миллиона рублей",
+      "file" : null,
+      "url" : "https://twitter.com/ldyDicell/status/514918191563173888",
+      "title" : "Обрушение на Енисейской: штраф – 1,5 миллиона рублей..."
+   }
+}

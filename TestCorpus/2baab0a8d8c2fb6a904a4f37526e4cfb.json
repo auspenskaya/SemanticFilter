@@ -1,0 +1,24 @@
+{
+   "images" : null,
+   "meta_data" : {
+      "country_name" : null,
+      "region_name" : null,
+      "author_profile_url" : "https://twitter.com/sadie_sponge",
+      "query_string" : "обрушение",
+      "tags" : null,
+      "author_nickname" : "sadie_sponge",
+      "post_created" : 1411539728,
+      "author_fullname" : "Максим Жаравин",
+      "address" : "Murmansk",
+      "city_name" : null
+   },
+   "data" : {
+      "source" : "2baab0a8d8c2fb6a904a4f37526e4cfb",
+      "coordinates" : null,
+      "docs_source" : "twitter.com",
+      "text" : "В Мурманске произошло частичное обрушение дома http://t.co/tKp2IfRcTM",
+      "file" : null,
+      "url" : "https://twitter.com/sadie_sponge/status/514661039179194368",
+      "title" : "В Мурманске произошло частичное обрушение дома "
+   }
+}

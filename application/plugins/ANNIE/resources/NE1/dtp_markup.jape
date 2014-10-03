@@ -1,8 +1,0 @@
-Phase:  Markup
-Input:  Lookup
-Options: control = Markup
-
-Rule: hole
-({Lookup.majorType == hole})
-:bind -->
-  :bind.Lookup_hole= {rule = "Lookup_hole"}

@@ -1,0 +1,24 @@
+{
+   "images" : null,
+   "meta_data" : {
+      "country_name" : null,
+      "region_name" : null,
+      "author_profile_url" : "https://twitter.com/bportcom",
+      "query_string" : "обрушение",
+      "tags" : null,
+      "author_nickname" : "bportcom",
+      "post_created" : 1411547256,
+      "author_fullname" : "Би-порт: новости",
+      "address" : "Мурманск",
+      "city_name" : null
+   },
+   "data" : {
+      "source" : "2c599f214bbfcba873a3484d69fdc918",
+      "coordinates" : null,
+      "docs_source" : "twitter.com",
+      "text" : "2014 09 24 Обрушение стены дома: http://t.co/0QCcqMOjkP на @YouTube",
+      "file" : null,
+      "url" : "https://twitter.com/bportcom/status/514692613543174144",
+      "title" : "2014 09 24 Обрушение стены дома: на @YouTube..."
+   }
+}

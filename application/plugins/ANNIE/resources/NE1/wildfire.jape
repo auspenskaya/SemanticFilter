@@ -141,3 +141,25 @@ Rule: FactFireBurningSmell
 )
 :bind -->
 :bind.Fact_Wildfire = {threat_indicator = "burning_smell"}
+
+Rule: Skip
+// леса горят багрянцем
+// сухая ветвь
+(
+(({Token.string == "леса"})
+({Token.string == "горят"})
+({Token.string == "багрянцем"}))
+|
+(
+({Token.string == "как"})
+({Token.string == "сухая"})
+({Token.string == "ветвь"})
+)
+)
+:skip
+ -->
+{
+
+gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
+inputAS.removeAll(sk);
+}

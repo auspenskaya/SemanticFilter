@@ -1,0 +1,24 @@
+{
+   "images" : null,
+   "meta_data" : {
+      "country_name" : null,
+      "region_name" : null,
+      "author_profile_url" : "https://twitter.com/kadyrkhan",
+      "query_string" : "возгорание",
+      "tags" : null,
+      "author_nickname" : "kadyrkhan",
+      "post_created" : 1411611617,
+      "author_fullname" : "Кадырхан Утин",
+      "address" : "Костанай - Астана",
+      "city_name" : null
+   },
+   "data" : {
+      "source" : "2a0f3576f9a06ca59a44c45d0502d3f7",
+      "coordinates" : null,
+      "docs_source" : "twitter.com",
+      "text" : "RT @interfax_news: На кузбасской шахте \"Распадская\" произошло возгорание http://t.co/7xz6017cDA",
+      "file" : null,
+      "url" : "https://twitter.com/kadyrkhan/status/514962562786418688",
+      "title" : "RT @interfax_news: На кузбасской шахтеРаспадскаяпроизошло возгорание "
+   }
+}

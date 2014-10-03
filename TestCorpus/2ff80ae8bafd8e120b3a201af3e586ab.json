@@ -1,0 +1,24 @@
+{
+   "images" : null,
+   "meta_data" : {
+      "country_name" : null,
+      "region_name" : null,
+      "author_profile_url" : "https://twitter.com/Pomansur",
+      "query_string" : "пожар",
+      "tags" : "происшествия ",
+      "author_nickname" : "Pomansur",
+      "post_created" : 1411613806,
+      "author_fullname" : "Суровецкий Роман",
+      "address" : "Липецк",
+      "city_name" : null
+   },
+   "data" : {
+      "source" : "2ff80ae8bafd8e120b3a201af3e586ab",
+      "coordinates" : null,
+      "docs_source" : "twitter.com",
+      "text" : "На грузовом поезде в Красноярском крае произошел пожар #происшествия",
+      "file" : null,
+      "url" : "https://twitter.com/Pomansur/status/514971746026287104",
+      "title" : "На грузовом поезде в Красноярском крае произошел пожар #происшествия..."
+   }
+}
