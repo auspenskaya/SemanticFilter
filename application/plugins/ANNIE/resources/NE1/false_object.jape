@@ -1,32 +1,56 @@
 Phase:  False_Object
-Input:  Threat_RoadAccident Threat_Wildfire Threat_BuildingCollapse Fact_RoadAccident Fact_Wildfire Fact_BuildingCollapse
+Input:  False_Object Threat_RoadAccident Threat_Wildfire Threat_BuildingCollapse Fact_RoadAccident Fact_Wildfire Fact_BuildingCollapse
 Options: control = appelt
 
 
 Rule: False_Object
-(
-//({Lookup.majorType == false_object})|
-({Threat_RoadAccident})|
+
+((({Threat_RoadAccident})|
 ({Threat_Wildfire})|
 ({Threat_BuildingCollapse})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
-({Fact_BuildingCollapse})
- )
-: bind
+({Fact_BuildingCollapse}))+)
+: bind1
+(({False_Object}))
+: f_obj
+(((({Threat_RoadAccident})|
+({Threat_Wildfire})|
+({Threat_BuildingCollapse})|
+({Fact_RoadAccident})|
+({Fact_Wildfire})|
+({Fact_BuildingCollapse}))+)?)
+: bind2
  -->
 {
-//System.out.println("False_Object");
-gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
-/*gate.Annotation bindAnn = (gate.Annotation)bindSet.iterator().next();
-gate.AnnotationSet falseSet = (gate.AnnotationSet)annotations.get("False_Object");
-if (falseSet)
-if (bindAnn.getType().equals("Lookup"))
-{System.out.println("Lookup");
-    gate.Annotation threatAnn = (gate.Annotation)bindSet.iterator().next();
-    if (!threatAnn.getType().equals("Lookup"))
-    {System.out.println("removeAll");
-    inputAS.removeAll(bindSet);
-    }
-}*/
+gate.AnnotationSet bind1Set = (gate.AnnotationSet)bindings.get("bind1");
+if (bind1Set != null && bind1Set.size() > 0) inputAS.removeAll(bind1Set);
+gate.AnnotationSet bind2Set = (gate.AnnotationSet)bindings.get("bind2");
+if (bind2Set != null && bind2Set.size() > 0) inputAS.removeAll(bind2Set);
+}
+
+Rule: False_Object2
+
+(((({Threat_RoadAccident})|
+({Threat_Wildfire})|
+({Threat_BuildingCollapse})|
+({Fact_RoadAccident})|
+({Fact_Wildfire})|
+({Fact_BuildingCollapse}))+)?)
+: bind1
+(({False_Object}))
+: f_obj
+((({Threat_RoadAccident})|
+({Threat_Wildfire})|
+({Threat_BuildingCollapse})|
+({Fact_RoadAccident})|
+({Fact_Wildfire})|
+({Fact_BuildingCollapse}))+)
+: bind2
+ -->
+{
+gate.AnnotationSet bind1Set = (gate.AnnotationSet)bindings.get("bind1");
+if (bind1Set != null && bind1Set.size() > 0) inputAS.removeAll(bind1Set);
+gate.AnnotationSet bind2Set = (gate.AnnotationSet)bindings.get("bind2");
+if (bind2Set != null && bind2Set.size() > 0) inputAS.removeAll(bind2Set);
 }

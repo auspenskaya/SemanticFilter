@@ -38,10 +38,13 @@ final
 unknown
 clean
 //check_markup
-hole
+dtp_threat
+dtp_fact
 wildfire
 collapse
+false_object_markup
 false_object
+false_threat
 rank
 location
 location_del

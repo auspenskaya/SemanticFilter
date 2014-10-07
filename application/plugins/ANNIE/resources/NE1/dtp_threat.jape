@@ -17,8 +17,9 @@ Macro: ROAD
 )
 (ADJ)?
 ) 
- 
-Rule: HoleOnHole //яма на яме ...
+
+
+Rule: HoleOnHole // 1 яма на яме ...
 (
 (({Lookup.majorType == hole}) : hole1)
 ({Morph.pos == preposition})
@@ -38,8 +39,8 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 inputAS.removeAll(hole1);
 inputAS.removeAll(hole2);}
 }
- 
-Rule: HoleOnRoad //провал грунта,  дыра в асфальте
+
+Rule: HoleOnRoad //2 провал грунта,  дыра в асфальте
 (((ADJ) 
  (({Lookup.majorType == hole}):obj)
 )({Morph.pos == preposition})?(ROAD))		
@@ -53,10 +54,11 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 inputAS.removeAll(obj);
 }  
 
-Rule: RoadWithHoles  //дорога в ямах
-((ROAD)({Morph.pos == preposition})?(
-(ADJ)(({Lookup.majorType == hole}):obj)
-))		
+Rule: RoadWithHoles  //3 дорога в ямах
+(
+(ROAD)({Morph.pos == preposition})?
+((ADJ)(({Lookup.majorType == hole}):obj))
+)
 :bind -->
 {gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
 gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
@@ -67,7 +69,7 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 inputAS.removeAll(obj);
 }  
 
-Rule: RideInHole 		// влететь в яму 
+Rule: RideInHole 		//4  влететь в яму
 (({Lookup.majorType == ridein_verb})({Morph.pos == preposition} )   
 (ADJ)(({Lookup.majorType == hole}):obj))
 :bind -->
@@ -79,8 +81,8 @@ gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
 outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
 inputAS.removeAll(obj);
 }   
- 
-Rule: RideInObject // налететь на объект
+
+Rule: RideInObject // 5 налететь на объект
 (({Lookup.majorType == ridein_verb})({Morph.pos == preposition} )
 (ADJ)(({Lookup.majorType == object}):obj))
 :bind -->
@@ -93,7 +95,7 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 inputAS.removeAll(obj);
 }   
 
-Rule: RideInObject2 //  на объект налететь
+Rule: RideInObject2 //  6 на объект налететь
 ((({Morph.pos == preposition} )
 (ADJ) (({Lookup.majorType == object}):obj)) ({Lookup.majorType == ridein_verb}))
 :bind -->
@@ -105,8 +107,8 @@ gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
 outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
 inputAS.removeAll(obj);
 }   
- 
-Rule: DestructionOccurred  // 3 провал произошёл
+
+Rule: DestructionOccurred  // 7  провал произошёл
 (((ADJ)
  (({Lookup.majorType == hole}):obj))
 ({Lookup.majorType == occur_verb}) ) 
@@ -120,7 +122,7 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 inputAS.removeAll(obj);
 }  
 
-Rule: DestructionOccurred2 // произошёл провал
+Rule: DestructionOccurred2 // 8 произошёл провал
 (({Lookup.majorType == occur_verb})
 ((ADJ)
  (({Lookup.majorType == hole}):obj)))
@@ -135,7 +137,7 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 inputAS.removeAll(obj);
 }    
 
-Rule: RoadDestroy // 2 грунт провалился, разрушился асфальт
+Rule: RoadDestroy // 9 грунт провалился, разрушился асфальт
 (
 (({Lookup.majorType == destroy_verb}) ({Morph.pos == preposition} )?
 (ROAD))|  							 
@@ -145,7 +147,7 @@ Rule: RoadDestroy // 2 грунт провалился, разрушился а�
 :bind -->
 :bind.Threat_RoadAccident = {threat_indicator = "hole_on_road"}
 
-Rule: BadRoad // плохая дорога, дорога очень плохая
+Rule: BadRoad // 10 плохая дорога, дорога очень плохая
  (
 ((({Lookup.majorType == defective, Lookup.mess_type != "fact"})|({Lookup.majorType == lack_for}))
 ({Morph.pos == adverb} )?  (ROAD))|
@@ -155,7 +157,9 @@ Rule: BadRoad // плохая дорога, дорога очень плохая
 :bind -->
 :bind.Threat_RoadAccident = {threat_indicator = "hole_on_road"}
 
-Rule: BadObject // неисправный светофор, нет разметки,
+// /* - отсюда закомментировано и до конца
+
+Rule: BadObject // 11 неисправный светофор, нет разметки,
 ((({Lookup.majorType == defective})|({Lookup.majorType == lack_for}))  ({Morph.pos == adverb} )?
 (({Lookup.majorType == object}):obj))
 :bind -->
@@ -168,7 +172,7 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 inputAS.removeAll(obj);
 }  
 
-Rule: BadObject2 // светофор неисправен
+Rule: BadObject2 // 12 светофор неисправен
 (((({Lookup.majorType == object}):obj)) ({Morph.pos == adverb} )?
 (({Lookup.majorType == defective})|({Lookup.majorType == lack_for})))
 :bind -->
@@ -181,14 +185,15 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 inputAS.removeAll(obj);
 }
 
-Rule: Gulley // открытый дождеприемник
+Rule: Gulley // 13 открытый дождеприемник
 (({Lookup.majorType == open}) (({Morph.pos == preposition, Morph.baseForm == "на"})(ROAD))? ({Morph.pos == adverb} )?
 (({Lookup.majorType == object, Lookup.threat_indicator == "gulley_manhole_damage" }):obj))
 :bind -->
 :bind.Threat_RoadAccident = {threat_indicator = "gulley_manhole_damage"}
 
 
-Rule: Flood // затопило мост, дорога подтоплена
+
+Rule: Flood // 14 затопило мост, дорога подтоплена
  ((({Lookup.majorType == flood})((ROAD)|({Lookup.majorType == object})))
 |  							 
 ((((ROAD)|({Lookup.majorType == object})))({Lookup.majorType == flood}))
@@ -197,6 +202,8 @@ Rule: Flood // затопило мост, дорога подтоплена
 :bind.Threat_RoadAccident = {threat_indicator = "sewerage_damage"}
 
 
+// он провалился в канаву
+//вплоть до отсутствия дорожного покрытия
 Rule: Skip
 (
 (({Token.string == "неисправным"})
@@ -214,6 +221,18 @@ Rule: Skip
 (({Token.string == "в"})
 ({Token.string == "доме"})))
  )
+|
+(({Token.string == "он"})
+({Token.string == "провалился"})
+({Token.string == "в"})
+({Token.string == "канаву"}))
+|
+(({Token.string == "вплоть"})
+({Token.string == "до"})
+({Token.string == "отсутствия"})
+({Token.string == "дорожного"})
+({Token.string == "покрытия"}))
+
 )
 :skip -->
 {
@@ -221,13 +240,6 @@ gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
 inputAS.removeAll(sk);
 }
 
+//*/
 
-Rule: FactRoadDestroy // разрушена дорога
- (
-(({Lookup.majorType == defective, Lookup.mess_type == "fact"})
-({Morph.pos == adverb} )?  (ROAD))|
-(((ROAD)) ({Morph.pos == adverb} )?
-({Lookup.majorType == defective, Lookup.mess_type == "fact"}))
-)
-:bind -->
-:bind.Fact_RoadAccident = {threat_indicator = "road_destroy"}
+

@@ -1,0 +1,12 @@
+Phase:  False_Object_Markup
+Input:  Morph
+Options: control = appelt
+
+
+Rule: Morph
+
+(({Morph.baseForm == "запрещаться", Morph.mood == "indicative", Morph.person == "person3", Morph.pos == "verb"}))
+: bind
+
+ -->
+:bind.False_Object = {rule = "False_Object_Markup"}
