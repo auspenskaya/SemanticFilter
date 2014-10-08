@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Run Gate" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="team112.gate.BatchProcessApp" />
-    <option name="VM_PARAMETERS" value="" />
+    <option name="VM_PARAMETERS" value="-Xmx6G -Xss1G" />
     <option name="PROGRAM_PARAMETERS" value="-g application.xgapp ../TestCorpus/*.json" />
     <option name="WORKING_DIRECTORY" value="file://Application/" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />

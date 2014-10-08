@@ -5,9 +5,7 @@ Options: control = appelt
  Macro: ADJ
 (
 ({Morph.pos == adverb})?
-({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )?
-({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )?
-({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )?
+({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )[0, 4]
 )
 
 Rule: Crack // по дому пошла трещина

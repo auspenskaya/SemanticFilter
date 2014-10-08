@@ -1,0 +1,157 @@
+Phase:  Hole
+Input: Morph Lookup Split Token
+Options: control = appelt
+
+ Macro: ADJ
+(
+({Morph.pos == adverb})?
+({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )[0,4]
+
+)
+
+Macro: ROAD
+(
+(
+(
+(ADJ)[0,4]
+{Lookup.majorType == road, Lookup.ProperName != "покрытие"})
+|
+({Lookup.majorType == road, Lookup.ProperName == "покрытие"})
+)
+(ADJ)?
+) 
+
+
+Rule: DestructionOccurred  // 7  провал произошёл
+(((ADJ)
+ (({Lookup.majorType == hole}):obj))
+({Lookup.majorType == occur_verb}) ) 
+:bind -->
+{gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
+gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("threat_indicator", objAnn.getFeatures().get("threat_indicator"));
+gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
+outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
+inputAS.removeAll(obj);
+}  
+
+Rule: DestructionOccurred2 // 8 произошёл провал
+(({Lookup.majorType == occur_verb})
+((ADJ)
+ (({Lookup.majorType == hole}):obj)))
+:bind -->
+{
+gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
+gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("threat_indicator", objAnn.getFeatures().get("threat_indicator"));
+gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
+outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
+inputAS.removeAll(obj);
+}    
+
+Rule: RoadDestroy // 9 грунт провалился, разрушился асфальт
+(
+(({Lookup.majorType == destroy_verb}) ({Morph.pos == preposition} )?
+(ROAD))|  							 
+(((ROAD)) 
+({Lookup.majorType == destroy_verb}))
+)
+:bind -->
+:bind.Threat_RoadAccident = {threat_indicator = "hole_on_road"}
+
+Rule: BadRoad // 10 плохая дорога, дорога очень плохая
+ (
+((({Lookup.majorType == defective, Lookup.mess_type != "fact"})|({Lookup.majorType == lack_for}))
+({Morph.pos == adverb} )?  (ROAD))|
+(((ROAD)) ({Morph.pos == adverb} )?
+({Lookup.majorType == defective, Lookup.mess_type != "fact"}))
+) 
+:bind -->
+:bind.Threat_RoadAccident = {threat_indicator = "hole_on_road"}
+
+// - отсюда закомментировано и до конца
+
+Rule: BadObject // 11 неисправный светофор, нет разметки,
+((({Lookup.majorType == defective})|({Lookup.majorType == lack_for}))  ({Morph.pos == adverb} )?
+(({Lookup.majorType == object}):obj))
+:bind -->
+{gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
+gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("threat_indicator", objAnn.getFeatures().get("threat_indicator"));
+gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
+outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
+inputAS.removeAll(obj);
+}  
+
+Rule: BadObject2 // 12 светофор неисправен
+(((({Lookup.majorType == object}):obj)) ((ADJ))?
+(({Lookup.majorType == defective})|({Lookup.majorType == lack_for})))
+:bind -->
+{gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
+gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("threat_indicator", objAnn.getFeatures().get("threat_indicator"));
+gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
+outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
+inputAS.removeAll(obj);
+}
+
+Rule: Gulley // 13 открытый дождеприемник
+(({Lookup.majorType == open}) (({Morph.pos == preposition, Morph.baseForm == "на"})(ROAD))? ({Morph.pos == adverb} )?
+(({Lookup.majorType == object, Lookup.threat_indicator == "gulley_manhole_damage" }):obj))
+:bind -->
+:bind.Threat_RoadAccident = {threat_indicator = "gulley_manhole_damage"}
+
+
+
+Rule: Flood // 14 затопило мост, дорога подтоплена
+ ((({Lookup.majorType == flood})((ROAD)|({Lookup.majorType == object})))
+|  							 
+((((ROAD)|({Lookup.majorType == object})))({Lookup.majorType == flood}))
+) 
+:bind -->
+:bind.Threat_RoadAccident = {threat_indicator = "sewerage_damage"}
+
+// он провалился в канаву
+//вплоть до отсутствия дорожного покрытия
+Rule: Skip
+(
+(({Token.string == "неисправным"})
+({Token.string == "светофорам"})
+({Token.string == "звоните"}))
+|
+(({Token.string == "когда"})
+({Token.string == "нет"})
+({Token.string == "светофора"}))
+|
+(
+({Token.string == "открыли"})?
+({Token.string == "люк"})
+(({Token.string == "космодесантного"})|({Token.string == "бота"})|
+(({Token.string == "в"})
+({Token.string == "доме"})))
+ )
+|
+(({Token.string == "он"})
+({Token.string == "провалился"})
+({Token.string == "в"})
+({Token.string == "канаву"}))
+|
+(({Token.string == "вплоть"})
+({Token.string == "до"})
+({Token.string == "отсутствия"})
+({Token.string == "дорожного"})
+({Token.string == "покрытия"}))
+
+)
+:skip -->
+{
+gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
+inputAS.removeAll(sk);
+}
+
+
+

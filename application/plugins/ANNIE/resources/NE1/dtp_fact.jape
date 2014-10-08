@@ -3,21 +3,21 @@ Input: Morph Lookup Split Token
 Options: control = appelt
 
  Macro: ADJ
-(
-({Morph.pos == adverb})?
-({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )?
-({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )?
-({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )?
-)
+ (
+ ({Morph.pos == adverb})?
+ ({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )[0,4]
+ )
 
-Macro: ROAD
-((
-((ADJ)*{Lookup.majorType == road, Lookup.ProperName != "покрытие"})|
-({Lookup.majorType == road, Lookup.ProperName == "покрытие"})
-)
-(ADJ)?
-)
-
+ Macro: ROAD
+ (
+ (
+ ((ADJ)[0,4]
+ {Lookup.majorType == road, Lookup.ProperName != "покрытие"})
+ |
+ ({Lookup.majorType == road, Lookup.ProperName == "покрытие"})
+ )
+ (ADJ)?
+ )
 
 Rule: FactRoadDestroy // разрушена дорога
  (
