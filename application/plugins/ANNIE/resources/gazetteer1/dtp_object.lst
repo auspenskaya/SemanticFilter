@@ -3,7 +3,6 @@
 колодец:threat_indicator=gulley_manhole_damage
 канализационный люк:threat_indicator=gulley_manhole_damage
 крышка люка:threat_indicator=gulley_manhole_damage
-крышка:threat_indicator=gulley_manhole_damage
 люк:threat_indicator=gulley_manhole_damage
 решетка дождеприемник:threat_indicator=gulley_manhole_damage
 решетка:threat_indicator=gulley_manhole_damage

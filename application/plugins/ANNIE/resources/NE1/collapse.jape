@@ -50,6 +50,7 @@ Rule: Skip
 //смотреть на эти трещины в потолке
  // избегать трещин на стенах
  //затопили подвалы
+ // трещина на стене как бы намекает
 
 (
 (({Token.string == "попытка"})
@@ -62,6 +63,14 @@ Rule: Skip
 ({Token.string == "на"})
 ({Token.string == "потолке"})
 ({Token.string == "напоминают"}))
+|
+(({Token.string == "трещина"})
+({Token.string == "на"})
+({Token.string == "стене"})
+({Token.string == "как"})
+({Token.string == "бы"})
+({Token.string == "намекает"})
+)
 |
 (({Token.string == "смотреть"})
 ({Token.string == "на"})

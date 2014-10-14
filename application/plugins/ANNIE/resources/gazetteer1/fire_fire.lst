@@ -1,5 +1,6 @@
 пожар:ProperName=пожар:threat_indicator=fire
 возгорание:threat_indicator=fire
+загорание:threat_indicator=fire
 огонь:threat_indicator=fire
 смог:threat_indicator=smoke
 задымление:threat_indicator=smoke

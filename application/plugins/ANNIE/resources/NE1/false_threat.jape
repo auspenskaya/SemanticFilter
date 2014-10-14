@@ -1,12 +1,12 @@
 Phase:  False_Threat
-Input:  Morph Threat_RoadAccident Threat_Wildfire Threat_BuildingCollapse Fact_RoadAccident Fact_Wildfire Fact_BuildingCollapse
+Input:  Morph Token Threat_RoadAccident Threat_Wildfire Threat_BuildingCollapse Fact_RoadAccident Fact_Wildfire Fact_BuildingCollapse
 Options: control = appelt
 
 
 Rule: False_Threat
 
 (
-(({Morph.baseForm == "например"})
+((({Morph.baseForm == "например"})|({Morph.baseForm == "не"}) )
 (({Threat_RoadAccident})|
 ({Threat_Wildfire})|
 ({Threat_BuildingCollapse})|
@@ -30,3 +30,21 @@ inputAS.removeAll(bindSet);
 
 }
 
+Rule: False_Threat
+
+((({Threat_RoadAccident})|
+({Threat_BuildingCollapse})|
+({Fact_RoadAccident})|
+({Fact_BuildingCollapse}))
+(
+({Morph.baseForm == "система"})|
+({Token.string == "следует"})
+)
+)
+: bind
+ -->
+{
+gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
+inputAS.removeAll(bindSet);
+
+}

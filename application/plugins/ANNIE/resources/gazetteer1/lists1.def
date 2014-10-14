@@ -26,6 +26,8 @@ fire_soot_on.lst:soot_on
 fire_peat.lst:peat
 fire_trees.lst:trees
 fire_rubbish_adj.lst:rubbish_adj
+fire_clean.lst:clean
+fire_extinguish.lst:extinguish
 collapse_building.lst:building
 collapse_crack.lst:crack
 collapse_being.lst:being

@@ -27,7 +27,6 @@ date_pre
 date
 reldate
 number
-address
 url_pre
 url
 email
@@ -49,3 +48,4 @@ false_threat
 rank
 location
 location_del
+address
