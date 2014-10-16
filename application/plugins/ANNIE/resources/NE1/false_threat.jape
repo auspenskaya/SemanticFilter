@@ -6,7 +6,7 @@ Options: control = appelt
 Rule: False_Threat
 
 (
-((({Morph.baseForm == "например"})|({Morph.baseForm == "не"}) )
+((({Morph.baseForm == "например"})|({Morph.baseForm == "не"})|({Morph.baseForm == "чтобы"}) )
 (({Threat_RoadAccident})|
 ({Threat_Wildfire})|
 ({Threat_BuildingCollapse})|
