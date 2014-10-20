@@ -108,7 +108,20 @@ gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
 outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
 }
 
-
-
+Rule: Skip
+// Ямы на дорогах стали причиной случайного
+(
+(({Token.string == "Ямы"})
+({Token.string == "на"})
+({Token.string == "дорогах"})
+({Token.string == "стали"})
+({Token.string == "причиной"})
+({Token.string == "случайного"}))
+)
+:skip -->
+{
+gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
+inputAS.removeAll(sk);
+}
 
 

@@ -48,3 +48,17 @@ gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
 inputAS.removeAll(bindSet);
 
 }
+
+Rule: False_Threat
+
+(
+(({Token.string == "можно"})|({Token.string == "необходимо"}))
+({Fact_Wildfire})
+)
+: bind
+ -->
+{
+gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
+inputAS.removeAll(bindSet);
+
+}

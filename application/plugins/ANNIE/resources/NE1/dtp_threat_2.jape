@@ -116,6 +116,8 @@ Rule: Flood // 14 затопило мост, дорога подтоплена
 
 // он провалился в канаву
 //вплоть до отсутствия дорожного покрытия
+// проездил с открытым люком
+
 Rule: Skip
 (
 (({Token.string == "неисправным"})
@@ -139,12 +141,11 @@ Rule: Skip
 ({Token.string == "в"})
 ({Token.string == "канаву"}))
 |
-(({Token.string == "вплоть"})
-({Token.string == "до"})
-({Token.string == "отсутствия"})
-({Token.string == "дорожного"})
-({Token.string == "покрытия"}))
-
+(
+(({Morph.baseForm == "проездить"})| ({Morph.baseForm == "ездить"}))
+({Token.string == "с"})
+({Token.string == "открытым"})
+({Token.string == "люком"}))
 )
 :skip -->
 {

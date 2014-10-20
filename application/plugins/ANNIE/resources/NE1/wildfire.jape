@@ -8,6 +8,18 @@ Options: control = appelt
 ({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )[0, 4]
 )
 
+ Macro: ROAD
+ (
+ (
+ (
+ (ADJ)[0,4]
+ {Lookup.majorType == road, Lookup.ProperName != "покрытие"})
+ |
+ ({Lookup.majorType == road, Lookup.ProperName == "покрытие"})
+ )
+ (ADJ)?
+ )
+
 
 Macro: IN_FOREST
 (
@@ -25,17 +37,26 @@ Macro: NEAR
 
 Rule: DryGrass // сухая трава
 (
-({Lookup.majorType == dry})
+(({Lookup.majorType == dry})
 ({Lookup.majorType == grass})
-(IN_FOREST)
+(IN_FOREST))
+|
+((IN_FOREST)
+({Lookup.majorType == dry})
+({Lookup.majorType == grass}))
 )
 :bind -->
 :bind.Threat_Wildfire = {threat_indicator = "dry_grass"}
 
 Rule: DryTrees // сухие деревья
 (
-(({Lookup.majorType == dry})|({Lookup.majorType == rubbish_adj}))
+((({Lookup.majorType == dry})|({Lookup.majorType == rubbish_adj}))
 ({Lookup.majorType == trees})
+(IN_FOREST))
+|
+((IN_FOREST)
+(({Lookup.majorType == dry})|({Lookup.majorType == rubbish_adj}))
+({Lookup.majorType == trees}))
 )
 :bind -->
 :bind.Threat_Wildfire = {threat_indicator = "dry_trees"}
@@ -43,41 +64,61 @@ Rule: DryTrees // сухие деревья
 
 Rule: Rubbish // мусор, намусорили в лесу
 (
-(({Lookup.majorType == rubbish})|({Lookup.majorType == fire_litter_verb}))
-(IN_FOREST)
+((({Lookup.majorType == rubbish})|({Lookup.majorType == fire_litter_verb}))
+(IN_FOREST))
+|
+((IN_FOREST)
+(({Lookup.majorType == rubbish})|({Lookup.majorType == fire_litter_verb})))
 )
 :bind -->
 :bind.Threat_Wildfire = {threat_indicator = "rubbish"}
 
+Rule: Peat //
+(
+(({Lookup.majorType == peat})
+(IN_FOREST))
+|
+(
+(({Morph.baseForm == "забросить"})|
+(({Morph.baseForm == "полость"})({Morph.baseForm == "в"}))|
+({Morph.baseForm == "самовозгорание"}))
+({Lookup.majorType == peat})
+)
+|
+((({Morph.baseForm == "накрыть"})| ({Morph.baseForm == "накрывать"}) )
+({Morph.baseForm == "дым"}))
+)
+:bind -->
+:bind.Threat_Wildfire = {threat_indicator = "peat"}
 
 
 Rule: FactFire
 (
 ((({Lookup.majorType == forest})|({Lookup.majorType == peat}))({Lookup.majorType == burn})) |
 (({Lookup.majorType == burn})(({Lookup.majorType == forest})|({Lookup.majorType == peat}))) | // лес, торф горит
-((({Lookup.majorType == burn})| ({Lookup.majorType == fire}) )(NEAR)) // горит около
+((({Lookup.majorType == burn})| ({Lookup.majorType == fire}) ) (({Morph.baseForm == "на"})(ROAD))? (NEAR) ({Token.orth == upperInitial })) // горит около
 )
 :bind -->
-:bind.Fact_Wildfire = {threat_indicator = "fire"}
+:bind.Fact_Wildfire = {threat_indicator = "fire", rule = "FactFire"}
 
 Rule: FactFire1 // пожар в районе, в лесничестве, под
 (
 ({Lookup.majorType == fire, Lookup.ProperName == "пожар"}):f
-({Token, Token.string == "в"})
-(({Token.orth == upperInitial })
-({Lookup.majorType == region}))
-)
-:bind -->
-:f.Fact_Wildfire = {threat_indicator = "fire"}
-
-Rule: FactFire2 // пожар под
 (
-({Lookup.majorType == fire, Lookup.ProperName == "пожар"}):f
-({Token, Token.string == "под"})
-({Token.orth == upperInitial }) : pl
+((({Token, Token.string == "в"})| ({Token, Token.string == "из"}) )
+(({Token.orth == upperInitial })
+({Lookup.majorType == region})))
+|
+(({Token, Token.string == "под"})
+({Token.orth == upperInitial}))
+|
+(({Token})
+({Lookup.majorType == peat}))
+)
 )
 :bind -->
-:f.Fact_Wildfire = {threat_indicator = "fire"}
+:f.Fact_Wildfire = {threat_indicator = "fire", rule = "FactFire1"}
+
 
 Rule: FactSmoke // огонь, дым в лесу
 (
@@ -126,7 +167,7 @@ Rule: FactFireSoot
 (({Lookup.majorType == soot})({Token, Token.string == "на"})
 ({Lookup.majorType == soot_on, Lookup.ProperName != "дорога" })) |
 (({Lookup.majorType == soot})({Token, Token.string == "на"})
-({Lookup.majorType == soot_on, Lookup.ProperName == "дорога" }) (IN_FOREST) )
+({Lookup.majorType == soot_on, Lookup.ProperName == "дорога" })(IN_FOREST))
 )
 :bind -->
 :bind.Fact_Wildfire = {threat_indicator = "soot"}
@@ -140,19 +181,92 @@ Rule: FactFireBurningSmell
 :bind -->
 :bind.Fact_Wildfire = {threat_indicator = "burning_smell"}
 
+// Для кейса
+Rule: FactFireDanger
+(
+({Morph.baseForm == "класс"})
+({Morph.baseForm == "пожарный"})
+({Morph.baseForm == "опасность"})
+
+)
+:bind -->
+:bind.Fact_Wildfire = {threat_indicator = "fire", rule = "FactFireDanger"}
+
+Rule: FactFireInForest
+(
+(({Morph.baseForm == "лесной"})| ({Morph.baseForm == "торфяной"}) )
+({Lookup.majorType == fire})
+
+
+)
+:bind -->
+:bind.Fact_Wildfire = {threat_indicator = "fire", rule = "FactFireDanger"}
+
+
+Rule: FactFireBurnGrass
+(
+({Lookup.majorType == fire})
+(
+(({Lookup.majorType == dry})({Lookup.majorType == grass}))
+|
+((({Morph.baseForm == "лесной"})|({Morph.baseForm == "торфяной"}))({Morph.baseForm == "подстилка"}))
+)
+)
+:bind -->
+:bind.Fact_Wildfire = {threat_indicator = "fire", rule = "FactFireBurnGrass"}
+
+
+Rule: FactCleanForest
+(
+
+(({Lookup.majorType == clean})
+(((IN_FOREST))|
+({Lookup.majorType == forest})|
+({Lookup.majorType == rubbish})|
+({Morph.baseForm == "сухостой"})
+))
+|
+(({Morph.baseForm == "субботник"})
+(IN_FOREST))
+|
+(({Morph.baseForm == "лесной"})
+({Morph.baseForm == "субботник"}))
+|
+(({Lookup.majorType == fire})
+({Lookup.majorType == extinguish}))
+|
+(({Lookup.majorType == extinguish})
+({Lookup.majorType == fire}))
+)
+:bind -->
+:bind.Fact_Wildfire = {threat_indicator = "clean"}
+
+
+
+
 Rule: Skip
 // леса горят багрянцем
 // сухая ветвь
-(
-(({Token.string == "леса"})
+// кто кинет окурок в лес
+
+((({Token.string == "леса"})
 ({Token.string == "горят"})
 ({Token.string == "багрянцем"}))
 |
-(
-({Token.string == "как"})
+(({Token.string == "медью"})
+({Token.string == "горят"})
+({Token.string == "леса"}))
+|
+(({Token.string == "как"})
 ({Token.string == "сухая"})
-({Token.string == "ветвь"})
-)
+({Token.string == "ветвь"}))
+|
+(({Token.string == "кто"})
+({Token.string == "кинет"})
+({Token.string == "окурок"})
+({Token.string == "в"})
+({Token.string == "лес"}))
+
 )
 :skip
  -->

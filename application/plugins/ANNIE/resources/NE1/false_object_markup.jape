@@ -1,12 +1,20 @@
 Phase:  False_Object_Markup
-Input:  Morph
+Input:  Morph Lookup
 Options: control = appelt
 
 
 Rule: Morph
 
-(({Morph.baseForm == "запрещаться", Morph.mood == "indicative", Morph.person == "person3", Morph.pos == "verb"}))
+(
+({Morph.baseForm == "запрещаться", Morph.mood == "indicative", Morph.person == "person3", Morph.pos == "verb"})
+|
+(({Morph.baseForm == "необходимо"}) ({Morph.pos == "verb", Morph.representation == "infinitive"}))
+|
+(({Morph.baseForm == "необходимо"}) ({Morph.pos == "verb", Morph.representation == "infinitive"}))
+|
+(({Lookup.majorType == burn}) ({Morph.baseForm == "сенник"}))
+)
 : bind
 
  -->
-:bind.False_Object = {rule = "False_Object_Markup"}
+:bind.False_Object = {rule = "False_Object_Markup", threatType = "all"}
