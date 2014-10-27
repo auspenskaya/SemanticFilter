@@ -46,7 +46,7 @@ gate.Annotation typeAnn = (gate.Annotation)typeSet.iterator().next();
 if (locAnn.getFeatures().get("locType").equals(typeAnn.getFeatures().get("baseForm")))
 {
 locAnn.getFeatures().put("type_checked", "true");
-System.out.println("type_checked Loc_type_left");
+//System.out.println("type_checked Loc_type_left");
 }}
 
 /*Rule: Loc_type_left // город справа

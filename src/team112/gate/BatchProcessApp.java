@@ -97,6 +97,7 @@ public class BatchProcessApp {
             JSONObject resultJson = new JSONObject();
             JSONArray ar = new JSONArray();
             JSONArray aPlace = new JSONArray();
+            JSONArray aEntities = new JSONArray();
             Integer rank = 0;
             Boolean rus = false;
             Boolean no_rus = false;
@@ -106,10 +107,10 @@ public class BatchProcessApp {
                 String Type = ann.getType().toString();
                 gate.FeatureMap map = ann.getFeatures();
                 Iterator fit = map.entrySet().iterator();
-
                 Integer StartNode = ann.getStartNode().getOffset().intValue();
                 Integer EndNode = ann.getEndNode().getOffset().intValue();
                 JSONObject address = new JSONObject();
+                JSONObject entities = new JSONObject();
                 JSONObject indicator = new JSONObject();
 
 // цикл добавления адреса
@@ -124,6 +125,20 @@ public class BatchProcessApp {
                     }
                     aPlace.add(address);
                 }
+
+// цикл добавления именованных сущностей
+                if (Type.equals("Object")) {
+                    entities.put("start_node", StartNode);
+                    entities.put("end_node", EndNode);
+                    while (fit.hasNext()) {
+                        Map.Entry thisEntry = (Map.Entry) fit.next();
+                        String getKey = thisEntry.getKey().toString();
+                        String getValue = thisEntry.getValue().toString();
+                        entities.put(getKey, getValue);
+                    }
+                    aEntities.add(entities);
+                }
+
 
 // цикл добавления местоположения
                 if (Type.equals("Loc")) {
@@ -150,8 +165,7 @@ public class BatchProcessApp {
                     }
                     if (!rus.equals(true))no_rus = true;
                     aPlace.add(address);
-//                    System.out.println("Loc rus = " + rus);
-//                    System.out.println("no_rus = " + no_rus);
+
                 }
 
 // цикл для угроз
@@ -207,6 +221,7 @@ public class BatchProcessApp {
                 resultJson.put("indicators", ar);
             }
             resultJson.put("placement", aPlace);
+            resultJson.put("named_entities", aEntities);
 //            System.out.println("rus = " + rus);
 //            System.out.println("no_rus = " + no_rus);
             if (rus.equals(true) &&  no_rus.equals(false)) resultJson.put("russia", true);
