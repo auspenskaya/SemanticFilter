@@ -1,0 +1,31 @@
+{
+   "images" : null,
+   "meta_data" : {
+      "country_name" : "Россия",
+      "message_type" : "0",
+      "accident_rank" : "6",
+      "query_string" : "трещина на стене",
+      "region_name" : null,
+      "author_profile_url" : "http://vk.com/oksanatsykunova",
+      "threat_indicators" : [
+         "crack_in_wall"
+      ],
+      "author_nickname" : "oksanatsykunova",
+      "author_firstname" : "Оксана",
+      "author_fullname" : "Оксана Цыкунова",
+      "author_lastname" : "Цыкунова",
+      "post_created" : "1411372028",
+      "address" : null,
+      "city_name" : "Красноярск",
+      "accident_type" : "threat_buildingcollapse"
+   },
+   "data" : {
+      "source" : "02819675839e4447d75237dbb5d03244",
+      "coordinates" : null,
+      "docs_source" : "vk.com",
+      "text" : "Эт еще что, дома стоят на просадочных грунтах, один дом сдать не могли долго, поскольку после постройки свая просела на 8 см (и говорят трещины на стене образовались), а после такого потопа если грунты замочились - то здания вообще завалятся. Здесь не только на фасадах экономили... На изысканиях видать тоже...",
+      "file" : null,
+      "url" : "http://vk.com/oksanatsykunova/33050",
+      "title" : "Эт еще что, дома стоят на просадочных грунтах, один дом сдать не могли долго, поскольку после постройки свая просела на 8 см (и говорят трещины на стене образовались), а после такого потопа если грунты замочились - то здания вообще завалятся. Здесь н..."
+   }
+}

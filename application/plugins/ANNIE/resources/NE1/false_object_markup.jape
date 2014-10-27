@@ -10,7 +10,7 @@ Rule: Morph
 |
 (({Morph.baseForm == "необходимо"}) ({Morph.pos == "verb", Morph.representation == "infinitive"}))
 |
-(({Morph.baseForm == "необходимо"}) ({Morph.pos == "verb", Morph.representation == "infinitive"}))
+({Morph.baseForm == "игнорировать", Morph.representation == "infinitive"})
 |
 (({Lookup.majorType == burn}) ({Morph.baseForm == "сенник"}))
 )

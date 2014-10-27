@@ -1,0 +1,194 @@
+Phase:  Named_entities
+Input: Token Split Lookup Morph
+Options: control = appelt
+
+Macro: QUOTE
+(
+   ( {Token.kind=="punctuation", Token.string == " \" " } ) |
+   ( {Token.kind=="punctuation", Token.string == " \\\" " } ) |
+
+   (
+      {Token.kind=="symbol",Token.string == "`"}
+      {Token.kind=="symbol",Token.string == "`"}
+   ) |
+   (
+      {Token.kind=="punctuation",Token.string == "'"}
+      {Token.kind=="punctuation",Token.string == "'"}
+   )
+)
+
+MACRO: SINGLEOPENINGQUOTE
+(
+ {Token.kind=="punctuation",Token.string == "'"}|
+ {Token.kind=="symbol",Token.string == "`"}|
+ {Token.kind=="punctuation",Token.string == "«"}
+
+)
+
+Macro: SINGLECLOSINGQUOTE
+(
+ {Token.kind=="punctuation",Token.string == "'"} |
+ {Token.kind=="punctuation",Token.string == "»"}
+)
+
+
+Rule: Object // Гаврильцевские болота
+(
+({Token.orth == upperInitial}) : name
+({Lookup.majorType == aux_object})  : obj
+)
+:pl -->
+{gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
+if (morphSet != null &&  morphSet.size() > 0 ){
+gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
+if (morphAnn.getFeatures().get("pos").toString() == "adjective" )
+{String name = morphAnn.getFeatures().get("baseForm").toString();
+if (name.length()>2){
+gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
+gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
+if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
+gate.Annotation morphobjAnn = (gate.Annotation)morphobj_Set.iterator().next();
+//System.out.println("morphobjAnn " + morphobjAnn);
+String obj = "";
+String obj_gend = morphobjAnn.getFeatures().get("gender").toString();
+if (morphobjAnn.getFeatures().get("multiplicity").toString().equals("singular"))
+{obj = morphobjAnn.getFeatures().get("baseForm").toString();
+String n = name.substring(name.length()-2, name.length());
+if (obj_gend.equals("feminine") &&  ( n.equals("ий") || n.equals("ый")))
+ { name = name.substring(0, name.length()-2) + "ая"; }
+if (obj_gend.equals("neuter") &&  n.equals("ий") )
+ { name = name.substring(0, name.length()-2) + "ое"; }}
+if (morphobjAnn.getFeatures().get("multiplicity").toString().equals("plural"))
+{gate.Annotation objAnn = (gate.Annotation)objSet.iterator().next();
+if (objAnn.getFeatures().get("plur")!= null)
+{obj = objAnn.getFeatures().get("plur").toString();}
+else {obj = morphobjAnn.getFeatures().get("baseForm").toString();}
+String n = name.substring(name.length()-2, name.length());
+if (  n.equals("ый"))  { name = name.substring(0, name.length()-2) + "ые"; }
+if ( n.equals("ий"))  { name = name.substring(0, name.length()-2) + "ие"; }
+}
+String obj_name = name + " " + obj;
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", obj_name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
+}
+}
+}
+}
+}
+
+Rule: Object_inv // лесничество соколовское
+(
+({Lookup.majorType == aux_object})  : obj
+//(({Token.string == " })| ({Token.string == “}))
+ ({Token.orth == upperInitial}) : name
+)
+:pl -->
+{
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
+if (morphSet != null &&  morphSet.size() > 0 ){
+gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
+String name = morphAnn.getFeatures().get("baseForm").toString();
+if (name.length()>2){
+gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
+gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
+if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
+gate.Annotation morphobjAnn = (gate.Annotation)morphobj_Set.iterator().next();
+String obj = "";
+String obj_gend = morphobjAnn.getFeatures().get("gender").toString();
+if (morphobjAnn.getFeatures().get("multiplicity").toString().equals("singular"))
+{
+obj = morphobjAnn.getFeatures().get("baseForm").toString();
+String n = name.substring(name.length()-2, name.length());
+if (obj_gend.equals("feminine") &&  ( n.equals("ий") || n.equals("ый")))
+ { name = name.substring(0, name.length()-2) + "ая"; }
+if (obj_gend.equals("neuter") &&  n.equals("ий") )
+ { name = name.substring(0, name.length()-2) + "ое"; }
+}
+if (morphobjAnn.getFeatures().get("multiplicity").toString().equals("plural"))
+{
+gate.Annotation objAnn = (gate.Annotation)objSet.iterator().next();
+if (objAnn.getFeatures().get("plur")!= null)
+{
+obj = objAnn.getFeatures().get("plur").toString();
+}
+else {
+obj = morphobjAnn.getFeatures().get("baseForm").toString();
+}
+String n = name.substring(name.length()-2, name.length());
+if (  n.equals("ый"))
+  { name = name.substring(0, name.length()-2) + "ые"; }
+if ( n.equals("ий"))
+  { name = name.substring(0, name.length()-2) + "ие"; }
+}
+String obj_name = obj + " " + name;
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", obj_name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
+}
+}
+}
+}
+
+Rule: Object_Quotes // завод «Серп и Молот»
+(
+({Lookup.majorType == aux_object})  : obj
+ (QUOTE | SINGLEOPENINGQUOTE)
+(({Token})[1,10]): name
+(QUOTE | SINGLECLOSINGQUOTE)
+)
+:pl -->
+{
+System.out.println("Object_Quotes");
+gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
+gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
+if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
+System.out.println("name");
+gate.Annotation morphobjAnn = (gate.Annotation)morphobj_Set.iterator().next();
+String obj = morphobjAnn.getFeatures().get("baseForm").toString();
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+String name = "";
+for (Annotation nameAnn:nameSet){
+name = name + nameAnn.getFeatures().get("string").toString() + " ";
+}
+String obj_name = obj + " «" + name + "»";
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", obj_name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
+}
+
+}
+
+Rule: Object_Quotes // кинотеатр "Ударник"
+(
+({Lookup.majorType == aux_object})  : obj
+ ({Token.kind=="punctuation",Token.length == "1"})
+(({Token.orth == "upperInitial"})): name
+({Token.kind=="punctuation",Token.length == "1"})
+)
+:pl -->
+{
+System.out.println("Object_Quotes");
+gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
+gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
+if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
+System.out.println("name");
+gate.Annotation morphobjAnn = (gate.Annotation)morphobj_Set.iterator().next();
+String obj = morphobjAnn.getFeatures().get("baseForm").toString();
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+String name = "";
+for (Annotation nameAnn:nameSet){
+name = name + nameAnn.getFeatures().get("string").toString() + " ";
+}
+String obj_name = obj + " «" + name + "»";
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", obj_name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
+}
+}
