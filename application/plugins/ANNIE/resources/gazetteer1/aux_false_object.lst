@@ -45,3 +45,11 @@
 гречка:threatType=Threat_Wildfire
 кальян:threatType=Threat_Wildfire
 комфортабельный внедорожник:threatType=all
+статистик нарушение:threatType=all
+статистика нарушение:threatType=all
+шизуо:threatType=all
+антирадар:threatType=Threat_RoadAccident
+веломаньяк:threatType=Threat_RoadAccident
+веломанияк:threatType=Threat_RoadAccident
+настоящий велосипедист:threatType=Threat_RoadAccident
+полезный информация:threatType=all

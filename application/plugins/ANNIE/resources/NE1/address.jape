@@ -141,7 +141,7 @@ gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset
 if (morphSet != null &&  morphSet.size() > 0 ){
 gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
 String name = morphAnn.getFeatures().get("baseForm").toString();
-if (name.length()>2){
+if (name.length()>4 && morphAnn.getFeatures().get("pos").equals("adjective")){
 gate.AnnotationSet rSet = (gate.AnnotationSet)bindings.get("r");
 gate.Annotation rAnn = (gate.Annotation)rSet.iterator().next();
 String reg = rAnn.getFeatures().get("ProperName").toString();
@@ -182,7 +182,15 @@ System.out.println("name");
 
 */
 
-/* на перекрестке Ленина-Красноармейская , на перекрестке Рафиева и Есенина
+/*
+Ошибки:
+
+. Из области косяком
+
+ на улице Карла Маркса - оба слова
+ ул. Гагарина - не "улица гагарин"
+  Яма на углу пересечений Победы и Володарского,п
+ на перекрестке Ленина-Красноармейская , на перекрестке Рафиева и Есенина
 На Чигрина – Садовой не работает светофор. ГАИ посылает всех…в горсовет #прикол
 На пересечении Филимонова - Независимости  не работает светофор. Пробка. #minsk
  в Дмитровском муниципальном районе

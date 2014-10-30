@@ -74,7 +74,7 @@ Rule: BadRoad // 10 плохая дорога, дорога очень плох�
 
 Rule: BadObject // 11 неисправный светофор, нет разметки,
 ((({Lookup.majorType == defective})|({Lookup.majorType == lack_for}))  ({Morph.pos == adverb} )?
-(({Lookup.majorType == object, Lookup.threat_indicator != signal_damage}):obj))
+(({Lookup.majorType == object}):obj))
 :bind -->
 {gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
 gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
@@ -86,7 +86,7 @@ inputAS.removeAll(obj);
 }  
 
 Rule: BadObject2 // 12 светофор неисправен
-(((({Lookup.majorType == object, Lookup.threat_indicator != signal_damage}):obj)) ((ADJ))?
+(((({Lookup.majorType == object}):obj)) ((ADJ))?
 (({Lookup.majorType == defective})|({Lookup.majorType == lack_for})))
 :bind -->
 {gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");

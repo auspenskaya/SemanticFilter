@@ -11,3 +11,7 @@
 наб.:ProperName=набережная:short=true:gend=f
 тракт:ProperName=тракт:short=false:gend=m
 трасса:ProperName=трасса:short=false:gend=f
+площадь:ProperName=площадь:short=false:gend=f
+аллея:ProperName=аллея:short=false:gend=f
+проезд:ProperName=проезд:short=false:gend=m
+тупик:ProperName=тупик:short=false:gend=m

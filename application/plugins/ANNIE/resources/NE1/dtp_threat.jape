@@ -111,6 +111,7 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 Rule: Skip
 // Ямы на дорогах стали причиной случайного
 (
+(
 (({Token.string == "Ямы"})
 ({Token.string == "на"})
 ({Token.string == "дорогах"})
@@ -118,10 +119,22 @@ Rule: Skip
 ({Token.string == "причиной"})
 ({Token.string == "случайного"}))
 )
+|
+(
+({Lookup.majorType == hole})
+({Token.string == "на"})
+({Token.string == "дорогом"})
+)
+)
 :skip -->
 {
 gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
 inputAS.removeAll(sk);
 }
 
+/*
 
+2014г. лето. г. Липецк, угол Плеханова-Гагарина. Полгода после капитального ремонта, ужЕ сделан и ямочный ремонт
+(через полгода после капитального ремонта!!!), но на переходе как стояла лужа, так и стоИт - подтекает колодец (крышка сзади девуш
+
+*/
