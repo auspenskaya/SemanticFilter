@@ -32,7 +32,7 @@ Macro: SINGLECLOSINGQUOTE
 )
 
 
-Rule: Object // Гаврильцевские болота
+Rule: Object // Гаврильцевские болота ...
 (
 ({Token.orth == upperInitial}) : name
 ({Lookup.majorType == aux_object})  : obj
@@ -79,7 +79,7 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 }
 }
 
-Rule: Object_inv // лесничество соколовское
+Rule: Object_inv // лесничество соколовско
 (
 ({Lookup.majorType == aux_object})  : obj
 //(({Token.string == " })| ({Token.string == “}))
