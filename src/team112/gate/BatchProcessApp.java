@@ -159,12 +159,12 @@ public class BatchProcessApp {
                             if (getValue.equals("Россия"))
                             {
                                 rus = true;
+                                aPlace.add(address);
 //                                System.out.println("Россия " + rus);
                             }
                         }
                     }
                     if (!rus.equals(true))no_rus = true;
-                    aPlace.add(address);
 
                 }
 

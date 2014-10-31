@@ -79,7 +79,7 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 }
 }
 
-Rule: Object_inv // лесничество соколовско
+Rule: Object_inv // лесничество соколовское
 (
 ({Lookup.majorType == aux_object})  : obj
 //(({Token.string == " })| ({Token.string == “}))
