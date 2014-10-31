@@ -1,0 +1,6 @@
+<?xml version="1.0"?>  
+<CREOLE-DIRECTORY>  
+  <JAR SCAN="true">twitter.jar</JAR>
+  <JAR>lib/jaspell.jar</JAR>
+  <REQUIRES>../Tagger_Stanford</REQUIRES>
+</CREOLE-DIRECTORY> 

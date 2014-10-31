@@ -32,7 +32,7 @@ Macro: SINGLECLOSINGQUOTE
 )
 
 
-Rule: Object // Гаврильцевские болота ...
+Rule: Object // Гаврильцевские болота
 (
 ({Token.orth == upperInitial}) : name
 ({Lookup.majorType == aux_object})  : obj
