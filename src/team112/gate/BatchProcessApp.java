@@ -151,6 +151,12 @@ public class BatchProcessApp {
                         {
                             String getValue = thisEntry.getValue().toString();
                             address.put("view_name", getValue);
+                            if (getValue.equals("Россия"))
+                            {
+                                rus = true;
+                                aPlace.add(address);
+//                                System.out.println("Россия " + rus);
+                            }
                         }
                         if (getKey.equals("Parent")|getKey.equals("PreParent")|getKey.equals("PrePreParent")|getKey.equals("PrePrePreParent") )
                         {
@@ -226,7 +232,6 @@ public class BatchProcessApp {
 //            System.out.println("no_rus = " + no_rus);
             if (rus.equals(true) &&  no_rus.equals(false)) resultJson.put("russia", true);
             if (rus.equals(false) &&  no_rus.equals(true)) resultJson.put("russia", false);
-
             if (resultJson.size() != 0)
                 out.write(resultJson.toString());
 
