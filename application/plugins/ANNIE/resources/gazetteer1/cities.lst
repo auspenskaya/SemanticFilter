@@ -891,8 +891,8 @@
 бяла-подляска:ProperName=Бяла-Подляска:locType=город:region_checked=true:type_checked=true:Parent=Польша
 бяла слатина:ProperName=Бяла Слатина:locType=город:region_checked=true:type_checked=true:Parent=Болгария
 вааса:ProperName=Вааса:locType=город:region_checked=true:type_checked=true:Parent=Финляндия
-ваза:ProperName=Вааса:locType=город:region_checked=true:type_checked=true:Parent=Финляндия
-васа:ProperName=Вааса:locType=город:region_checked=true:type_checked=true:Parent=Финляндия
+ваза:ProperName=Вааса:locType=город:region_checked=false:type_checked=false:Parent=Финляндия
+васа:ProperName=Вааса:locType=город:region_checked=false:type_checked=false:Parent=Финляндия
 муссор:ProperName=Вааса:locType=город:region_checked=true:type_checked=true:Parent=Финляндия
 мустасаари:ProperName=Вааса:locType=город:region_checked=true:type_checked=true:Parent=Финляндия
 николаинкаупунки:ProperName=Вааса:locType=город:region_checked=true:type_checked=true:Parent=Финляндия
@@ -5077,9 +5077,9 @@
 советск:ProperName=Советск:locType=город:region_checked=false:type_checked=false:Parent=Тульская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 советск:ProperName=Советск:locType=город:region_checked=false:type_checked=true:Parent=Тульская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 советская гавань:ProperName=Советская Гавань:locType=город:region_checked=true:type_checked=false:Parent=Хабаровский край:PreParent=Дальневосточный федеральный округ:PrePreParent=Россия
-советский:ProperName=Советский:locType=город:region_checked=true:type_checked=false:Parent=Ханты-Мансийский - Югра автономный округ:PreParent=Уральский федеральный округ:PrePreParent=Россия
-советский:ProperName=Советский (Симферополь):locType=поселок городского типа:region_checked=true:type_checked=true:Parent=Украина
-советский (симферополь):ProperName=Советский (Симферополь):locType=поселок городского типа:region_checked=true:type_checked=true:Parent=Украина
+советский:ProperName=Советский:locType=город:region_checked=false:type_checked=false:Parent=Ханты-Мансийский - Югра автономный округ:PreParent=Уральский федеральный округ:PrePreParent=Россия
+советский:ProperName=Советский (Симферополь):locType=поселок городского типа:region_checked=false:type_checked=false:Parent=Украина
+советский (симферополь):ProperName=Советский (Симферополь):locType=поселок городского типа:region_checked=false:type_checked=false:Parent=Украина
 саданкюле:ProperName=Соданкюля:locType=город:region_checked=true:type_checked=true:Parent=Финляндия
 соданкюле:ProperName=Соданкюля:locType=город:region_checked=true:type_checked=true:Parent=Финляндия
 соданкюля:ProperName=Соданкюля:locType=город:region_checked=true:type_checked=true:Parent=Финляндия
