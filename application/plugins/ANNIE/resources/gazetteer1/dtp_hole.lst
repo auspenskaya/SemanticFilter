@@ -8,6 +8,7 @@
 колдобина:ProperName=колдобина:threat_indicator=hole_on_road
 обвал:ProperName=обвал:threat_indicator=break_on_road
 отверстие:ProperName=отверстие:threat_indicator=hole_on_road
+промоина:ProperName=промоина:threat_indicator=hole_on_road
 провал:ProperName=провал:threat_indicator=break_on_road
 разрушение:ProperName=разрушение:threat_indicator=hole_on_road
 расщелина:ProperName=трещина:threat_indicator=hole_on_road
@@ -17,6 +18,3 @@
 яма:ProperName=яма:threat_indicator=hole_on_road
 ям:ProperName=яма:threat_indicator=hole_on_road
 ямина:ProperName=яма:threat_indicator=hole_on_road
-aахен
-aбакан
-aбаша
