@@ -53,10 +53,15 @@ inputAS.removeAll(obj);
 
 Rule: RoadDestroy // 9 грунт провалился, разрушился асфальт
 (
-(({Lookup.majorType == destroy_verb}) ({Morph.pos == preposition} )?
-(ROAD))|  							 
-(((ROAD)) 
-({Lookup.majorType == destroy_verb}))
+(({Lookup.majorType == destroy_verb})
+ (
+ ({Morph.baseForm == "на"})
+ ({Token.kind == number})
+ (({Morph.baseForm == "метр"}) | ({Morph.baseForm == "метровый"}))
+ )?
+(({Morph.pos == preposition}) | ({Morph.baseForm == "в"}))?(ROAD))
+|
+(((ROAD))({Lookup.majorType == destroy_verb}))
 )
 :bind -->
 :bind.Threat_RoadAccident = {threat_indicator = "hole_on_road"}
