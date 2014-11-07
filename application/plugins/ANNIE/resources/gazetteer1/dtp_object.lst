@@ -8,6 +8,7 @@
 ливневый решетка:threat_indicator=gulley_manhole_damage
 ливневый решетка дождеприемника:threat_indicator=gulley_manhole_damage
 светофор:threat_indicator=signal_damage
+светофорь:threat_indicator=signal_damage
 средства регулирование:threat_indicator=signal_damage
 средство регулирование:threat_indicator=signal_damage
 маяк:threat_indicator=signal_damage
