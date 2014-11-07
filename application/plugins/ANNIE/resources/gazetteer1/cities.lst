@@ -2389,8 +2389,9 @@
 кириллов:ProperName=Кириллов:locType=город:region_checked=true:type_checked=false:Parent=Вологодская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
 кириши:ProperName=Кириши:locType=город:region_checked=true:type_checked=true:Parent=Ленинградская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
 вятка:ProperName=Киров:locType=город:region_checked=false:type_checked=false:Parent=Калужская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
-киров:ProperName=Киров:locType=город:region_checked=false:type_checked=false:Parent=Калужская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
-киров:ProperName=Киров:locType=город:region_checked=false:type_checked=false:Parent=Калужская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
+киров:ProperName=Киров:locType=город:region_checked=true:type_checked=true:Parent=Калужская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
+киров:ProperName=Киров:locType=город:region_checked=true:type_checked=true:Parent=Калужская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
+кирово:ProperName=Киров:locType=город:region_checked=true:type_checked=true:Parent=Калужская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 хлынов:ProperName=Киров:locType=город:region_checked=false:type_checked=false:Parent=Калужская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 кировград:ProperName=Кировград:locType=город:region_checked=true:type_checked=true:Parent=Свердловская область:PreParent=Уральский федеральный округ:PrePreParent=Россия
 кирово-чепецк:ProperName=Кирово-Чепецк:locType=город:region_checked=true:type_checked=true:Parent=Кировская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия
@@ -3927,7 +3928,7 @@
 оребич:ProperName=Оребич:locType=город:region_checked=true:type_checked=true:Parent=Хорватия
 орегон:ProperName=Орегон:locType=штат:region_checked=true:type_checked=true:Parent=США
 орел:ProperName=Орел:locType=город:region_checked=true:type_checked=true:Parent=Орловская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
-оренбург:ProperName=Оренбург:locType=город:region_checked=true:type_checked=false:Parent=Оренбургская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия
+оренбург:ProperName=Оренбург:locType=город:region_checked=true:type_checked=true:Parent=Оренбургская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 чкалов:ProperName=Оренбург:locType=город:region_checked=true:type_checked=false:Parent=Оренбургская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 оренбургская:ProperName=Оренбургская область:locType=область:region_checked=true:type_checked=false:Parent=Приволжский федеральный округ:PreParent=Россия
 оренсе:ProperName=Оренсе:locType=город:region_checked=true:type_checked=true:Parent=Испания
