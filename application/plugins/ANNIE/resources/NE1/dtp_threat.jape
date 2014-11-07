@@ -44,6 +44,11 @@ inputAS.removeAll(hole2);}
 Rule: HoleOnRoad //2 провал грунта,  дыра в асфальте
 (((ADJ) 
  (({Lookup.majorType == hole}):obj)
+ (
+ ({Morph.baseForm == "на"})
+ ({Token.kind == number})
+ (({Morph.baseForm == "метр"}) | ({Morph.baseForm == "метровый"}))
+ )?
 )({Morph.pos == preposition})?(ROAD))		
 :bind -->
 {gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
