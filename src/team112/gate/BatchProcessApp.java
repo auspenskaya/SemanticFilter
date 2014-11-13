@@ -170,7 +170,9 @@ public class BatchProcessApp {
                             }
                         }
                     }
-                    if (!rus.equals(true))no_rus = true;
+                    if (rus.equals(false))
+
+                        no_rus = true;
 
                 }
 
