@@ -1,0 +1,40 @@
+Phase:  NewFacts
+Input: Token Lookup Morph
+Options: control = appelt
+
+
+Rule: Fact_Smog
+(
+(({Lookup.majorType == smell})({Lookup.majorType == burn})) |
+(({Lookup.majorType == burn})({Lookup.majorType == smell}))
+)
+:bind -->
+:bind.Fact_Smog = {threat_indicator = "burning_smell"}
+
+
+Rule: Fact_Smog1
+(
+(({Lookup.majorType == smell}) | ({Morph.baseForm == "выброс"}) | ({Morph.baseForm == "выхлоп"}))({Morph.baseForm == "сероводород"})
+
+)
+:bind -->
+:bind.Fact_Smog = {threat_indicator = "hydrogensulfide"}
+
+
+Rule: Fact_Virus
+(
+(({Morph.baseForm == "вирус"}) |({Morph.baseForm == "лихорадка"}))(({Morph.baseForm == "эбол"})| ({Morph.baseForm == "эбола"}) )
+)
+:bind -->
+:bind.Fact_Virus = {threat_indicator = "ebolavirus"}
+
+
+Rule: Fact_Hurricane
+(
+(({Morph.baseForm == "ураган"}) |({Morph.baseForm == "буря"})|({Morph.baseForm == "смерч"})|({Morph.baseForm == "смерчь"}))
+({Morph.baseForm == "в"})
+(({Morph.baseForm == "крым"})| ({Morph.baseForm == "симферополь"})| ({Morph.baseForm == "севастополь"}) )
+)
+:bind -->
+:bind.Fact_Hurricane = {threat_indicator = "hurricane_сrimea"}
+
