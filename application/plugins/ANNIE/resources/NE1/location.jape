@@ -1,5 +1,5 @@
 Phase:  Location
-Input: Loc Morph
+Input: Loc Morph Token
 Options: control = appelt
 
 Rule: Loc_lower
@@ -32,7 +32,7 @@ locAnn.getFeatures().put("type_checked", "true");
 System.out.println("type_checked Loc_type_right");
 }}
 
-Rule: Loc_type_left // город справа
+Rule: Loc_type_left // город слева
 (
 ({Morph}) : type
 ({Loc, Loc.type_checked == "false"}) : loc
@@ -49,9 +49,23 @@ locAnn.getFeatures().put("type_checked", "true");
 //System.out.println("type_checked Loc_type_left");
 }}
 
+Rule: Piter // имена людей
+(
+({Loc, Loc.ProperName == "Питер (Санкт-Петербург)"}) : loc
+({Token.orth == upperInitial})
+)
+: bind  -->
+{
+gate.AnnotationSet loc = (gate.AnnotationSet)bindings.get("loc");
+inputAS.removeAll(loc);
+}
+
+
+
 /*Rule: Loc_type_left // город справа
 (
 ({Morph}) : type
 ({Loc, Loc.type_checked == "false"}) : loc
 )
 : bind  -->*/
+

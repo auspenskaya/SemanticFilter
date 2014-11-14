@@ -1,6 +1,7 @@
 aux_street.lst:street
 aux_region.lst:region
 aux_object.lst:aux_object
+aux_crossroad.lst:aux_crossroad
 aux_false_object.lst:false_object:::False_Object
 dtp_hole.lst:hole
 dtp_road.lst:road

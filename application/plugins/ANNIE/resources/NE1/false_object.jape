@@ -10,7 +10,7 @@ Rule: False_Object
 ({Threat_BuildingCollapse})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
-({Fact_BuildingCollapse}))+)
+({Fact_BuildingCollapse}))[0,10])
 : bind1
 (({False_Object}))
 : f_obj
@@ -19,7 +19,7 @@ Rule: False_Object
 ({Threat_BuildingCollapse})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
-({Fact_BuildingCollapse}))+)?)
+({Fact_BuildingCollapse}))[0,10])?)
 : bind2
  -->
 {
@@ -55,7 +55,7 @@ Rule: False_Object2
 ({Threat_BuildingCollapse})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
-({Fact_BuildingCollapse}))+)?)
+({Fact_BuildingCollapse}))[0,10])?)
 : bind1
 (({False_Object}))
 : f_obj
@@ -64,11 +64,11 @@ Rule: False_Object2
 ({Threat_BuildingCollapse})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
-({Fact_BuildingCollapse}))+)
+({Fact_BuildingCollapse}))[0,10])
 : bind2
  -->
 {
-
+//System.out.println("False_Object2");
 gate.AnnotationSet falseSet = (gate.AnnotationSet)bindings.get("f_obj");
 gate.Annotation falseAnn = (gate.Annotation)falseSet.iterator().next();
 String threatType = falseAnn.getFeatures().get("threatType").toString();

@@ -15,3 +15,5 @@
 аллея:ProperName=аллея:short=false:gend=f
 проезд:ProperName=проезд:short=false:gend=m
 тупик:ProperName=тупик:short=false:gend=m
+проезжий частить:ProperName=улица:short=false:gend=f
+проезжий часть:ProperName=улица:short=false:gend=f

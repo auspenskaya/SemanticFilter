@@ -53,3 +53,9 @@
 веломанияк:threatType=Threat_RoadAccident
 настоящий велосипедист:threatType=Threat_RoadAccident
 полезный информация:threatType=all
+правило дорожный движение:threatType=Threat_RoadAccident
+активный гражданин:threatType=all
+сообщать о проблема:threatType=all
+техника безопасность:threatType=all
+лермонтов:threatType=all
+пушкин:threatType=all
