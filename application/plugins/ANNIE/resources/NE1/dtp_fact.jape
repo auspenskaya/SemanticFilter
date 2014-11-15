@@ -28,5 +28,5 @@ Rule: FactRoadDestroy // разрушена дорога
 ({Lookup.majorType == defective, Lookup.mess_type == "fact"}))
 )
 :bind -->
-:bind.Fact_RoadAccident = {threat_indicator = "road_destroy"}
+:bind.Threat_RoadAccident = {threat_indicator = "hole_on_road"}
 

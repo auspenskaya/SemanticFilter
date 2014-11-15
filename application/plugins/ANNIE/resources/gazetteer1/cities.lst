@@ -2034,7 +2034,7 @@
 йоркшир:ProperName=Йоркшир:locType=графство:region_checked=true:type_checked=false:Parent=Великобритания
 йосу:ProperName=Йосу:locType=город:region_checked=true:type_checked=true:Parent=Южная Корея
 йоханнесбург:ProperName=Йоханнесбург:locType=город:region_checked=true:type_checked=true:Parent=ЮАР
-йошкар-ола:ProperName=Йошкар-Ола:locType=город:region_checked=true:type_checked=false:Parent=Марий Эл:PreParent=Приволжский федеральный округ:PrePreParent=Россия
+йошкар-ола:ProperName=Йошкар-Ола:locType=город:region_checked=true:type_checked=true:Parent=Марий Эл:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 краснококшайск:ProperName=Йошкар-Ола:locType=город:region_checked=true:type_checked=true:Parent=Марий Эл:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 царевококшайск:ProperName=Йошкар-Ола:locType=город:region_checked=true:type_checked=true:Parent=Марий Эл:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 иоэнсу:ProperName=Йоэнсуу:locType=город:region_checked=true:type_checked=true:Parent=Финляндия
@@ -3593,7 +3593,6 @@
 нефтечала:ProperName=Нефтечала:locType=город:region_checked=true:type_checked=true:Parent=Азербайджан
 нефтеюганск:ProperName=Нефтеюганск:locType=город:region_checked=true:type_checked=true:Parent=Ханты-Мансийский - Югра автономный округ:PreParent=Уральский федеральный округ:PrePreParent=Россия
 нехояшу:ProperName=Нехояшу:locType=город:region_checked=true:type_checked=true:Parent=Румыния
-нея:ProperName=Нея:locType=город:region_checked=true:type_checked=true:Parent=Костромская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 ниагара-фолс:ProperName=Ниагара-Фолс:locType=город:region_checked=false:type_checked=true:Parent=Нью-Йорк:PreParent=США
 нибро:ProperName=Нибро:locType=город:region_checked=true:type_checked=true:Parent=Швеция
 нивель:ProperName=Нивель:locType=город:region_checked=false:type_checked=true:Parent=Бельгия
@@ -4724,7 +4723,7 @@
 санкт-пёльтен:ProperName=Санкт-Пельтен:locType=город:region_checked=true:type_checked=true:Parent=Австрия
 ленинград:ProperName=Санкт-Петербург:locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
 петроград:ProperName=Санкт-Петербург:locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
-питер:ProperName=Санкт-Петербург:locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
+питер:ProperName=Питер (Санкт-Петербург):locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
 санкт-петербург:ProperName=Санкт-Петербург:locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
 сан-лоpенсо:ProperName=Сан-Лоренсо:locType=город:region_checked=true:type_checked=true:Parent=Аргентина
 сан-лоренсо:ProperName=Сан-Лоренсо:locType=город:region_checked=false:type_checked=true:Parent=Аргентина

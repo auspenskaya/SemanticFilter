@@ -1,5 +1,5 @@
 Phase:  Address
-Input: Token Split Lookup Morph
+Input: Token Split Lookup Morph Threat_RoadAccident
 Options: control = appelt
 
 
@@ -160,40 +160,182 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 }
 }
 
-/*
-Rule: Fire // пожар под
+Rule: Region_inv //  микрорайон Такой-то
 (
-({Lookup.majorType == fire, Lookup.ProperName == "пожар"}):f
-({Token, Token.string == "под"})
-({Token.orth == upperInitial }) : pl
+({Lookup.majorType == region})  : r
+({Token.orth == upperInitial}) : name
 )
-:bind -->
-:pl.Placement = {String = "String"}
+:pl -->
+{
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+gate.Annotation nameAnn = (gate.Annotation)nameSet.iterator().next();
+String name = nameAnn.getFeatures().get("string").toString();
+gate.AnnotationSet rSet = (gate.AnnotationSet)bindings.get("r");
+gate.Annotation rAnn = (gate.Annotation)rSet.iterator().next();
+String reg = rAnn.getFeatures().get("ProperName").toString();
+String region_name = reg + " " + name;
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", region_name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 
-Rule: Location
+}
+
+Rule: Viezd // на выезде из
 (
-({Lookup.majorType == location})
+(({Token.string == "выезде"}) | ({Token.string == "въезде"}))
+(({Token.string == "из"}) | ({Token.string == "с"}) | ({Token.string == "от"}) | ({Token.string == "в"}))
+({Token.orth == upperInitial}): name
 )
-:bind -->
-:bind.Placement = {String = "String"}
+:pl -->
+{
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+gate.Annotation nameAnn = (gate.Annotation)nameSet.iterator().next();
+String name = nameAnn.getFeatures().get("string").toString();
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", name);
+outputAS.add(nameSet.firstNode(), nameSet.lastNode(), "Placement", features_pl);
+}
 
-System.out.println("name");
+Rule: Crossroad
+(
+({Lookup.majorType == aux_crossroad}):obj
+((({Lookup.majorType == street, Lookup.short == true}): st ({Token.string == "."})?)| ({Lookup.majorType == street, Lookup.short == false}) )?
+({Token.orth == upperInitial}): first_name
+(({Token.string == "и"})|({Token.string == "-"})|({Token.string == "–"})|({Token.string == "—"})|({Token.string == "/"}))?
+({Token.orth == upperInitial}): second_name
+)
+:pl -->
+{
+gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
+gate.Annotation objAnn = (gate.Annotation)objSet.iterator().next();
+String object = objAnn.getFeatures().get("ProperName").toString();
+gate.AnnotationSet first_nameSet = (gate.AnnotationSet)bindings.get("first_name");
+gate.Annotation first_nameAnn = (gate.Annotation)first_nameSet.iterator().next();
+String first_name = first_nameAnn.getFeatures().get("string").toString();
+gate.AnnotationSet second_nameSet = (gate.AnnotationSet)bindings.get("second_name");
+gate.Annotation second_nameAnn = (gate.Annotation)second_nameSet.iterator().next();
+String second_name = second_nameAnn.getFeatures().get("string").toString();
+String crossroad_name = object + " " + first_name + " и " + second_name;
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", crossroad_name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
+
+}
+
+Rule: Crossroad_oneToken
+(
+(({Lookup.majorType == aux_crossroad})):obj
+((({Lookup.majorType == street, Lookup.short == true}): st ({Token.string == "."})?)| ({Lookup.majorType == street, Lookup.short == false}) )?
+(({Token.orth == upperInitial})|({Token.orth == allCaps})): name
+)
+:pl -->
+{
+gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
+gate.Annotation objAnn = (gate.Annotation)objSet.iterator().next();
+String object = objAnn.getFeatures().get("ProperName").toString();
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+gate.Annotation nameAnn = (gate.Annotation)nameSet.iterator().next();
+String name = nameAnn.getFeatures().get("string").toString();
+char[] ch = name.toCharArray();
+for(int i=0; i<= ch.length-1; i++) {
+String str = String.valueOf(ch[i]);
+if (str.equals("-") | str.equals("–"))
+{
+String crossroad_name = object + " " + name;
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", crossroad_name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
+}
+}
+}
+
+Rule: Crossroad_short
+((
+({Morph.baseForm == "на"})?
+({Token.orth == upperInitial, Token.length > 5}): first_name
+(({Token.string == "-"})|({Token.string == "–"}))?
+({Token.orth == upperInitial}): second_name
+) :pl
+({Token})[0,2]
+({Threat_RoadAccident})
+) :bind
+-->
+{
+gate.AnnotationSet first_nameSet = (gate.AnnotationSet)bindings.get("first_name");
+gate.Annotation first_nameAnn = (gate.Annotation)first_nameSet.iterator().next();
+String first_name = first_nameAnn.getFeatures().get("string").toString();
+gate.AnnotationSet second_nameSet = (gate.AnnotationSet)bindings.get("second_name");
+gate.Annotation second_nameAnn = (gate.Annotation)second_nameSet.iterator().next();
+String second_name = second_nameAnn.getFeatures().get("string").toString();
+String crossroad_name = first_name + " " + second_name;
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", crossroad_name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
+}
+
+Rule: Street_short // на Ленинском сломан светофор
+((
+({Morph.baseForm == "на"})
+({Token.orth == upperInitial}): name
+) :pl
+({Token.kind == word})[0,2]
+({Threat_RoadAccident})
+) :bind
+-->
+{
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+gate.Annotation nameAnn = (gate.Annotation)nameSet.iterator().next();
+String name = nameAnn.getFeatures().get("string").toString();
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
+}
+
+Rule: Street_short_inv //сломан светофор на Ленинском
+(
+({Threat_RoadAccident})
+(
+({Morph.baseForm == "на"})
+({Token.orth == upperInitial}): name
+) :pl
+) :bind
+-->
+{
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+gate.Annotation nameAnn = (gate.Annotation)nameSet.iterator().next();
+String name = nameAnn.getFeatures().get("string").toString();
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
+}
 
 
-*/
 
 /*
 Ошибки:
 
+ гидравлические и электрические лебедки и пр. Эвакуатор с краном-манипулятором - не проспект!!
+
+открытый люк на Буденновском - должно выделяться
+
  на улице Карла Маркса - оба слова
- ул. Гагарина - не "улица гагарин"
-  Яма на углу пересечений Победы и Володарского,п
- на перекрестке Ленина-Красноармейская , на перекрестке Рафиева и Есенина
-На Чигрина – Садовой не работает светофор. ГАИ посылает всех…в горсовет #прикол
-На пересечении Филимонова - Независимости  не работает светофор. Пробка. #minsk
+
+ На проспекте Ленина , ул. Гагарина - не "улица гагарин"
+ на Саетова-К.Маркса,
  в Дмитровском муниципальном районе
  Гусевского городского округа
  Народ, кто ездит по трассе Бурмистрово-Завьялово?
+ Возле бывшего \"Реала\" (сейчас \"Ашан\")
 
+ светофор на Б.Гагарина-Студенческая не работает с самого утра
+ на площади победы (рядом с Багаева, 33) на дороге оторвана крышка ливневки - опасная яма
+
+Новости читателей Машина йошкаролинца чуть не провалилась в люк, запорошенный снегом http://pg12.ru/publicnews/view/455 #йошкарола
 
 */

@@ -90,7 +90,7 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 inputAS.removeAll(obj);
 }  
 
-Rule: BadObject2 // 12 светофор неисправен
+Rule: BadObject2 // 12 светофор неисправен  // Светофор в Набережных Челнах отключили
 (((({Lookup.majorType == object}):obj)) ((ADJ))?
 (({Lookup.majorType == defective})|({Lookup.majorType == lack_for})))
 :bind -->
@@ -151,6 +151,11 @@ Rule: Skip
 ({Token.string == "с"})
 ({Token.string == "открытым"})
 ({Token.string == "люком"}))
+|
+(
+({Token})
+({Token.string == "люк"})
+({Token.string == "танка"}))
 )
 :skip -->
 {

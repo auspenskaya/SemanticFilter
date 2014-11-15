@@ -8,7 +8,7 @@ Rule: Morph
 (
 ({Morph.baseForm == "запрещаться", Morph.mood == "indicative", Morph.person == "person3", Morph.pos == "verb"})
 |
-(({Morph.baseForm == "необходимо"}) ({Morph.pos == "verb", Morph.representation == "infinitive"}))
+(({Morph.baseForm == "необходимо"}) ({Morph.pos == "verb", Morph.representation == "infinitive", Morph.baseForm != "восстанавливать"}))
 |
 ({Morph.baseForm == "игнорировать", Morph.representation == "infinitive"})
 |

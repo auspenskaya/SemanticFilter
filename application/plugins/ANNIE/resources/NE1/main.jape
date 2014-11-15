@@ -42,6 +42,7 @@ dtp_threat_2
 dtp_fact
 wildfire
 collapse
+new_facts
 false_object_markup
 false_object
 false_threat
