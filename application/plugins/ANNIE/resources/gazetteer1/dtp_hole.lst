@@ -6,6 +6,7 @@
 дыра:ProperName=дыра:threat_indicator=hole_on_road
 канава:ProperName=канава:threat_indicator=hole_on_road
 колдобина:ProperName=колдобина:threat_indicator=hole_on_road
+колейность:ProperName=колейность:threat_indicator=hole_on_road
 обвал:ProperName=обвал:threat_indicator=break_on_road
 отверстие:ProperName=отверстие:threat_indicator=hole_on_road
 промоина:ProperName=промоина:threat_indicator=hole_on_road

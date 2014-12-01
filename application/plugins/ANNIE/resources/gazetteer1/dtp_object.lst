@@ -1,6 +1,5 @@
 дождеприемник:threat_indicator=gulley_manhole_damage
 дождеприемный колодец:threat_indicator=gulley_manhole_damage
-колодец:threat_indicator=gulley_manhole_damage
 канализационный люк:threat_indicator=gulley_manhole_damage
 люк:threat_indicator=gulley_manhole_damage
 крышка люка:threat_indicator=gulley_manhole_damage
@@ -9,6 +8,8 @@
 ливневый решетка дождеприемника:threat_indicator=gulley_manhole_damage
 светофор:threat_indicator=signal_damage
 светофорь:threat_indicator=signal_damage
+светофорный объектовый:threat_indicator=signal_damage
+светофорный объект:threat_indicator=signal_damage
 средства регулирование:threat_indicator=signal_damage
 средство регулирование:threat_indicator=signal_damage
 маяк:threat_indicator=signal_damage
@@ -17,6 +18,7 @@
 дорожный разметка:threat_indicator=road_marking_damage
 мост:threat_indicator=bridge_damage
 разметка:threat_indicator=road_marking_damage
+стоп линия:threat_indicator=road_marking_damage
 шлагбаум:threat_indicator=railway_crossing_damage
 сигнальный столбик:threat_indicator=fence_damage
 переезд:threat_indicator=railway_crossing_damage

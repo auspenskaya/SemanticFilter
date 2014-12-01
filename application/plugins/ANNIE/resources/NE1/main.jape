@@ -37,13 +37,14 @@ final
 unknown
 clean
 //check_markup
+false_object_markup
 dtp_threat
 dtp_threat_2
 dtp_fact
 wildfire
-collapse
+collapse_threat
+collapse_fact
 new_facts
-false_object_markup
 false_object
 false_threat
 rank

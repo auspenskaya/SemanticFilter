@@ -60,11 +60,39 @@ Rule: RoadDestroy // 9 грунт провалился, разрушился а�
  (({Morph.baseForm == "метр"}) | ({Morph.baseForm == "метровый"}))
  )?
 (({Morph.pos == preposition}) | ({Morph.baseForm == "в"}))?(ROAD))
-|
-(((ROAD))({Lookup.majorType == destroy_verb}))
 )
 :bind -->
-:bind.Threat_RoadAccident = {threat_indicator = "hole_on_road"}
+:bind.Threat_RoadAccident = {threat_indicator = "hole_on_road", rule = "RoadDestroy" }
+
+
+Rule: RoadDestroy2 // 9 грунт провалился, разрушился асфальт
+(
+(ROAD)
+(({Morph.baseForm == "на"})|({Morph.baseForm == "около"})|(({Morph.baseForm == "рядом"})({Morph.baseForm == "с"}))|({Morph.baseForm == "возле"}))
+({Token.orth == upperInitial, Token.length >3}) : name
+({Lookup.majorType == destroy_verb})
+)
+:bind -->
+{
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("threat_indicator", "hole_on_road");
+gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
+outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
+
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+if (nameSet != null &&  nameSet.size() > 0 ){
+gate.Annotation nameAnn = (gate.Annotation)nameSet.iterator().next();
+String name = nameAnn.getFeatures().get("string").toString();
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", name);
+features_pl.put("rule", "RoadDestroy2");
+outputAS.add(nameSet.firstNode(), nameSet.lastNode(), "Placement", features_pl);
+}
+}
+
+
+
+
 
 Rule: BadRoad // 10 плохая дорога, дорога очень плохая
  (
@@ -79,6 +107,7 @@ Rule: BadRoad // 10 плохая дорога, дорога очень плох�
 
 Rule: BadObject // 11 неисправный светофор, нет разметки,
 ((({Lookup.majorType == defective})|({Lookup.majorType == lack_for}))  ({Morph.pos == adverb} )?
+(({Token.kind == word}) ({Morph.baseForm == "или"}) )?
 (({Lookup.majorType == object}):obj))
 :bind -->
 {gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
@@ -103,9 +132,26 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 inputAS.removeAll(obj);
 }
 
+/*
+Rule: BadObject_znak // знака 1.1.1 нет перед прекрестком
+(
+({Morph.baseForm == "знак"})
+(({Lookup.majorType == defective})|({Lookup.majorType == lack_for}))
+)
+:bind -->
+{
+}
+*/
+
+
+
 Rule: Gulley // 13 открытый дождеприемник
+(
 (({Lookup.majorType == open}) (({Morph.pos == preposition, Morph.baseForm == "на"})(ROAD))? ({Morph.pos == adverb} )?
 (({Lookup.majorType == object, Lookup.threat_indicator == "gulley_manhole_damage" }):obj))
+|
+(({Morph.baseForm == "колесо"})(({Morph.baseForm == "в"})({Lookup.majorType == object, Lookup.threat_indicator == "gulley_manhole_damage" })))
+)
 :bind -->
 :bind.Threat_RoadAccident = {threat_indicator = "gulley_manhole_damage"}
 
@@ -122,6 +168,7 @@ Rule: Flood // 14 затопило мост, дорога подтоплена
 // он провалился в канаву
 //вплоть до отсутствия дорожного покрытия
 // проездил с открытым люком
+// в открытые люки Чугунные пушки
 
 Rule: Skip
 (
@@ -163,5 +210,8 @@ gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
 inputAS.removeAll(sk);
 }
 
+/*
 
+дорожные знаки противоречат друг другу
+*/
 

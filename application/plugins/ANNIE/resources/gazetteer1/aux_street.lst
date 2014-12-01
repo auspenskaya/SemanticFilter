@@ -6,14 +6,15 @@
 пр:ProperName=проспект:short=true:gend=m
 шоссе:ProperName=шоссе:short=false:gend=n
 бульвар:ProperName=бульвар:short=false:gend=m
-бул.:ProperName=бульвар:short=true:gend=m
+бул:ProperName=бульвар:short=true:gend=m
 набережная:ProperName=набережная:short=false:gend=f
-наб.:ProperName=набережная:short=true:gend=f
+наб:ProperName=набережная:short=true:gend=f
 тракт:ProperName=тракт:short=false:gend=m
 трасса:ProperName=трасса:short=false:gend=f
 площадь:ProperName=площадь:short=false:gend=f
+пл:ProperName=площадь:short=true:gend=f
 аллея:ProperName=аллея:short=false:gend=f
 проезд:ProperName=проезд:short=false:gend=m
 тупик:ProperName=тупик:short=false:gend=m
-проезжий частить:ProperName=улица:short=false:gend=f
-проезжий часть:ProperName=улица:short=false:gend=f
+проезжий частить:ProperName=проезжая часть:short=false:gend=f
+проезжий часть:ProperName=проезжая часть:short=false:gend=f

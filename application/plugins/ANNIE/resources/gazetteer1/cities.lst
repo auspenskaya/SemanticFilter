@@ -523,6 +523,7 @@
 великоалексеевка:ProperName=Бахт:locType=город:region_checked=false:type_checked=true:Parent=Узбекистан
 бахчисарай:ProperName=Бахчисарай:locType=город:region_checked=false:type_checked=true:Parent=Украина
 башкортостан:ProperName=Башкортостан:locType=республика:region_checked=true:type_checked=true:Parent=Приволжский федеральный округ:PreParent=Россия
+башкирия:ProperName=Башкортостан:locType=республика:region_checked=true:type_checked=true:Parent=Приволжский федеральный округ:PreParent=Россия
 бая-маре:ProperName=Бая-Маре:locType=город:region_checked=true:type_checked=true:Parent=Румыния
 бая-сприе:ProperName=Бая-Сприне:locType=город:region_checked=true:type_checked=true
 бевервейк:ProperName=Бевервейк:locType=город:region_checked=true:type_checked=true:Parent=Нидерланды
@@ -574,7 +575,7 @@
 белоярский:ProperName=Белоярский:locType=город:region_checked=true:type_checked=true:Parent=Ханты-Мансийский - Югра автономный округ:PreParent=Уральский федеральный округ:PrePreParent=Россия
 белфаст:ProperName=Белфаст:locType=город:region_checked=false:type_checked=false:Parent=Великобритания
 белхатув:ProperName=Белхатув:locType=город:region_checked=true:type_checked=true:Parent=Польша
-белый:ProperName=Белый:locType=город:region_checked=true:type_checked=true:Parent=Тверская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
+белый:ProperName=Белый:locType=город:region_checked=false:type_checked=false:Parent=Тверская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 белыничи:ProperName=Белыничи:locType=город:region_checked=true:type_checked=true:Parent=Беларусь
 белыничи:ProperName=Белыничи:locType=город:region_checked=true:type_checked=true:Parent=Беларусь
 бельгия:ProperName=Бельгия:locType=страна:region_checked=true:type_checked=true
@@ -1617,8 +1618,29 @@
 донауэшинген:ProperName=Донауэшинген:locType=город:region_checked=true:type_checked=true:Parent=Германия
 дондушень:ProperName=Дондушень:locType=город:region_checked=true:type_checked=true
 дондюшани:ProperName=Дондушень:locType=город:region_checked=true:type_checked=true
+донецк:ProperName=Донецк:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+мариуполь:ProperName=Мариуполь:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+макеевка:ProperName=Макеевка:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+горловка:ProperName=Горловка:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+краматорск:ProperName=Краматорск:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+енакиево:ProperName=Енакиево:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+славянск:ProperName=Славянск:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+харцызск:ProperName=Харцызск:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+ясиноватая:ProperName=Ясиноватая:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+артёмовск:ProperName=Артёмовск:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+торез:ProperName=Торез:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+константиновка:ProperName=Константиновка:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+дзержинск:ProperName=Дзержинск:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+красноармейск:ProperName=Красноармейск:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+снежное:ProperName=Снежное:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+дружковка:ProperName=Дружковка:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+доброполье:ProperName=Доброполье:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+шахтёрск:ProperName=Шахтёрск:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+селидово:ProperName=Селидово:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+димитров:ProperName=Димитров:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+дебальцево:ProperName=Дебальцево:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+красный лиман:ProperName=Красный Лиман:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
 донецк:ProperName=Донецк:locType=город:region_checked=false:type_checked=true:Parent=Ростовская область:PreParent=Южный федеральный округ:PrePreParent=Россия
-донецк:ProperName=Донецк:locType=город:region_checked=true:type_checked=true:Parent=Ростовская область:PreParent=Южный федеральный округ:PrePreParent=Россия
 днр:ProperName=Донецкая Народная Республика:locType=народная республика:region_checked=:type_checked=
 донецкая:ProperName=Донецкая Народная Республика:locType=народная республика:region_checked=:type_checked=false
 донецкая народная республика :ProperName=Донецкая Народная Республика:locType=народная республика:region_checked=:type_checked=
@@ -2558,7 +2580,7 @@
 корнер-брук:ProperName=Корнер-Брук:locType=город:region_checked=true:type_checked=true:Parent=Канада
 крэнбрук:ProperName=Корнер-Брук:locType=город:region_checked=true:type_checked=true:Parent=Канада
 королев:ProperName=Королев:locType=город:region_checked=true:type_checked=false:Parent=Московская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
-короча:ProperName=Короча:locType=город:region_checked=true:type_checked=true:Parent=Белгородская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
+короча:ProperName=Короча:locType=город:region_checked=false:type_checked=false:Parent=Белгородская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 корриентес:ProperName=Корриентес:locType=город:region_checked=true:type_checked=true:Parent=Аргентина
 корсаков:ProperName=Корсаков:locType=город:region_checked=true:type_checked=false:Parent=Сахалинская область:PreParent=Дальневосточный федеральный округ:PrePreParent=Россия
 корсунь:ProperName=Корсунь-Шевченк:locType=город:region_checked=true:type_checked=true:Parent=Украина
@@ -2584,7 +2606,7 @@
 костерево:ProperName=Костерево:locType=город:region_checked=true:type_checked=true:Parent=Владимирская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 костешты:ProperName=Костешты:locType=город:region_checked=true:type_checked=true:Parent=Румыния
 костомукша:ProperName=Костомукша:locType=город:region_checked=true:type_checked=true:Parent=Карелия:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
-кострома:ProperName=Кострома:locType=город:region_checked=true:type_checked=false:Parent=Костромская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
+кострома:ProperName=Кострома:locType=город:region_checked=true:type_checked=true:Parent=Костромская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 костромская:ProperName=Костромская область:locType=область:region_checked=true:type_checked=false:Parent=Центральный федеральный округ:PreParent=Россия
 костюковичи:ProperName=Костюковичи:locType=город:region_checked=true:type_checked=true:Parent=Беларусь
 костюковичи:ProperName=Костюковичи:locType=город:region_checked=true:type_checked=true:Parent=Беларусь
@@ -3037,6 +3059,15 @@
 лугано:ProperName=Лугано:locType=город:region_checked=true:type_checked=true:Parent=Швейцария
 ворошилов град:ProperName=Луганск:locType=город:region_checked=true:type_checked=true:Parent=Украина
 луганск:ProperName=Луганск:locType=город:region_checked=true:type_checked=true:Parent=Украина
+алчевск:ProperName=Алчевск:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+антрацит:ProperName=Антрацит:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+северодонецк:ProperName=Северодонецк:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+красный луч:ProperName=Красный Луч:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+лисичанск:ProperName=Лисичанск:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+ровеньки:ProperName=Ровеньки:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+рубежное:ProperName=Рубежное:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+свердловск:ProperName=Свердловск:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
+стаханов:ProperName=Стаханов:locType=город:region_checked=true:type_checked=true:Parent=Донецкая область:PreParent=Украина
 лнр:ProperName=Луганская Народная Республика:locType=народная республика:region_checked=:type_checked=
 луганская:ProperName=Луганская Народная Республика:locType=народная республика:region_checked=:type_checked=false
 луганская народная республика:ProperName=Луганская Народная Республика:locType=народная республика:region_checked=:type_checked=
@@ -4784,7 +4815,7 @@
 сарапул:ProperName=Сарапул:locType=город:region_checked=true:type_checked=true:Parent=Удмуртия:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 гура-курудер:ProperName=Сарата:locType=поселок городского типа:region_checked=true:type_checked=true:Parent=Украина
 сарата:ProperName=Сарата:locType=поселок городского типа:region_checked=true:type_checked=true:Parent=Украина
-саратов:ProperName=Саратов:locType=город:region_checked=true:type_checked=false:Parent=Саратовская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия
+саратов:ProperName=Саратов:locType=город:region_checked=true:type_checked=true:Parent=Саратовская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 саратовская:ProperName=Саратовская область:locType=область:region_checked=true:type_checked=false:Parent=Приволжский федеральный округ:PreParent=Россия
 сардоба:ProperName=Сардоба:locType=поселок городского типа:region_checked=true:type_checked=true:Parent=Узбекистан
 сариассия:ProperName=Сариассия:locType=поселок городского типа:region_checked=true:type_checked=true:Parent=Узбекистан
@@ -6187,6 +6218,7 @@
 чаусы:ProperName=Чаусы:locType=город:region_checked=true:type_checked=true:Parent=Беларусь
 чебаркуль:ProperName=Чебаркуль:locType=город:region_checked=true:type_checked=false:Parent=Челябинская область:PreParent=Уральский федеральный округ:PrePreParent=Россия
 чебоксары:ProperName=Чебоксары:locType=город:region_checked=true:type_checked=true:Parent=Чувашия:PreParent=Приволжский федеральный округ:PrePreParent=Россия
+уфа:ProperName=Уфа:locType=город:region_checked=true:type_checked=true:Parent=Башкортостан:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 чеджу:ProperName=Чеджу:locType=город:region_checked=true:type_checked=true:Parent=Южная Корея
 чекалин:ProperName=Чекалин:locType=город:region_checked=true:type_checked=false:Parent=Тульская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 челек:ProperName=Челек:locType=город:region_checked=true:type_checked=true:Parent=Узбекистан

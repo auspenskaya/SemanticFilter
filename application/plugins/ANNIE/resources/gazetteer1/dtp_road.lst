@@ -11,7 +11,9 @@
 покрытие:ProperName=покрытие
 покрытие на дорога:ProperName=дорожное покрытие
 автотрасса:ProperName=автотрасса
+мост:ProperName=мост
 автострада:ProperName=автострада
+автодорога:ProperName=автодорога
 асфальт:ProperName=асфальт
 грунт:ProperName=грунт
 проспект:ProperName=проспект

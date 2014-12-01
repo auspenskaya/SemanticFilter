@@ -49,7 +49,7 @@ Rule: HoleOnRoad //2 провал грунта,  дыра в асфальте
  ({Token.kind == number})
  (({Morph.baseForm == "метр"}) | ({Morph.baseForm == "метровый"}))
  )?
-)({Morph.pos == preposition})?(ROAD))		
+)(({Morph.pos == preposition}) | ({Morph.baseForm == "на"}) )?(ROAD))
 :bind -->
 {gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
 gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
@@ -76,7 +76,7 @@ inputAS.removeAll(obj);
 }  
 
 Rule: RideInHole 		//4  влететь в яму
-(({Lookup.majorType == ridein_verb})({Morph.pos == preposition} )   
+(({Lookup.majorType == ridein_verb})({Morph.pos == preposition} )
 (ADJ)(({Lookup.majorType == hole}):obj))
 :bind -->
 {gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
@@ -86,7 +86,24 @@ features.put("threat_indicator", objAnn.getFeatures().get("threat_indicator"));
 gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
 outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
 inputAS.removeAll(obj);
-}   
+}
+
+Rule: RideInHole_inv 		//4  влететь в яму
+(
+({Morph.pos == preposition} )
+(ADJ)
+(({Lookup.majorType == hole}):obj)
+(({Lookup.majorType == ridein_verb}) | ({Lookup.majorType == destroy_verb}))
+)
+:bind -->
+{gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
+gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("threat_indicator", objAnn.getFeatures().get("threat_indicator"));
+gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
+outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
+inputAS.removeAll(obj);
+}
 
 Rule: RideInObject // 5 налететь на объект
 (({Lookup.majorType == ridein_verb})({Morph.pos == preposition} )

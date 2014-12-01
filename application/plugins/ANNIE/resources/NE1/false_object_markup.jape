@@ -8,13 +8,30 @@ Rule: Morph
 (
 ({Morph.baseForm == "запрещаться", Morph.mood == "indicative", Morph.person == "person3", Morph.pos == "verb"})
 |
-(({Morph.baseForm == "необходимо"}) ({Morph.pos == "verb", Morph.representation == "infinitive", Morph.baseForm != "восстанавливать"}))
+(({Morph.baseForm == "необходимо"}) ({Morph.pos == "verb", Morph.representation == "infinitive", Morph.baseForm != "восстанавливать", Morph.baseForm != "ремонтировать", Morph.baseForm != "закрывать" }))
 |
 ({Morph.baseForm == "игнорировать", Morph.representation == "infinitive"})
 |
 (({Lookup.majorType == burn}) ({Morph.baseForm == "сенник"}))
+
+|
+(({Token.kind == number}) ({Morph.baseForm == "совет"}))
+
+
 )
 : bind
 
  -->
 :bind.False_Object = {rule = "False_Object_Markup", threatType = "all"}
+
+
+Rule: Road_sign
+(
+({Morph.baseForm == "знак"})
+({Token.string == ","})?
+(({Morph.baseForm == "разрешающий"}) |({Morph.baseForm == "разрешать"}) |({Morph.baseForm == "запрещающий"})|({Morph.baseForm == "запрещать"}))
+({Morph.baseForm == "движение"})
+)
+: bind
+ -->
+:bind.Lookup = {majorType = "object", threat_indicator = "road_sign_damage"}

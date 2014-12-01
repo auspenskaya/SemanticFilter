@@ -5,12 +5,18 @@ Options: control = appelt
 Macro: QUOTE
 (
    ( {Token.kind=="punctuation", Token.string == " \" " } ) |
-   ( {Token.kind=="punctuation", Token.string == " \\\" " } ) |
+   ( {Token.kind=="punctuation", Token.string == " \\\\\" " } ) |
 
+  (
+      {Token.kind=="symbol",Token.string == " \" "}
+      {Token.kind=="symbol",Token.string == " '\' "}
+   )
+   |
    (
       {Token.kind=="symbol",Token.string == "`"}
       {Token.kind=="symbol",Token.string == "`"}
-   ) |
+   )
+   |
    (
       {Token.kind=="punctuation",Token.string == "'"}
       {Token.kind=="punctuation",Token.string == "'"}
@@ -38,19 +44,21 @@ Rule: Object // Гаврильцевские болота
 ({Lookup.majorType == aux_object})  : obj
 )
 :pl -->
-{gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
-gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
-if (morphSet != null &&  morphSet.size() > 0 ){
-gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
-if (morphAnn.getFeatures().get("pos").toString() == "adjective" )
-{String name = morphAnn.getFeatures().get("baseForm").toString();
-if (name.length()>2){
+{
+String obj = "";
+String name = "";
 gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
+gate.Annotation objLookupAnn = (gate.Annotation)objSet.iterator().next();
 gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
 if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
 gate.Annotation morphobjAnn = (gate.Annotation)morphobj_Set.iterator().next();
-//System.out.println("morphobjAnn " + morphobjAnn);
-String obj = "";
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
+if (morphSet != null &&  morphSet.size() > 0 ){
+gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
+if (morphAnn.getFeatures().get("pos").toString().equals("adjective") )
+{name = morphAnn.getFeatures().get("baseForm").toString();
+if (name.length()>2){
 String obj_gend = morphobjAnn.getFeatures().get("gender").toString();
 if (morphobjAnn.getFeatures().get("multiplicity").toString().equals("singular"))
 {obj = morphobjAnn.getFeatures().get("baseForm").toString();
@@ -67,7 +75,7 @@ else {obj = morphobjAnn.getFeatures().get("baseForm").toString();}
 String n = name.substring(name.length()-2, name.length());
 if (  n.equals("ый"))  { name = name.substring(0, name.length()-2) + "ые"; }
 if ( n.equals("ий"))  { name = name.substring(0, name.length()-2) + "ие"; }
-}
+}}
 String obj_name = name + " " + obj;
 gate.FeatureMap features_pl = Factory.newFeatureMap();
 features_pl.put("view_name", obj_name);
@@ -75,19 +83,27 @@ features_pl.put("rule", "Object");
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 }
-}
-}
-}
-}
+if (morphAnn.getFeatures().get("pos").toString().equals("substantive") && objLookupAnn.getFeatures().get("non_adj").toString().equals("true"))
+{name = morphAnn.getFeatures().get("baseForm").toString();
+ if (name.length()>2){
+obj = morphobjAnn.getFeatures().get("baseForm").toString();}
+String obj_name = name + " " + obj;
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", obj_name);
+features_pl.put("rule", "Object");
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
+}}}}
 
-Rule: Object_inv // лесничество соколовское
+Rule: Object_inv // лесничество Соколовское
 (
 ({Lookup.majorType == aux_object})  : obj
-//(({Token.string == " })| ({Token.string == “}))
  ({Token.orth == upperInitial}) : name
 )
 :pl -->
 {
+//System.out.println("Object_inv" );
+
 gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
 gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
 if (morphSet != null &&  morphSet.size() > 0 ){
@@ -131,9 +147,8 @@ features_pl.put("view_name", obj_name);
 features_pl.put("rule", "Object_inv");
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
-}
-}
-}
+}}}
+
 }
 
 Rule: Object_Quotes // завод «Серп и Молот»
@@ -145,7 +160,6 @@ Rule: Object_Quotes // завод «Серп и Молот»
 )
 :pl -->
 {
-System.out.println("Object_Quotes");
 gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
 gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
 if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
@@ -169,17 +183,15 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 Rule: Object_BadQuotes // кинотеатр "Ударник"
 (
 ({Lookup.majorType == aux_object})  : obj
- ({Token.kind=="punctuation",Token.length == "1"})
-(({Token.orth == "upperInitial"})): name
-({Token.kind=="punctuation",Token.length == "1"})
+ ({Token.kind=="punctuation",Token.length == "1"})[1,2]
+(({Token.orth == upperInitial})): name
+({Token.kind=="punctuation",Token.length == "1"})[1,2]
 )
 :pl -->
 {
-System.out.println("Object_Quotes");
 gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
 gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
 if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
-System.out.println("name");
 gate.Annotation morphobjAnn = (gate.Annotation)morphobj_Set.iterator().next();
 String obj = morphobjAnn.getFeatures().get("baseForm").toString();
 gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
@@ -201,10 +213,10 @@ Rule: Object_Quotes_AndDTP
 (({Morph.baseForm == "на"})|({Morph.baseForm == "возле"})|({Morph.baseForm == "около"})|({Morph.baseForm == "у"}) |({Morph.baseForm == "с"}))
 ({Token.kind == word})[0,3]
 ({Token.kind=="punctuation",Token.length == "1"})
-(({Token.orth == upperInitial}) | ({Token.orth == allCaps})  ): name
+(({Token.orth == upperInitial}) | ({Token.orth == allCaps})): name
 ({Token.kind=="punctuation",Token.length == "1"})
 ) :pl
-({Token})[0,10]
+({Token})[0,3]
 ({Threat_RoadAccident})
 ) :bind
 -->
@@ -216,7 +228,7 @@ gate.Annotation morphnameAnn = (gate.Annotation)morphname_Set.iterator().next();
 String name = morphnameAnn.getFeatures().get("baseForm").toString();
 gate.FeatureMap features_pl = Factory.newFeatureMap();
 features_pl.put("view_name", name);
-features_pl.put("rule", "Object_AndDTP");
+features_pl.put("rule", "Object_Quotes_AndDTP");
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 }}
@@ -244,19 +256,37 @@ gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 }}
 
-/*Rule: Object_WithNumber
+
+Rule: Object_WithNumber
 
 (
 ({Lookup.majorType == aux_object}) : obj
 (({Token.string == "№"}) | ({Morph.baseForm == "номер"}))
-(Token.kind == "number") : numb
+({Token.kind == "number"}) : numb
 )
 :bind
 -->
 {
-
+gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
+gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
+if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
+gate.Annotation morphobjAnn = (gate.Annotation)morphobj_Set.iterator().next();
+String obj = morphobjAnn.getFeatures().get("baseForm").toString();
+gate.AnnotationSet numbSet = (gate.AnnotationSet)bindings.get("numb");
+gate.Annotation numbAnn = (gate.Annotation)numbSet.iterator().next();
+String number = numbAnn.getFeatures().get("string").toString();
+String name = obj + " № " +  number;
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", name);
+features_pl.put("rule", "Object_WithNumber");
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("bind");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 }
+}
+
+
+
+/* Rule: Metro добавить На перекрестке около м. Приморская снова не работают светофоры.
+По маршруту 42 троллейбуса
+
 */
-
-
-// Rule: Metro добавить На перекрестке около м. Приморская снова не работают светофоры.

@@ -1,4 +1,3 @@
-анекдот:threatType=all
 смысл жизнь:threatType=all
 чакра:threatType=all
 садовод:threatType=all
@@ -54,8 +53,11 @@
 настоящий велосипедист:threatType=Threat_RoadAccident
 полезный информация:threatType=all
 правило дорожный движение:threatType=Threat_RoadAccident
+профилактический работа:threatType=all
 активный гражданин:threatType=all
 сообщать о проблема:threatType=all
-техника безопасность:threatType=all
 лермонтов:threatType=all
 пушкин:threatType=all
+чугунный пушка:threatType=all
+чугунный пушок:threatType=all
+отправлять жалоба:threatType=all
