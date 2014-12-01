@@ -6,7 +6,7 @@ Options: control = all
 Rule: Address_inv
 (
 
-({Token.orth == upperInitial, Token.length >3}): name
+({Token.orth == upperInitial, Token.length >3, Token.string != "Твои", Token.string != "Твоя"}): name
 ({Lookup.majorType == street, Lookup.ProperName != "проезжая часть"}): st
 )
 : bind  -->

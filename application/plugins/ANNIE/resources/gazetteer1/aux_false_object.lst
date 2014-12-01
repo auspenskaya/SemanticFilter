@@ -61,3 +61,13 @@
 чугунный пушка:threatType=all
 чугунный пушок:threatType=all
 отправлять жалоба:threatType=all
+вы мочь отсуживать:threatType=all
+люк чердачный:threatType=Threat_RoadAccident
+мобильный приложение:threatType=Threat_RoadAccident
+православие:threatType=all
+дорожный фонд:threatType=Threat_RoadAccident
+Chocolate:threatType=all
+танк:threatType=Threat_RoadAccident
+лодка:threatType=Threat_RoadAccident
+катамаран:threatType=Threat_RoadAccident
+яхта:threatType=Threat_RoadAccident

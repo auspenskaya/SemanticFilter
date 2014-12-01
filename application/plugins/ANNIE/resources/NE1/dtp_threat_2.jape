@@ -181,11 +181,14 @@ Rule: Skip
 ({Token.string == "светофора"}))
 |
 (
-({Token.string == "открыли"})?
+({Token.kikd == "word"})?
 ({Token.string == "люк"})
+( ({Morph.baseForm == "шлюзовый"})
+|
 (({Token.string == "космодесантного"})|({Token.string == "бота"})|
 (({Token.string == "в"})
 ({Token.string == "доме"})))
+)
  )
 |
 (({Token.string == "он"})

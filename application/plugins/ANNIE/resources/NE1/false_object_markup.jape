@@ -35,3 +35,4 @@ Rule: Road_sign
 : bind
  -->
 :bind.Lookup = {majorType = "object", threat_indicator = "road_sign_damage"}
+

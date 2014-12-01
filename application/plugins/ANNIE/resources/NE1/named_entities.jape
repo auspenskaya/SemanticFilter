@@ -236,7 +236,7 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 Rule: Object_AndDTP
 ((
 (({Morph.baseForm == "на"})|({Morph.baseForm == "возле"})|({Morph.baseForm == "около"})|({Morph.baseForm == "у"}) |({Morph.baseForm == "с"}))
-({Token.kind=="punctuation",Token.length == "1"})?
+({Token.kind=="punctuation",Token.length == "1", Token.string != "."})?
 (({Token.orth == upperInitial}) | ({Token.orth == allCaps})  ): name
 ({Token.kind=="punctuation",Token.length == "1"})?
 ) :pl

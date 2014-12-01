@@ -1,6 +1,6 @@
 Phase:  False_Object
 Input:  False_Object Threat_RoadAccident Threat_Wildfire Threat_BuildingCollapse Fact_RoadAccident Fact_Wildfire Fact_BuildingCollapse
-Options: control = appelt
+Options: control = all
 
 
 Rule: False_Object
