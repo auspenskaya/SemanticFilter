@@ -150,18 +150,24 @@ public class BatchProcessApp {
                         if (getKey.equals("ProperName"))
                         {
                             String getValue = thisEntry.getValue().toString();
-                            address.put("view_name", getValue);
+                            if (!getValue.equals("Россия") && !getValue.equals("Украина")) {
+                                address.put("view_name", getValue);
+                            }
                             if (getValue.equals("Россия"))
                             {
                                 rus = true;
-                                aPlace.add(address);
-//                                System.out.println("Россия " + rus);
+                                //aPlace.add(address);
+                            }
+                            if (getValue.equals("Украина"))
+                            {
+                                rus = false;
+                                //false);
                             }
                         }
                         if (getKey.equals("Parent")|getKey.equals("PreParent")|getKey.equals("PrePreParent")|getKey.equals("PrePrePreParent") )
                         {
                             String getValue = thisEntry.getValue().toString();
-//                            System.out.println("Parent getValue " + getValue);
+                              address.put(getKey, getValue);
                             if (getValue.equals("Россия"))
                             {
                                 rus = true;
@@ -173,7 +179,7 @@ public class BatchProcessApp {
                     if (rus.equals(false))
 
                         no_rus = true;
-
+                        aPlace.add(address);
                 }
 
 // цикл для угроз
