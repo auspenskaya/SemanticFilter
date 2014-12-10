@@ -6,6 +6,7 @@ Options: control = all
 Rule: Address_inv
 (
 
+
 ({Token.orth == upperInitial, Token.length >3, Token.string != "Твои", Token.string != "Твоя"}): name
 ({Lookup.majorType == street, Lookup.ProperName != "проезжая часть"}): st
 )
@@ -194,7 +195,7 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 
 Rule: Viezd // на выезде из
 (
-(({Morph.baseForm == "выезд"}) | ({Morph.baseForm == "въезд"})| ({Morph.baseForm == "поворот"}))
+(({Morph.baseForm == "выезд"}) | ({Morph.baseForm == "въезд"})| ({Morph.baseForm == "поворот"})| ({Morph.baseForm == "кольцо"}))
 (({Token.string == "из"}) | ({Token.string == "с"}) | ({Token.string == "от"}) | ({Token.string == "в"}))
 ({Token.orth == upperInitial, Token.length >3}): name
 )
@@ -211,9 +212,10 @@ outputAS.add(nameSet.firstNode(), nameSet.lastNode(), "Placement", features_pl);
 Rule: Crossroad // перекресток Молодежной и Ульянова
 (
 ({Lookup.majorType == aux_crossroad}):obj
-((({Lookup.majorType == street, Lookup.short == true}): st ({Token.string == "."})?)| ({Lookup.majorType == street, Lookup.short == false}) )?
+((({Lookup.majorType == street, Lookup.short == true}) ({Token.string == "."})?)| ({Lookup.majorType == street, Lookup.short == false}) )?
 ({Token.orth == upperInitial, Token.length >3}): first_name
 (({Token.string == "и"})|({Token.string == "-"})|({Token.string == "–"})|({Token.string == "—"})|({Token.string == "/"}))?
+((({Lookup.majorType == street, Lookup.short == true}) ({Token.string == "."})?)| ({Lookup.majorType == street, Lookup.short == false}) )?
 ({Token.orth == upperInitial, Token.length >3}): second_name
 )
 :pl -->
@@ -294,7 +296,7 @@ Rule: Crossroad_short
 ({Morph.baseForm == "на"})?
 ({Token.orth == upperInitial, Token.length > 5}): first_name
 (({Token.string == "-"})|({Token.string == "–"})|({Token.string == "/"})|({Token.string == "и"}))?
-({Token.orth == upperInitial, Token.length >3}): second_name
+({Token.orth == upperInitial, Token.length >3, Token.string != "Ольга"}): second_name
 ) :pl
 ({Token})[0,1]
 ({Threat_RoadAccident})
@@ -314,10 +316,34 @@ gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 }
 
-Rule: Crossroad_in
+Rule: Street_Oktiabria
+(
+(
+({Token.kind == number}) : numb
+(({Token.string == "-"})|({Token.string == "–"}))?
+(({Morph.baseForm == "лет"}) | ({Morph.baseForm == "летa"}) | ({Morph.baseForm == "год"})| ({Morph.baseForm == "лето"})| ({Morph.baseForm == "летие"}) )
+({Morph.baseForm == "октябрь"})
+) :pl
+({Token})[0,1]
+({Threat_RoadAccident})
+) :bind
+-->
+{
+gate.AnnotationSet numbSet = (gate.AnnotationSet)bindings.get("numb");
+gate.Annotation numbAnn = (gate.Annotation)numbSet.iterator().next();
+String numb = numbAnn.getFeatures().get("string").toString();
+String street_name = numb + "- летия Октября ";
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", street_name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
+}
+
+
+Rule: Crossroad_in // перекресток в Ростове
 (
 (({Lookup.majorType == aux_crossroad}) | ({Lookup.majorType == street, Lookup.short == false}))
-({Morph.baseForm == "в"})
+(({Morph.baseForm == "в"}) | ({Morph.baseForm == "с"}))
 ({Token.orth == upperInitial, Token.length >3}): name
 ):bind
 -->
@@ -467,6 +493,13 @@ gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 }
 
+Rule: MKAD // мкад
+(
+({Morph.baseForm == "мкад"})
+) : bind
+
+-->
+:bind.Placement = {view_name = "МКАД"}
 
 /*
 Ошибки:

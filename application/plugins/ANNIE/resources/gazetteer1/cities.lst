@@ -1512,7 +1512,7 @@
 делфзейл:ProperName=Делфзейл:locType=город:region_checked=true:type_checked=true:Parent=Нидерланды
 делфт:ProperName=Делфт:locType=город:region_checked=true:type_checked=true:Parent=Нидерланды
 дембица:ProperName=Дембица:locType=город:region_checked=true:type_checked=true:Parent=Польша
-демидов:ProperName=Демидов:locType=город:region_checked=true:type_checked=true:Parent=Смоленская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
+демидов:ProperName=Демидов:locType=город:region_checked=true:type_checked=false:Parent=Смоленская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 де-мойн:ProperName=Де-Мойн:locType=город:region_checked=false:type_checked=true:Parent=Айова:PreParent=США
 денау:ProperName=Денау:locType=город:region_checked=true:type_checked=false:Parent=Узбекистан
 денвер:ProperName=Денвер:locType=город:region_checked=true:type_checked=true:Parent=Колорадо:PreParent=США
@@ -3149,6 +3149,7 @@
 магнитогорск:ProperName=Магнитогорск:locType=город:region_checked=true:type_checked=true:Parent=Челябинская область:PreParent=Уральский федеральный округ:PrePreParent=Россия
 мадона:ProperName=Мадона:locType=город:region_checked=true:type_checked=true:Parent=Латвия
 мадрид:ProperName=Мадрид:locType=город:region_checked=true:type_checked=true:Parent=Испания
+мадагаскар:ProperName=Мадагаскар:locType=страна:region_checked=true:type_checked=true
 мажейкяй:ProperName=Мажейкяй:locType=город:region_checked=true:type_checked=true:Parent=Литва
 майами:ProperName=Майами:locType=город:region_checked=true:type_checked=true:Parent=Флорида:PreParent=США
 майен:ProperName=Майен:locType=город:region_checked=true:type_checked=false:Parent=Германия
@@ -3476,7 +3477,7 @@
 мураши:ProperName=Мураши:locType=город:region_checked=false:type_checked=false:Parent=Кировская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 мург:ProperName=Мург:locType=город:region_checked=true:type_checked=true:Parent=Швейцария
 мури:ProperName=Мури:locType=город:region_checked=true:type_checked=true:Parent=Швейцария
-мурманск:ProperName=Мурманск:locType=город:region_checked=true:type_checked=false:Parent=Мурманская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
+мурманск:ProperName=Мурманск:locType=город:region_checked=true:type_checked=true:Parent=Мурманская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
 мурманская:ProperName=Мурманская область:locType=область:region_checked=true:type_checked=false:Parent=Северо-Западный федеральный округ:PreParent=Россия
 муром:ProperName=Муром:locType=город:region_checked=true:type_checked=false:Parent=Владимирская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 муроран:ProperName=Муроран:locType=город:region_checked=true:type_checked=true:Parent=Япония

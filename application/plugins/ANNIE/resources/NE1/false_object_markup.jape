@@ -16,7 +16,9 @@ Rule: Morph
 
 |
 (({Token.kind == number}) ({Morph.baseForm == "совет"}))
+|
 
+(({Morph.baseForm == "в"})({Token.kind == number})({Morph.baseForm == "год"}) )
 
 )
 : bind

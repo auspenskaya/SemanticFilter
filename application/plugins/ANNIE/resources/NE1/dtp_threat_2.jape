@@ -65,11 +65,11 @@ Rule: RoadDestroy // 9 грунт провалился, разрушился а�
 :bind.Threat_RoadAccident = {threat_indicator = "hole_on_road", rule = "RoadDestroy" }
 
 
-Rule: RoadDestroy2 // 9 грунт провалился, разрушился асфальт
+Rule: RoadDestroy2 // 9 грунт провалился
 (
 (ROAD)
-(({Morph.baseForm == "на"})|({Morph.baseForm == "около"})|(({Morph.baseForm == "рядом"})({Morph.baseForm == "с"}))|({Morph.baseForm == "возле"}))
-({Token.orth == upperInitial, Token.length >3}) : name
+((({Morph.baseForm == "на"})|({Morph.baseForm == "около"})|(({Morph.baseForm == "рядом"})({Morph.baseForm == "с"}))|({Morph.baseForm == "возле"})|({Morph.baseForm == "в"}))
+(({Token.orth == upperInitial, Token.length >3})[1, 5] ): name)?
 ({Lookup.majorType == destroy_verb})
 )
 :bind -->
@@ -81,18 +81,16 @@ outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features)
 
 gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
 if (nameSet != null &&  nameSet.size() > 0 ){
-gate.Annotation nameAnn = (gate.Annotation)nameSet.iterator().next();
-String name = nameAnn.getFeatures().get("string").toString();
+String name = "";
+for (Annotation nameAnn:nameSet){
+name = name + nameAnn.getFeatures().get("string").toString() + " ";
+}
+String obj_name = name + " ";
 gate.FeatureMap features_pl = Factory.newFeatureMap();
-features_pl.put("view_name", name);
+features_pl.put("view_name", obj_name);
 features_pl.put("rule", "RoadDestroy2");
 outputAS.add(nameSet.firstNode(), nameSet.lastNode(), "Placement", features_pl);
-}
-}
-
-
-
-
+}}
 
 Rule: BadRoad // 10 плохая дорога, дорога очень плохая
  (
@@ -120,8 +118,12 @@ inputAS.removeAll(obj);
 }  
 
 Rule: BadObject2 // 12 светофор неисправен  // Светофор в Набережных Челнах отключили
-(((({Lookup.majorType == object}):obj)) ((ADJ))?
-(({Lookup.majorType == defective})|({Lookup.majorType == lack_for})))
+(
+((({Lookup.majorType == object}):obj)) ((ADJ))?
+((({Morph.baseForm == "на"})|({Morph.baseForm == "около"})|(({Morph.baseForm == "рядом"})({Morph.baseForm == "с"}))|({Morph.baseForm == "возле"})|({Morph.baseForm == "в"}))
+(({Token.orth == upperInitial, Token.length >3})[1, 6] ): name)?
+(({Lookup.majorType == defective})|({Lookup.majorType == lack_for}))
+)
 :bind -->
 {gate.AnnotationSet obj = (gate.AnnotationSet)bindings.get("obj");
 gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
@@ -129,8 +131,30 @@ gate.FeatureMap features = Factory.newFeatureMap();
 features.put("threat_indicator", objAnn.getFeatures().get("threat_indicator"));
 gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
 outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
-inputAS.removeAll(obj);
+
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+if (nameSet != null &&  nameSet.size() > 0 ){
+String name = "";
+for (Annotation nameAnn:nameSet){
+name = name + nameAnn.getFeatures().get("string").toString() + " ";
 }
+String obj_name = name + " ";
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", obj_name);
+features_pl.put("rule", "RoadDestroy2");
+outputAS.add(nameSet.firstNode(), nameSet.lastNode(), "Placement", features_pl);
+}
+}
+
+Rule: BadObject3 // работа светофора сбилась
+(
+({Morph.baseForm == "работа"})
+({Lookup.majorType == object, Lookup.threat_indicator == "signal_damage"  })
+(({Morph.baseForm == "сбиваться"}) )
+)
+:bind -->
+:bind.Threat_RoadAccident = {threat_indicator = "signal_damage"}
+
 
 /*
 Rule: BadObject_znak // знака 1.1.1 нет перед прекрестком

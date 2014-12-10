@@ -41,7 +41,7 @@ Macro: SINGLECLOSINGQUOTE
 Rule: Object // Гаврильцевские болота
 (
 ({Token.orth == upperInitial}) : name
-({Lookup.majorType == aux_object})  : obj
+({Lookup.majorType == aux_object, Lookup.ProperName != "дорога"})  : obj
 )
 :pl -->
 {
@@ -58,7 +58,7 @@ if (morphSet != null &&  morphSet.size() > 0 ){
 gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
 if (morphAnn.getFeatures().get("pos").toString().equals("adjective") )
 {name = morphAnn.getFeatures().get("baseForm").toString();
-if (name.length()>2){
+if (!(name.equals(null)) && name.length()>2){
 String obj_gend = morphobjAnn.getFeatures().get("gender").toString();
 if (morphobjAnn.getFeatures().get("multiplicity").toString().equals("singular"))
 {obj = morphobjAnn.getFeatures().get("baseForm").toString();
@@ -98,7 +98,7 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 Rule: Object_inv // лесничество Соколовское
 (
 ({Lookup.majorType == aux_object})  : obj
- ({Token.orth == upperInitial}) : name
+ ({Token.orth == upperInitial, Token.string != "Таксист"}) : name
 )
 :pl -->
 {
@@ -183,9 +183,9 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 Rule: Object_BadQuotes // кинотеатр "Ударник"
 (
 ({Lookup.majorType == aux_object})  : obj
- ({Token.kind=="punctuation",Token.length == "1"})[1,2]
+ ({Token.kind=="punctuation",Token.length == "1", Token.string != ".", Token.string != "-", Token.string != ",", Token.string != ":", Token.string != ";"})[1,2]
 (({Token.orth == upperInitial})): name
-({Token.kind=="punctuation",Token.length == "1"})[1,2]
+({Token.kind=="punctuation",Token.length == "1", Token.string != ".", Token.string != "-", Token.string != ",", Token.string != ":", Token.string != ";"})[1,2]
 )
 :pl -->
 {
@@ -236,9 +236,9 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 Rule: Object_AndDTP
 ((
 (({Morph.baseForm == "на"})|({Morph.baseForm == "возле"})|({Morph.baseForm == "около"})|({Morph.baseForm == "у"}) |({Morph.baseForm == "с"}))
-({Token.kind=="punctuation",Token.length == "1", Token.string != "."})?
-(({Token.orth == upperInitial}) | ({Token.orth == allCaps})  ): name
-({Token.kind=="punctuation",Token.length == "1"})?
+({Token.kind=="punctuation",Token.length == "1", Token.string != ".", Token.string != "-", Token.string != ",", Token.string != ":", Token.string != ";"})?
+(({Token.orth == upperInitial}) | ({Token.orth == allCaps, Token.string != "ДОРОГАХ" , Token.string != "ДОРОГЕ"})  ): name
+({Token.kind=="punctuation",Token.length == "1", Token.string != ".", Token.string != "-", Token.string != ",", Token.string != ":", Token.string != ";"})?
 ) :pl
 ({Threat_RoadAccident})
 ) :bind

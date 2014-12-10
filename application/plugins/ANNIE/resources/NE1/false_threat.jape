@@ -6,7 +6,8 @@ Options: control = appelt
 Rule: False_Threat
 
 (
-((({Morph.baseForm == "например"})|({Morph.baseForm == "не"})|({Morph.baseForm == "чтобы"})|({Morph.baseForm == "если"})|({Morph.baseForm == "для"}) |({Morph.baseForm == "словно"}))
+((({Morph.baseForm == "например"})|({Morph.baseForm == "не"})|({Morph.baseForm == "чтобы"})|({Morph.baseForm == "если"})|({Morph.baseForm == "для"})
+|({Morph.baseForm == "словно"})|({Morph.baseForm == "нет"}) |({Morph.baseForm == "почти"}))
 (({Threat_RoadAccident})|
 ({Threat_Wildfire})|
 ({Threat_BuildingCollapse})|
@@ -20,7 +21,10 @@ Rule: False_Threat
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
 ({Fact_BuildingCollapse}))
-({Morph.baseForm == "например"}))
+
+(({Morph.baseForm == "например"}) |
+( ({Morph.baseForm == "не"}) (({Morph.baseForm == "видеть"}) | ({Morph.baseForm == "надо"})  )  ))
+)
 )
 : bind
  -->

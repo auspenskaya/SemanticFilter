@@ -31,10 +31,15 @@
 плаза:ProperName=плаза:non_adj=true
 перевал:ProperName=перевал:non_adj=false
 река:ProperName=река:non_adj=false
+тоннель:ProperName=тоннель:non_adj=false
+туннель:ProperName=тоннель:non_adj=false
 товарищество:ProperName=товарищество:non_adj=false
 торфяник:ProperName=торфяник:non_adj=false
 торфяники:ProperName=торфяник:plur=торфяники:non_adj=false
 торговый центр:ProperName=торговый центр:non_adj=false
+трасса:ProperName=трасса:non_adj=false
+трасс:ProperName=трасса:non_adj=false
 тц:ProperName=тц:non_adj=false
 ущелье:ProperName=ущелье:non_adj=false
+храм:ProperName=храм:non_adj=false
 школа:ProperName=школа:non_adj=false

@@ -1,3 +1,4 @@
+aux_danger.lst:danger
 aux_street.lst:street
 aux_region.lst:region
 aux_object.lst:aux_object
@@ -31,6 +32,9 @@ fire_trees.lst:trees
 fire_rubbish_adj.lst:rubbish_adj
 fire_clean.lst:clean
 fire_extinguish.lst:extinguish
+flood_ice.lst:ice
+flood_river.lst:river
+flood_accumulation.lst:accumulation
 collapse_building.lst:building
 collapse_crack.lst:crack
 collapse_being.lst:being
