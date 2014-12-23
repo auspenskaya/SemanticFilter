@@ -1,0 +1,13 @@
+Phase:  Flooding
+Input: Token Lookup Split Morph
+Options: control = appelt
+
+Rule: Flooding_danger // Размыв берегов
+(
+(({Lookup.majorType == defective}) | ({Lookup.majorType == flood_destroy}))
+(({Lookup.majorType == river, Lookup.ProperName == "русло"})| ({Morph.baseForm == "берег"}))
+({Lookup.majorType == river})?
+)
+:bind -->
+:bind.Threat_Flooding = {threat_indicator = "bank_erosion"}
+

@@ -12,7 +12,7 @@ Options: control = appelt
 Macro: ROAD
 (
 (
-(
+(({Morph.baseForm == "участок"})?
 (ADJ)[0,4]
 {Lookup.majorType == road, Lookup.ProperName != "покрытие"})
 |

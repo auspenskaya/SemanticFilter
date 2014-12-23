@@ -11,7 +11,6 @@
 горки:ProperName=горка:plur=горки:non_adj=false
 гостиница:ProperName=гостиница:non_adj=false
 дорога:ProperName=дорога:non_adj=false
-дорогой:ProperName=дорога:non_adj=false
 гипермаркет:ProperName=гипермаркет:non_adj=false
 дворец:ProperName=дворец:non_adj=false
 супермаркет:ProperName=супермаркет:non_adj=false
@@ -31,15 +30,18 @@
 плаза:ProperName=плаза:non_adj=true
 перевал:ProperName=перевал:non_adj=false
 река:ProperName=река:non_adj=false
+стадион:ProperName=стадион:non_adj=false
+станица:ProperName=станица:non_adj=false
+театр:ProperName=театр:non_adj=false
 тоннель:ProperName=тоннель:non_adj=false
 туннель:ProperName=тоннель:non_adj=false
 товарищество:ProperName=товарищество:non_adj=false
 торфяник:ProperName=торфяник:non_adj=false
 торфяники:ProperName=торфяник:plur=торфяники:non_adj=false
-торговый центр:ProperName=торговый центр:non_adj=false
+торговый центр:ProperName=ТЦ:non_adj=false
 трасса:ProperName=трасса:non_adj=false
 трасс:ProperName=трасса:non_adj=false
-тц:ProperName=тц:non_adj=false
+тц:ProperName=ТЦ:non_adj=false
 ущелье:ProperName=ущелье:non_adj=false
 храм:ProperName=храм:non_adj=false
 школа:ProperName=школа:non_adj=false

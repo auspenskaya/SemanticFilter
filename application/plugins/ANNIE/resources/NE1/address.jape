@@ -49,9 +49,17 @@ gate.FeatureMap features_bind = Factory.newFeatureMap(); // 2
 features_bind.put("view_name", street_name);
 features_bind.put("Rule", "Address_inv");
 outputAS.add(bindSet.firstNode(), bindSet.lastNode(), "Placement", features_bind);
-}
+}}
 
-}
+/*
+Rule: Address_double
+(
+(({Lookup.majorType == street, Lookup.short == false}): st)
+({Token.orth == upperInitial, Token.length >2, Token.string != "Москвы" }): name1
+({Token.orth == upperInitial, Token.length >2 }): name2
+)
+:bind -->
+*/
 
 Rule: Address1
 ((({Lookup.majorType == street, Lookup.short == true}): st ({Token.string == "."})?)

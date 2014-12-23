@@ -1,0 +1,27 @@
+Phase:  Collapse
+Input: Token Lookup Split Morph
+Options: control = appelt
+
+ Macro: ADJ
+(
+({Morph.pos == adverb})?
+({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )[0, 4]
+)
+
+
+Rule: Fact // здание обвалилось
+(
+(({Lookup.majorType == building})
+({Lookup.majorType == destroy_verb, Lookup.ProperName != "проседать"}))
+|
+(({Lookup.majorType == destroy_verb, Lookup.ProperName != "проседать"})
+({Lookup.majorType == building}))
+|
+((({Morph.baseForm == "обрушение"}) |({Morph.baseForm == "повреждать"})|({Lookup.majorType == defective}))
+(ADJ)?
+({Lookup.majorType == building}))
+)
+:bind -->
+:bind.Fact_BuildingCollapse = {threat_indicator = "collapse"}
+
+

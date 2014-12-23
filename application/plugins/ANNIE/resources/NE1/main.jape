@@ -44,7 +44,12 @@ dtp_fact
 wildfire
 collapse_threat
 collapse_fact
-flooding
+flooding_1
+flooding_2
+flooding_3
+flooding_4
+flooding_5
+flooding_6
 new_facts
 false_object
 false_threat

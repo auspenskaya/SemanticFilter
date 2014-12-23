@@ -7,7 +7,7 @@ Rule: False_Threat
 
 (
 ((({Morph.baseForm == "например"})|({Morph.baseForm == "не"})|({Morph.baseForm == "чтобы"})|({Morph.baseForm == "если"})|({Morph.baseForm == "для"})
-|({Morph.baseForm == "словно"})|({Morph.baseForm == "нет"}) |({Morph.baseForm == "почти"}))
+|({Morph.baseForm == "словно"})|({Morph.baseForm == "будто"})|({Morph.baseForm == "нет"}) |({Morph.baseForm == "почти"}))
 (({Threat_RoadAccident})|
 ({Threat_Wildfire})|
 ({Threat_BuildingCollapse})|

@@ -1,14 +1,14 @@
 мусор:ProperName=мусор:threat_indicator=rubbish
 свалка:ProperName=мусор:threat_indicator=rubbish
 хлам:ProperName=мусор:threat_indicator=rubbish
-бумажка
-бумажки:ProperName=мусор:threat_indicator=rubbish
-окурок
-окурки:ProperName=мусор:threat_indicator=rubbish
 помойка:ProperName=мусор:threat_indicator=rubbish
+засорение:ProperName=мусор:threat_indicator=rubbish
+захламленность:ProperName=мусор:threat_indicator=rubbish
+бумажка:ProperName=бумажка:threat_indicator=rubbish
+бумажки:ProperName=бумажки:threat_indicator=rubbish
+окурок:ProperName=окурок:threat_indicator=rubbish
+окурки:ProperName=окурки:threat_indicator=rubbish
 ветви:ProperName=ветви:threat_indicator=rubbish
 ветки:ProperName=ветви:threat_indicator=rubbish
 древесина:ProperName=древесина:threat_indicator=dry_trees
 сухостой:ProperName=сухостой:threat_indicator=dry_trees
-кострище
-незатушенный костер

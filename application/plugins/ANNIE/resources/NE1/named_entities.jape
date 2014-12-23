@@ -45,37 +45,63 @@ Rule: Object // Гаврильцевские болота
 )
 :pl -->
 {
+//System.out.println("Object" );
 String obj = "";
 String name = "";
+String morphAnn_pos = "";
 gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
 gate.Annotation objLookupAnn = (gate.Annotation)objSet.iterator().next();
 gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
 if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
-gate.Annotation morphobjAnn = (gate.Annotation)morphobj_Set.iterator().next();
-gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
-gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
+    //System.out.println("Object1" );
+    gate.Annotation morphobjAnn = (gate.Annotation)morphobj_Set.iterator().next();
+    gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+    gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
 if (morphSet != null &&  morphSet.size() > 0 ){
-gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
-if (morphAnn.getFeatures().get("pos").toString().equals("adjective") )
+    //System.out.println("Object2" );
+    gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
+if ((morphAnn.getFeatures().get("pos")) != null )
+{morphAnn_pos = morphAnn.getFeatures().get("pos").toString();
+//System.out.println("Object2, morphAnn_pos = " + morphAnn_pos);
+}
+//System.out.println("Object2a, morphAnn_pos = " + morphAnn_pos);
+if (( morphAnn_pos.equals("adjective") ) || (morphAnn.getFeatures().get("pos")) == null )
 {name = morphAnn.getFeatures().get("baseForm").toString();
+//System.out.println("Object3, name = " + name );
 if (!(name.equals(null)) && name.length()>2){
-String obj_gend = morphobjAnn.getFeatures().get("gender").toString();
+    //System.out.println("Object3a, name = " + name );
+    //System.out.println("Object3aa, multiplicity = " + morphobjAnn.getFeatures().get("multiplicity").toString() );
 if (morphobjAnn.getFeatures().get("multiplicity").toString().equals("singular"))
-{obj = morphobjAnn.getFeatures().get("baseForm").toString();
-String n = name.substring(name.length()-2, name.length());
+    {
+    String obj_gend = morphobjAnn.getFeatures().get("gender").toString();
+    //System.out.println("Object3aa, obj_gend = " + obj_gend );
+    //System.out.println("Object4, name = " + name );
+    obj = morphobjAnn.getFeatures().get("baseForm").toString();
+    String n = name.substring(name.length()-2, name.length());
 if (obj_gend.equals("feminine") &&  ( n.equals("ий") || n.equals("ый")))
- { name = name.substring(0, name.length()-2) + "ая"; }
+ {  name = name.substring(0, name.length()-2) + "ая";
+ //System.out.println("Object5, name = " + name );
+ }
 if (obj_gend.equals("neuter") &&  n.equals("ий") )
  { name = name.substring(0, name.length()-2) + "ое"; }}
-if (morphobjAnn.getFeatures().get("multiplicity").toString().equals("plural"))
-{gate.Annotation objAnn = (gate.Annotation)objSet.iterator().next();
+
+if (morphobjAnn.getFeatures().get("multiplicity").toString().equals("plural")) //если объект мн. числа
+{
+//System.out.println("Object6" );
+gate.Annotation objAnn = (gate.Annotation)objSet.iterator().next();
 if (objAnn.getFeatures().get("plur")!= null)
 {obj = objAnn.getFeatures().get("plur").toString();}
 else {obj = morphobjAnn.getFeatures().get("baseForm").toString();}
+//System.out.println("Object6, name = " + name );
+//System.out.println("Object6a, obj = " + obj );
 String n = name.substring(name.length()-2, name.length());
 if (  n.equals("ый"))  { name = name.substring(0, name.length()-2) + "ые"; }
 if ( n.equals("ий"))  { name = name.substring(0, name.length()-2) + "ие"; }
-}}
+//System.out.println("Object7, name = " + name );
+}
+}
+//System.out.println("Object8, name = " + name);
+//System.out.println("Object8, obj = " + obj);
 String obj_name = name + " " + obj;
 gate.FeatureMap features_pl = Factory.newFeatureMap();
 features_pl.put("view_name", obj_name);
@@ -83,7 +109,8 @@ features_pl.put("rule", "Object");
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 }
-if (morphAnn.getFeatures().get("pos").toString().equals("substantive") && objLookupAnn.getFeatures().get("non_adj").toString().equals("true"))
+
+if (morphAnn_pos.equals("substantive") && objLookupAnn.getFeatures().get("non_adj").toString().equals("true"))
 {name = morphAnn.getFeatures().get("baseForm").toString();
  if (name.length()>2){
 obj = morphobjAnn.getFeatures().get("baseForm").toString();}
@@ -115,9 +142,10 @@ gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOff
 if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
 gate.Annotation morphobjAnn = (gate.Annotation)morphobj_Set.iterator().next();
 String obj = "";
-String obj_gend = morphobjAnn.getFeatures().get("gender").toString();
+
 if (morphobjAnn.getFeatures().get("multiplicity").toString().equals("singular"))
 {
+String obj_gend = morphobjAnn.getFeatures().get("gender").toString();
 obj = morphobjAnn.getFeatures().get("baseForm").toString();
 String n = name.substring(name.length()-2, name.length());
 if (obj_gend.equals("feminine") &&  ( n.equals("ий") || n.equals("ый")))
@@ -161,10 +189,10 @@ Rule: Object_Quotes // завод «Серп и Молот»
 :pl -->
 {
 gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
-gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
-if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
-gate.Annotation morphobjAnn = (gate.Annotation)morphobj_Set.iterator().next();
-String obj = morphobjAnn.getFeatures().get("baseForm").toString();
+//gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
+//if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
+gate.Annotation objAnn = (gate.Annotation)objSet.iterator().next();
+String obj = objAnn.getFeatures().get("ProperName").toString();
 gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
 String name = "";
 for (Annotation nameAnn:nameSet){
@@ -176,7 +204,7 @@ features_pl.put("view_name", obj_name);
 features_pl.put("rule", "Object");
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
-}
+//}
 
 }
 

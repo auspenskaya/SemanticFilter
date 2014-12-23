@@ -1,0 +1,48 @@
+Phase:  Flooding
+Input: Token Lookup Split Morph
+Options: control = appelt
+
+ Macro: ADJ
+(
+({Morph.pos == adverb})[0,2]
+({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )[1, 4]
+)
+
+Rule: Flooding_danger
+(
+(({Lookup.majorType == danger})
+(({Lookup.majorType == flood}) | ({Morph.baseForm == "наводнение"})))  // угроза затопления
+|
+(({Lookup.majorType == flood})
+({Lookup.majorType == danger}))
+|
+(({Lookup.majorType == danger}) // угроза выхода воды
+({Morph.baseForm == "выход"})
+({Lookup.majorType == river}))
+|
+(({Lookup.majorType == rise})   // подъем уровня реки
+({Morph.baseForm == "уровень"})
+({Lookup.majorType == river}))
+|
+(({Lookup.majorType == rise})   // подъем воды в реке
+({Lookup.majorType == river, Lookup.ProperName == "вода"})
+({Morph.pos == preposition})?
+({Lookup.majorType == river, Lookup.ProperName != "вода"}))
+|
+(({Lookup.majorType == river, Lookup.ProperName == "вода"}) //  вода в реке разлилась
+({Morph.pos == preposition})?
+({Lookup.majorType == river, Lookup.ProperName != "вода"})
+({Lookup.majorType == rise}))
+|
+((({Lookup.majorType == flood}) | ({Lookup.majorType == overflow})) // затопление реки
+({Lookup.majorType == river}))
+|
+(({Lookup.majorType == river})
+(({Lookup.majorType == flood}) | ({Lookup.majorType == overflow}))) //  река разлилась
+|
+((({Lookup.majorType == flood}) | ({Lookup.majorType == overflow}))
+({Lookup.majorType == river})) //   разлилась река
+)
+:bind -->
+:bind.Threat_Flooding = {threat_indicator = "flood"}
+

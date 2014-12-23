@@ -989,6 +989,7 @@
 велиж:ProperName=Велиж:locType=город:region_checked=true:type_checked=true:Parent=Смоленская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 великие луки:ProperName=Великие Луки:locType=город:region_checked=true:type_checked=true:Parent=Псковская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
 великий новгород:ProperName=Великий Новгород:locType=город:region_checked=true:type_checked=true:Parent=Новгородская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
+нижний новгород:ProperName=Нижний Новгород:locType=город:region_checked=true:type_checked=true:Parent=Россия
 великий устюг:ProperName=Великий Устюг:locType=город:region_checked=true:type_checked=true:Parent=Вологодская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
 англия:ProperName=Великобритания:locType=страна:region_checked=true:type_checked=true
 великобритания:ProperName=Великобритания:locType=страна:region_checked=true:type_checked=true
@@ -3163,6 +3164,7 @@
 макарска:ProperName=Макарска:locType=город:region_checked=true:type_checked=true:Parent=Хорватия
 макарьев:ProperName=Макарьев:locType=город:region_checked=true:type_checked=false:Parent=Костромская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 македония:ProperName=Македония:locType=страна:region_checked=true:type_checked=true
+албания:ProperName=Албания:locType=страна:region_checked=true:type_checked=true
 дмитриевск:ProperName=Макеевка:locType=город:region_checked=true:type_checked=true:Parent=Украина
 макеевка:ProperName=Макеевка:locType=город:region_checked=false:type_checked=true:Parent=Украина
 маккай:ProperName=Маккай:locType=город:region_checked=true:type_checked=true:Parent=Австралия
@@ -4757,6 +4759,7 @@
 петроград:ProperName=Санкт-Петербург:locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
 питер:ProperName=Питер (Санкт-Петербург):locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
 санкт-петербург:ProperName=Санкт-Петербург:locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
+петербург:ProperName=Санкт-Петербург:locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
 сан-лоpенсо:ProperName=Сан-Лоренсо:locType=город:region_checked=true:type_checked=true:Parent=Аргентина
 сан-лоренсо:ProperName=Сан-Лоренсо:locType=город:region_checked=false:type_checked=true:Parent=Аргентина
 сан лоренсо:ProperName=Сан-Лоренцо-дель-Эскориал:locType=город:region_checked=false:type_checked=true:Parent=Испания

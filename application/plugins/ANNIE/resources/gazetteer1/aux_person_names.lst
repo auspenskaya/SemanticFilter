@@ -38,7 +38,6 @@
 спасаться пря землетрясение:threatType=all
 правило пожарный безопасность:threatType=all
 сражение:threatType=all
-квартира:threatType=Threat_Wildfire
 квартира:threatType=Fact_Wildfire
 квартира:threatType=Threat_RoadAccident
 проводка:threatType=Fact_Wildfire
@@ -74,17 +73,4 @@ Chocolate:threatType=all
 дорогой мы образ:threatType=Threat_RoadAccident
 пожаловаться в государственный орган:threatType=Threat_RoadAccident
 кредитмэн:threatType=all
-убойный история:threatType=all
-сердитый гражданин:threatType=all
-замирать весь живой:threatType=all
-замирать все живой:threatType=all
-разрабатывать смесь:threatType=all
-рассказывать забавный история:threatType=all
-чтобы получать консультация:threatType=all
-ямка для очаг:threatType=all
-свет в конец тоннель:threatType=all
-света в конец тоннель:threatType=all
-среди велосипедист:threatType=all
-презентация:threatType=all
-предоставлять услуга:threatType=all
-квалифицированный услуга:threatType=all
+

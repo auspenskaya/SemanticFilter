@@ -1,0 +1,46 @@
+Phase:  Flooding
+Input: Token Lookup Split Morph
+Options: control = appelt
+
+ Macro: ADJ
+(
+({Morph.pos == adverb})?
+({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )[0, 4]
+)
+
+Rule: Accumulation // скопление льда в русле
+((
+({Lookup.majorType == accumulation})
+({Lookup.majorType == ice})
+(({Morph.baseForm == "на"}) | ({Morph.baseForm == "в"}))
+({Token.kind == word})[0,2]
+({Lookup.majorType == river})
+)
+|
+(({Lookup.majorType == ice, Lookup.ProperName == "ледовый" })
+({Lookup.majorType == accumulation, Lookup.ProperName == "затор"  }))
+)
+:bind -->
+:bind.Threat_Flooding = {threat_indicator = "ice_accumulation"}
+
+Rule: Accumulation_inv // на реке затор
+(
+(({Morph.baseForm == "на"}) | ({Morph.baseForm == "в"}))
+({Lookup.majorType == river})
+({Token.kind == word})[0,4] ({Lookup.majorType == occur_verb})?
+({Lookup.majorType == accumulation})
+)
+:bind -->
+:bind.Threat_Flooding = {threat_indicator = "ice_accumulation"}
+
+Rule: Flooding_danger // угроза затопления
+(
+(({Lookup.majorType == danger})
+({Lookup.majorType == flood}))
+|
+(({Lookup.majorType == flood})
+({Lookup.majorType == danger}))
+)
+:bind -->
+:bind.Threat_Flooding = {threat_indicator = "flood"}
+
