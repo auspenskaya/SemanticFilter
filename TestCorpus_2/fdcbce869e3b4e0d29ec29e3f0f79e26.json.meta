@@ -1,1 +1,0 @@
-{"placement":[{"start_node":4,"view_name":"Россия","end_node":10}],"named_entities":[],"rank":2,"russia":true,"indicators":[{"start_node":199,"rank":"2","threat_indicator":"hole_on_road","end_node":212}],"message_type":"threat","accident_type":"Threat_RoadAccident"}
