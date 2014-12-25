@@ -989,7 +989,9 @@
 велиж:ProperName=Велиж:locType=город:region_checked=true:type_checked=true:Parent=Смоленская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 великие луки:ProperName=Великие Луки:locType=город:region_checked=true:type_checked=true:Parent=Псковская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
 великий новгород:ProperName=Великий Новгород:locType=город:region_checked=true:type_checked=true:Parent=Новгородская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
+нижний новгород:ProperName=Нижний Новгород:locType=город:region_checked=true:type_checked=true:Parent=Россия
 великий устюг:ProperName=Великий Устюг:locType=город:region_checked=true:type_checked=true:Parent=Вологодская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
+устюг:ProperName=Великий Устюг:locType=город:region_checked=true:type_checked=true:Parent=Вологодская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
 англия:ProperName=Великобритания:locType=страна:region_checked=true:type_checked=true
 великобритания:ProperName=Великобритания:locType=страна:region_checked=true:type_checked=true
 соединенное королевство:ProperName=Великобритания:locType=страна:region_checked=true:type_checked=true
@@ -1512,7 +1514,7 @@
 делфзейл:ProperName=Делфзейл:locType=город:region_checked=true:type_checked=true:Parent=Нидерланды
 делфт:ProperName=Делфт:locType=город:region_checked=true:type_checked=true:Parent=Нидерланды
 дембица:ProperName=Дембица:locType=город:region_checked=true:type_checked=true:Parent=Польша
-демидов:ProperName=Демидов:locType=город:region_checked=true:type_checked=true:Parent=Смоленская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
+демидов:ProperName=Демидов:locType=город:region_checked=true:type_checked=false:Parent=Смоленская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 де-мойн:ProperName=Де-Мойн:locType=город:region_checked=false:type_checked=true:Parent=Айова:PreParent=США
 денау:ProperName=Денау:locType=город:region_checked=true:type_checked=false:Parent=Узбекистан
 денвер:ProperName=Денвер:locType=город:region_checked=true:type_checked=true:Parent=Колорадо:PreParent=США
@@ -2005,7 +2007,7 @@
 хандак:ProperName=Ираклион Критис:locType=город:region_checked=true:type_checked=false:Parent=Греция
 хандакас:ProperName=Ираклион Критис:locType=город:region_checked=true:type_checked=true:Parent=Греция
 ирбит:ProperName=Ирбит:locType=город:region_checked=true:type_checked=true:Parent=Свердловская область:PreParent=Уральский федеральный округ:PrePreParent=Россия
-иркутск:ProperName=Иркутск:locType=город:region_checked=true:type_checked=true:Parent=Иркутская область:PreParent=Сибирский федеральный округ:PrePreParent=Россия
+иркутск:ProperName=Иркутск:locType=город:region_checked= true:type_checked=true:Parent=Иркутская область:PreParent=Сибирский федеральный округ:PrePreParent=Россия
 иркутская:ProperName=Иркутская область:locType=область:region_checked=true:type_checked=false:Parent=Сибирский федеральный округ:PreParent=Россия
 ирун:ProperName=Ирун:locType=город:region_checked=true:type_checked=true:Parent=Испания
 исилькуль:ProperName=Исилькуль:locType=город:region_checked=true:type_checked=true:Parent=Омская область:PreParent=Сибирский федеральный округ:PrePreParent=Россия
@@ -2019,6 +2021,7 @@
 исмаилия:ProperName=Исмаилия:locType=город:region_checked=true:type_checked=true:Parent=Египет
 исмаиллы:ProperName=Исмаиллы:locType=город:region_checked=true:type_checked=true:Parent=Азербайджан
 испания:ProperName=Испания:locType=страна:region_checked=true:type_checked=true
+ирландия:ProperName=Ирландия:locType=страна:region_checked=true:type_checked=true
 баффало-сити:ProperName=Ист-Лондон:locType=город:region_checked=true:type_checked=true:Parent=ЮАР
 ист-лондон:ProperName=Ист-Лондон:locType=город:region_checked=true:type_checked=true:Parent=ЮАР
 ос-лонден:ProperName=Ист-Лондон:locType=город:region_checked=true:type_checked=true:Parent=ЮАР
@@ -2954,7 +2957,7 @@
 ле-сантье:ProperName=Ле-Сантье:locType=город:region_checked=true:type_checked=true:Parent=Швейцария
 лё-сантье:ProperName=Ле-Сантье:locType=город:region_checked=true:type_checked=true:Parent=Швейцария
 лё-сантья:ProperName=Ле-Сантье:locType=город:region_checked=true:type_checked=true:Parent=Швейцария
-лесной:ProperName=Лесной:locType=город:region_checked=true:type_checked=true:Parent=Свердловская область:PreParent=Уральский федеральный округ:PrePreParent=Россия
+лесной:ProperName=Лесной:locType=город:region_checked=true:type_checked=false:Parent=Свердловская область:PreParent=Уральский федеральный округ:PrePreParent=Россия
 лесозаводск:ProperName=Лесозаводск:locType=город:region_checked=true:type_checked=true:Parent=Приморский край:PreParent=Дальневосточный федеральный округ:PrePreParent=Россия
 лесосибирск:ProperName=Лесосибирск:locType=город:region_checked=true:type_checked=true:Parent=Красноярский край:PreParent=Сибирский федеральный округ:PrePreParent=Россия
 лестер:ProperName=Лестер:locType=город:region_checked=true:type_checked=false:Parent=Великобритания
@@ -3149,6 +3152,7 @@
 магнитогорск:ProperName=Магнитогорск:locType=город:region_checked=true:type_checked=true:Parent=Челябинская область:PreParent=Уральский федеральный округ:PrePreParent=Россия
 мадона:ProperName=Мадона:locType=город:region_checked=true:type_checked=true:Parent=Латвия
 мадрид:ProperName=Мадрид:locType=город:region_checked=true:type_checked=true:Parent=Испания
+мадагаскар:ProperName=Мадагаскар:locType=страна:region_checked=true:type_checked=true
 мажейкяй:ProperName=Мажейкяй:locType=город:region_checked=true:type_checked=true:Parent=Литва
 майами:ProperName=Майами:locType=город:region_checked=true:type_checked=true:Parent=Флорида:PreParent=США
 майен:ProperName=Майен:locType=город:region_checked=true:type_checked=false:Parent=Германия
@@ -3162,6 +3166,7 @@
 макарска:ProperName=Макарска:locType=город:region_checked=true:type_checked=true:Parent=Хорватия
 макарьев:ProperName=Макарьев:locType=город:region_checked=true:type_checked=false:Parent=Костромская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 македония:ProperName=Македония:locType=страна:region_checked=true:type_checked=true
+албания:ProperName=Албания:locType=страна:region_checked=true:type_checked=true
 дмитриевск:ProperName=Макеевка:locType=город:region_checked=true:type_checked=true:Parent=Украина
 макеевка:ProperName=Макеевка:locType=город:region_checked=false:type_checked=true:Parent=Украина
 маккай:ProperName=Маккай:locType=город:region_checked=true:type_checked=true:Parent=Австралия
@@ -3476,7 +3481,7 @@
 мураши:ProperName=Мураши:locType=город:region_checked=false:type_checked=false:Parent=Кировская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 мург:ProperName=Мург:locType=город:region_checked=true:type_checked=true:Parent=Швейцария
 мури:ProperName=Мури:locType=город:region_checked=true:type_checked=true:Parent=Швейцария
-мурманск:ProperName=Мурманск:locType=город:region_checked=true:type_checked=false:Parent=Мурманская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
+мурманск:ProperName=Мурманск:locType=город:region_checked=true:type_checked=true:Parent=Мурманская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия
 мурманская:ProperName=Мурманская область:locType=область:region_checked=true:type_checked=false:Parent=Северо-Западный федеральный округ:PreParent=Россия
 муром:ProperName=Муром:locType=город:region_checked=true:type_checked=false:Parent=Владимирская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 муроран:ProperName=Муроран:locType=город:region_checked=true:type_checked=true:Parent=Япония
@@ -3821,7 +3826,7 @@
 нью-хемпшир:ProperName=Нью-Гемпшир:locType=штат:region_checked=true:type_checked=true:Parent=США
 нью-джерси:ProperName=Нью-Джерси:locType=штат:region_checked=true:type_checked=true:Parent=США
 нью-йорк:ProperName=Нью-Йорк:locType=штат:region_checked=true:type_checked=false:Parent=Нью-Йорк:PreParent=США
-нью-йорк:ProperName=Нью-Йорк:locType=город:region_checked=true:type_checked=false:Parent=Нью-Йорк:PreParent=США
+нью-йорк:ProperName=Нью-Йорк:locType=город:region_checked=true:type_checked=true:Parent=Нью-Йорк:PreParent=США
 ньюкасл:ProperName=Ньюкасл:locType=город:region_checked=true:type_checked=true:Parent=Великобритания
 ньюкасл:ProperName=Ньюкасл:locType=город:region_checked=false:type_checked=true:Parent=Великобритания
 ньюкасл-апон-тайн:ProperName=Ньюкасл:locType=город:region_checked=true:type_checked=true:Parent=Великобритания
@@ -3957,7 +3962,7 @@
 орду:ProperName=Орду:locType=город:region_checked=true:type_checked=true:Parent=Турция
 оребич:ProperName=Оребич:locType=город:region_checked=true:type_checked=true:Parent=Хорватия
 орегон:ProperName=Орегон:locType=штат:region_checked=true:type_checked=true:Parent=США
-орел:ProperName=Орел:locType=город:region_checked=true:type_checked=true:Parent=Орловская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
+орел:ProperName=Орел:locType=город:region_checked=true:type_checked=false:Parent=Орловская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 оренбург:ProperName=Оренбург:locType=город:region_checked=true:type_checked=true:Parent=Оренбургская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 чкалов:ProperName=Оренбург:locType=город:region_checked=true:type_checked=false:Parent=Оренбургская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия
 оренбургская:ProperName=Оренбургская область:locType=область:region_checked=true:type_checked=false:Parent=Приволжский федеральный округ:PreParent=Россия
@@ -4756,6 +4761,7 @@
 петроград:ProperName=Санкт-Петербург:locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
 питер:ProperName=Питер (Санкт-Петербург):locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
 санкт-петербург:ProperName=Санкт-Петербург:locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
+петербург:ProperName=Санкт-Петербург:locType=город:region_checked=true:type_checked=true:Parent=Северо-Западный федеральный округ:PreParent=Россия
 сан-лоpенсо:ProperName=Сан-Лоренсо:locType=город:region_checked=true:type_checked=true:Parent=Аргентина
 сан-лоренсо:ProperName=Сан-Лоренсо:locType=город:region_checked=false:type_checked=true:Parent=Аргентина
 сан лоренсо:ProperName=Сан-Лоренцо-дель-Эскориал:locType=город:region_checked=false:type_checked=true:Parent=Испания
@@ -5859,6 +5865,8 @@
 франкфурт на одере:ProperName=Франкфурт на Одере:locType=город:region_checked=false:type_checked=false:Parent=Германия
 франкфурт-на-одере:ProperName=Франкфурт на Одере:locType=город:region_checked=true:type_checked=true:Parent=Германия
 франция:ProperName=Франция:locType=страна:region_checked=true:type_checked=true
+филиппины:ProperName=Филиппины:locType=страна:region_checked=true:type_checked=true
+филиппина:ProperName=Филиппины:locType=страна:region_checked=true:type_checked=true
 фрастанц:ProperName=Фрастанц:locType=город:region_checked=true:type_checked=true:Parent=Австрия
 фрауенфельд:ProperName=Фрауенфельд:locType=город:region_checked=true:type_checked=true
 фрауэнфельд:ProperName=Фрауенфельд:locType=город:region_checked=true:type_checked=true
@@ -6223,7 +6231,7 @@
 чекалин:ProperName=Чекалин:locType=город:region_checked=true:type_checked=false:Parent=Тульская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 челек:ProperName=Челек:locType=город:region_checked=true:type_checked=true:Parent=Узбекистан
 челмсфорд:ProperName=Челмсфорд:locType=город:region_checked=true:type_checked=true:Parent=Великобритания
-челябинск:ProperName=Челябинск:locType=город:region_checked=true:type_checked=false:Parent=Челябинская область:PreParent=Уральский федеральный округ:PrePreParent=Россия
+челябинск:ProperName=Челябинск:locType=город:region_checked=true:type_checked=true:Parent=Челябинская область:PreParent=Уральский федеральный округ:PrePreParent=Россия
 челябинская:ProperName=Челябинская область:locType=область:region_checked=true:type_checked=false:Parent=Уральский федеральный округ:PreParent=Россия
 челядзь:ProperName=Челядь:locType=город:region_checked=true:type_checked=true
 чемеровцы:ProperName=Чемеровцы:locType=поселок городского типа:region_checked=true:type_checked=true:Parent=Украина

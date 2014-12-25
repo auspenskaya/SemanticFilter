@@ -1,0 +1,20 @@
+Phase:  Flooding
+Input: Token Lookup Split Morph
+Options: control = appelt
+
+ Macro: ADJ
+(
+({Morph.pos == adverb})[0,2]
+({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )[1, 4]
+)
+
+Rule: Flooding_danger
+(
+({Lookup.majorType == rubbish, Lookup.ProperName == "мусор"})
+({Morph.pos == preposition})?
+({Token.kind == word})[0,2]
+({Lookup.majorType == river, Lookup.ProperName != "вода"})[1,2]
+)
+:bind -->
+:bind.Threat_Flooding = {threat_indicator = "rubbish_in_river"}
+

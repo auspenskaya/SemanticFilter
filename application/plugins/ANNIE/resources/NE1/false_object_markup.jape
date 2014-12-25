@@ -1,5 +1,5 @@
 Phase:  False_Object_Markup
-Input:  Morph Lookup Token
+Input:  Morph Lookup Token Split Date
 Options: control = appelt
 
 
@@ -13,11 +13,26 @@ Rule: Morph
 ({Morph.baseForm == "игнорировать", Morph.representation == "infinitive"})
 |
 (({Lookup.majorType == burn}) ({Morph.baseForm == "сенник"}))
-
 |
 (({Token.kind == number}) ({Morph.baseForm == "совет"}))
-
-
+|
+(({Morph.baseForm == "глава"})({Token.kind == number}))
+|
+(({Token.kind == number})({Morph.baseForm == "глава"}))
+|
+(({Morph.baseForm == "в"})({Token.kind == number})({Morph.baseForm == "год"}) )
+|
+({Date})
+|
+(({Morph.baseForm == "я"})({Token.kind == word})({Morph.baseForm == "сниться"}) )
+|
+(({Morph.baseForm == "фильм"})({Token})[0,2]({Morph.baseForm == "дурак"}) )
+|
+((({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"}))
+(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"})))
+|
+((({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"}))
+(({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"})))
 )
 : bind
 

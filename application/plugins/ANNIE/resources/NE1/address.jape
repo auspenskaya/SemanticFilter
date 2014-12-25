@@ -6,7 +6,9 @@ Options: control = all
 Rule: Address_inv
 (
 
-({Token.orth == upperInitial, Token.length >3, Token.string != "Твои", Token.string != "Твоя"}): name
+
+({Token.orth == upperInitial, Token.length >3}
+): name
 ({Lookup.majorType == street, Lookup.ProperName != "проезжая часть"}): st
 )
 : bind  -->
@@ -16,8 +18,9 @@ gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset
 if (morphSet != null && morphSet.size() > 0){
 gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
 String name = morphAnn.getFeatures().get("baseForm").toString();
-// System.out.println("name = " + name);
-gate.AnnotationSet strSet = (gate.AnnotationSet)bindings.get("st");
+//System.out.println("name = " + name);
+if ( !(name.equals("больший") | (name.equals("большой"))| (name.equals("ночной"))| (name.equals("твой")) ))
+{gate.AnnotationSet strSet = (gate.AnnotationSet)bindings.get("st");
 gate.Annotation strAnn = (gate.Annotation)strSet.iterator().next();
 String street = strAnn.getFeatures().get("ProperName").toString();
 String str_gend = strAnn.getFeatures().get("gend").toString();
@@ -38,9 +41,7 @@ if (str_gend.equals("f") &&  ( n.equals("ую") || n.equals("ой") ))
 if (str_gend.equals("n") &&  ( n.equals("го") || n.equals("му")))
  {name = name.substring(0, name.length()-2) + "е";}
 else {name = nameAnn.getFeatures().get("string").toString();
- }
-}
-}
+ }}}
 gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind"); // 1
 gate.Annotation bindAnn = (gate.Annotation)bindSet.iterator().next();
 String street_name = street + " " + name;
@@ -48,9 +49,17 @@ gate.FeatureMap features_bind = Factory.newFeatureMap(); // 2
 features_bind.put("view_name", street_name);
 features_bind.put("Rule", "Address_inv");
 outputAS.add(bindSet.firstNode(), bindSet.lastNode(), "Placement", features_bind);
-}
+}}}
 
-}
+/*
+Rule: Address_double
+(
+(({Lookup.majorType == street, Lookup.short == false}): st)
+({Token.orth == upperInitial, Token.length >2, Token.string != "Москвы" }): name1
+({Token.orth == upperInitial, Token.length >2 }): name2
+)
+:bind -->
+*/
 
 Rule: Address1
 ((({Lookup.majorType == street, Lookup.short == true}): st ({Token.string == "."})?)
@@ -140,18 +149,24 @@ Rule: Region // в Чебоксарском районе
 )
 :pl -->
 {
+//System.out.println("Region " );
 gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
 gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
 if (morphSet != null &&  morphSet.size() > 0 ){
+//System.out.println("Region 1" );
 gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
 String name = morphAnn.getFeatures().get("baseForm").toString();
+if ( !(name.equals("больший") | (name.equals("большой"))) ) {
+//System.out.println("Region 2" );
 String namePos = "";
 Object pos = morphAnn.getFeatures().get("pos");
 if (pos != null)
 {
+//System.out.println("Region 3" );
 namePos = morphAnn.getFeatures().get("pos").toString();
 }
 if (name.length()>4 && namePos.equals("adjective")){
+//System.out.println("Region 4" );
 gate.AnnotationSet rSet = (gate.AnnotationSet)bindings.get("r");
 gate.Annotation rAnn = (gate.Annotation)rSet.iterator().next();
 String reg = rAnn.getFeatures().get("ProperName").toString();
@@ -166,7 +181,7 @@ gate.FeatureMap features_pl = Factory.newFeatureMap();
 features_pl.put("view_name", region_name);
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
-}
+}}
 }
 }
 
@@ -194,8 +209,8 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 
 Rule: Viezd // на выезде из
 (
-(({Morph.baseForm == "выезд"}) | ({Morph.baseForm == "въезд"})| ({Morph.baseForm == "поворот"}))
-(({Token.string == "из"}) | ({Token.string == "с"}) | ({Token.string == "от"}) | ({Token.string == "в"}))
+(({Morph.baseForm == "выезд"}) | ({Morph.baseForm == "въезд"})| ({Morph.baseForm == "поворот"})| ({Morph.baseForm == "кольцо"}))
+(({Token.string == "из"}) | ({Token.string == "с"}) | ({Token.string == "от"}) | ({Token.string == "в"})| ({Token.string == "на"}))
 ({Token.orth == upperInitial, Token.length >3}): name
 )
 :pl -->
@@ -211,9 +226,10 @@ outputAS.add(nameSet.firstNode(), nameSet.lastNode(), "Placement", features_pl);
 Rule: Crossroad // перекресток Молодежной и Ульянова
 (
 ({Lookup.majorType == aux_crossroad}):obj
-((({Lookup.majorType == street, Lookup.short == true}): st ({Token.string == "."})?)| ({Lookup.majorType == street, Lookup.short == false}) )?
+((({Lookup.majorType == street, Lookup.short == true}) ({Token.string == "."})?)| ({Lookup.majorType == street, Lookup.short == false}) )?
 ({Token.orth == upperInitial, Token.length >3}): first_name
 (({Token.string == "и"})|({Token.string == "-"})|({Token.string == "–"})|({Token.string == "—"})|({Token.string == "/"}))?
+((({Lookup.majorType == street, Lookup.short == true}) ({Token.string == "."})?)| ({Lookup.majorType == street, Lookup.short == false}) )?
 ({Token.orth == upperInitial, Token.length >3}): second_name
 )
 :pl -->
@@ -232,7 +248,35 @@ gate.FeatureMap features_pl = Factory.newFeatureMap();
 features_pl.put("view_name", crossroad_name);
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
+}
 
+Rule: Crossroad_lowercase // перекресток молодежной и ульянова
+((
+({Lookup.majorType == aux_crossroad}):obj
+((({Lookup.majorType == street, Lookup.short == true}) ({Token.string == "."})?)| ({Lookup.majorType == street, Lookup.short == false}) )?
+({Token.orth == lowercase, Token.length >3}): first_name
+(({Token.string == "и"})|({Token.string == "-"})|({Token.string == "–"})|({Token.string == "—"})|({Token.string == "/"}))?
+((({Lookup.majorType == street, Lookup.short == true}) ({Token.string == "."})?)| ({Lookup.majorType == street, Lookup.short == false}) )?
+({Token.orth == lowercase, Token.length >3}): second_name
+):pl
+({Threat_RoadAccident})
+):bind
+ -->
+{
+gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
+gate.Annotation objAnn = (gate.Annotation)objSet.iterator().next();
+String object = objAnn.getFeatures().get("ProperName").toString();
+gate.AnnotationSet first_nameSet = (gate.AnnotationSet)bindings.get("first_name");
+gate.Annotation first_nameAnn = (gate.Annotation)first_nameSet.iterator().next();
+String first_name = first_nameAnn.getFeatures().get("string").toString();
+gate.AnnotationSet second_nameSet = (gate.AnnotationSet)bindings.get("second_name");
+gate.Annotation second_nameAnn = (gate.Annotation)second_nameSet.iterator().next();
+String second_name = second_nameAnn.getFeatures().get("string").toString();
+String crossroad_name = object + " " + first_name + " и " + second_name;
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", crossroad_name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 }
 
 Rule: Crossroad_oneToken
@@ -294,7 +338,7 @@ Rule: Crossroad_short
 ({Morph.baseForm == "на"})?
 ({Token.orth == upperInitial, Token.length > 5}): first_name
 (({Token.string == "-"})|({Token.string == "–"})|({Token.string == "/"})|({Token.string == "и"}))?
-({Token.orth == upperInitial, Token.length >3}): second_name
+({Token.orth == upperInitial, Token.length >3, Token.string != "Ольга"}): second_name
 ) :pl
 ({Token})[0,1]
 ({Threat_RoadAccident})
@@ -314,10 +358,34 @@ gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 }
 
-Rule: Crossroad_in
+Rule: Street_Oktiabria
+(
+(
+({Token.kind == number}) : numb
+(({Token.string == "-"})|({Token.string == "–"}))?
+(({Morph.baseForm == "лет"}) | ({Morph.baseForm == "летa"}) | ({Morph.baseForm == "год"})| ({Morph.baseForm == "лето"})| ({Morph.baseForm == "летие"}) )
+({Morph.baseForm == "октябрь"})
+) :pl
+({Token})[0,1]
+({Threat_RoadAccident})
+) :bind
+-->
+{
+gate.AnnotationSet numbSet = (gate.AnnotationSet)bindings.get("numb");
+gate.Annotation numbAnn = (gate.Annotation)numbSet.iterator().next();
+String numb = numbAnn.getFeatures().get("string").toString();
+String street_name = numb + "- летия Октября ";
+gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("view_name", street_name);
+gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
+outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
+}
+
+
+Rule: Crossroad_in // перекресток в Ростове
 (
 (({Lookup.majorType == aux_crossroad}) | ({Lookup.majorType == street, Lookup.short == false}))
-({Morph.baseForm == "в"})
+(({Morph.baseForm == "в"}) | ({Morph.baseForm == "с"}))
 ({Token.orth == upperInitial, Token.length >3}): name
 ):bind
 -->
@@ -338,7 +406,7 @@ outputAS.add(nameSet.firstNode(), nameSet.lastNode(), "Placement", features_pl);
 
 Rule: Street_short // на Ленинском сломан светофор
 ((
-({Morph.baseForm == "на"})
+(({Morph.baseForm == "на"}) | ({Morph.baseForm == "по"}) | ({Morph.baseForm == "в"}))
 ({Token.orth == upperInitial, Token.length >3}): name
 ) :pl
 ({Token.kind == word})[0,2]
@@ -467,6 +535,13 @@ gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 }
 
+Rule: MKAD // мкад
+(
+({Morph.baseForm == "мкад"})
+) : bind
+
+-->
+:bind.Placement = {view_name = "МКАД"}
 
 /*
 Ошибки:

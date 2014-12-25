@@ -5,6 +5,7 @@
 проспект:ProperName=проспект:short=false:gend=m
 пр:ProperName=проспект:short=true:gend=m
 шоссе:ProperName=шоссе:short=false:gend=n
+ш:ProperName=шоссе:short=true:gend=n
 бульвар:ProperName=бульвар:short=false:gend=m
 бул:ProperName=бульвар:short=true:gend=m
 набережная:ProperName=набережная:short=false:gend=f

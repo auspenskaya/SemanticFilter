@@ -21,7 +21,7 @@ Rule: Crack // по дому пошла трещина
 (
 ({Lookup.majorType == crack})    // трещина в доме
 ({Lookup.majorType == being})?
-(({Token.string == "по"})|({Token.string == "на"})|({Token.string == "в"}))
+(({Token.string == "по"})|({Token.string == "на"})|({Token.string == "в"}))?
 (ADJ)
 ({Lookup.majorType == building})
 ))
@@ -30,8 +30,11 @@ Rule: Crack // по дому пошла трещина
 
 Rule: Crooked // здание просело, фундамент просел
 (
-({Lookup.majorType == building})
-({Lookup.majorType == destroy_verb, Lookup.ProperName == "проседать"})
+(({Lookup.majorType == building})
+({Lookup.majorType == destroy_verb, Lookup.ProperName == "проседать"}))
+|
+(({Lookup.majorType == destroy_verb, Lookup.ProperName == "проседать"})
+({Lookup.majorType == building}))
 )
 :bind -->
 :bind.Threat_BuildingCollapse = {threat_indicator = "crooked_wall"}
@@ -43,6 +46,26 @@ Rule: Flood // подвал затопило
 )
 :bind -->
 :bind.Threat_BuildingCollapse = {threat_indicator = "building_flood"}
+
+
+Rule: Threat // угроза
+((
+(({Morph.baseForm == "угроза"}) | ({Morph.baseForm == "опасность"}) )
+({Morph.baseForm == "обрушение"})
+):bind
+({Token, Token.string != "нет"}) ):all
+-->
+:bind.Threat_BuildingCollapse = {threat_indicator = "crack_in_wall"}
+
+ Rule: Damaged_building
+(
+({Morph.baseForm == "аварийный"})
+({Lookup.majorType == building})
+)
+:bind -->
+:bind.Threat_BuildingCollapse = {threat_indicator = "crack_in_wall"}
+
+
 
 Rule: Skip
 // Каждая попытка делает трещину в стене, за которой находится твоя цель.
@@ -98,13 +121,3 @@ Rule: Skip
 {gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
 inputAS.removeAll(sk);
 }
-
-Rule: Fact // здание обвалилось
-(
-(({Lookup.majorType == building})
-({Lookup.majorType == destroy_verb, Lookup.ProperName != "проседать"}))|
-(({Lookup.majorType == destroy_verb, Lookup.ProperName != "проседать"})
-({Lookup.majorType == building}))
-)
-:bind -->
-:bind.Fact_BuildingCollapse = {threat_indicator = "collapse"}

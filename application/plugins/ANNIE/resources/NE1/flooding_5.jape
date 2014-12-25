@@ -1,0 +1,13 @@
+Phase:  Flooding
+Input: Token Lookup Split Morph
+Options: control = appelt
+
+Rule: Flooding_danger //застройка поймы
+(
+({Lookup.majorType == building_up})
+({Lookup.majorType == river, Lookup.ProperName == "пойма"})
+({Lookup.majorType == river})?
+)
+:bind -->
+:bind.Threat_Flooding = {threat_indicator = "building_up"}
+
