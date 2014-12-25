@@ -40,7 +40,9 @@ Macro: SINGLECLOSINGQUOTE
 
 Rule: Object // Гаврильцевские болота
 (
+
 ({Token.orth == upperInitial, Token.string != "Большая"}) : name
+
 ({Lookup.majorType == aux_object, Lookup.ProperName != "дорога"})  : obj
 )
 :pl -->

@@ -46,7 +46,6 @@ Rule: Flooding_danger
 :bind -->
 :bind.Threat_Flooding = {threat_indicator = "flood"}
 
-
 Rule: Skip
 
 ((({Morph.baseForm == "угроза"})({Token})[1,5](({Morph.baseForm == "миновать"}) | ({Morph.baseForm == "ликвидировать"})))
@@ -58,3 +57,4 @@ Rule: Skip
 gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
 inputAS.removeAll(sk);
 }
+

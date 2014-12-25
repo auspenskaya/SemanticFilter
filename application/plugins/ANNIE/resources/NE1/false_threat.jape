@@ -30,6 +30,7 @@ Rule: False_Threat
 (({Morph.baseForm == "не"}) (({Morph.baseForm == "видеть"}) | ({Morph.baseForm == "надо"})))|
 ({Morph.baseForm == "слеза"})
 )
+
 )
 )
 : bind

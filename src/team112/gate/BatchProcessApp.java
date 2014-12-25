@@ -58,190 +58,191 @@ public class BatchProcessApp {
         // process the files one by one
         for(int i = firstFile; i < args.length; i++) {
             try {
-            // load the document (using the specified encoding if one was given)
-            File docFile = new File(args[i]);
-            System.out.print("Processing document " + docFile + "...");
+                // load the document (using the specified encoding if one was given)
+                File docFile = new File(args[i]);
+                System.out.print("Processing document " + docFile + "...");
 
-            String jsonInput = readFile(docFile);
-            Object o =  JSONValue.parse(jsonInput);
-            JSONObject obj = (JSONObject) o;
-            //JSONObject obj = (JSONObject) JSONValue.parse(jsonInput);
-            JSONObject dataObject = (JSONObject) obj.get("data");
-            String textValue = dataObject.get("text").toString();
-            Document doc = Factory.newDocument(textValue);
-            // put the document in the corpus
-            String content = doc.getContent().toString();
-            corpus.add(doc);
-              // run the application
-            application.execute();
-            // remove the document from the corpus again
-            corpus.clear();
+                String jsonInput = readFile(docFile);
+                Object o =  JSONValue.parse(jsonInput);
+                JSONObject obj = (JSONObject) o;
+                //JSONObject obj = (JSONObject) JSONValue.parse(jsonInput);
+                JSONObject dataObject = (JSONObject) obj.get("data");
+                String textValue = dataObject.get("text").toString();
+                Document doc = Factory.newDocument(textValue);
+                // put the document in the corpus
+                String content = doc.getContent().toString();
+                corpus.add(doc);
+                // run the application
+                application.execute();
+                // remove the document from the corpus again
+                corpus.clear();
 
-            // if we want to just write out specific annotation types, we must
-            // extract the annotations into a Set
-            // output the XML to <inputFile>.out.xml
-            String outputFileName = docFile.getName() + ".meta";
-            File outputFile = new File(docFile.getParentFile() /* + File.separator + "out" */, outputFileName); // в ту же папку
+                // if we want to just write out specific annotation types, we must
+                // extract the annotations into a Set
+                // output the XML to <inputFile>.out.xml
+                String outputFileName = docFile.getName() + ".meta";
+                File outputFile = new File(docFile.getParentFile() /* + File.separator + "out" */, outputFileName); // в ту же папку
 
-            // Write output files using the same encoding as the original
-            FileOutputStream fos = new FileOutputStream(outputFile);
-            BufferedOutputStream bos = new BufferedOutputStream(fos);
-            OutputStreamWriter out;
-            if (encoding == null) {
-                out = new OutputStreamWriter(bos);
-            } else {
-                out = new OutputStreamWriter(bos, encoding);
-            }
-            AnnotationSet set = doc.getAnnotations();
-            Iterator it = set.iterator();
-            JSONObject resultJson = new JSONObject();
-            JSONArray ar = new JSONArray();
-            JSONArray aPlace = new JSONArray();
-            JSONArray aEntities = new JSONArray();
-            Integer rank = 0;
-            Boolean rus = false;
-            Boolean no_rus = false;
+                // Write output files using the same encoding as the original
+                FileOutputStream fos = new FileOutputStream(outputFile);
+                BufferedOutputStream bos = new BufferedOutputStream(fos);
+                OutputStreamWriter out;
+                if (encoding == null) {
+                    out = new OutputStreamWriter(bos);
+                } else {
+                    out = new OutputStreamWriter(bos, encoding);
+                }
+                AnnotationSet set = doc.getAnnotations();
+                Iterator it = set.iterator();
+                JSONObject resultJson = new JSONObject();
+                JSONArray ar = new JSONArray();
+                JSONArray aPlace = new JSONArray();
+                JSONArray aEntities = new JSONArray();
+                Integer rank = 0;
+                Boolean rus = false;
+                Boolean no_rus = false;
                 int k = 0;
-            while (it.hasNext()) {
-                AnnotationImpl ann = (AnnotationImpl) it.next();
-                String Type = ann.getType().toString();
-                gate.FeatureMap map = ann.getFeatures();
-                Iterator fit = map.entrySet().iterator();
-                Integer StartNode = ann.getStartNode().getOffset().intValue();
-                Integer EndNode = ann.getEndNode().getOffset().intValue();
-                JSONObject address = new JSONObject();
-                JSONObject entities = new JSONObject();
-                JSONObject indicator = new JSONObject();
+                while (it.hasNext()) {
+                    AnnotationImpl ann = (AnnotationImpl) it.next();
+                    String Type = ann.getType().toString();
+                    gate.FeatureMap map = ann.getFeatures();
+                    Iterator fit = map.entrySet().iterator();
+                    Integer StartNode = ann.getStartNode().getOffset().intValue();
+                    Integer EndNode = ann.getEndNode().getOffset().intValue();
+                    JSONObject address = new JSONObject();
+                    JSONObject entities = new JSONObject();
+                    JSONObject indicator = new JSONObject();
 
 // цикл добавления адреса
-                if (Type.equals("Placement")) {
-                    address.put("start_node", StartNode);
-                    address.put("end_node", EndNode);
-                    while (fit.hasNext()) {
-                        Map.Entry thisEntry = (Map.Entry) fit.next();
-                        String getKey = thisEntry.getKey().toString();
-                        String getValue = thisEntry.getValue().toString();
-                        address.put(getKey, getValue);
+                    if (Type.equals("Placement")) {
+                        address.put("start_node", StartNode);
+                        address.put("end_node", EndNode);
+                        while (fit.hasNext()) {
+                            Map.Entry thisEntry = (Map.Entry) fit.next();
+                            String getKey = thisEntry.getKey().toString();
+                            String getValue = thisEntry.getValue().toString();
+                            address.put(getKey, getValue);
+                        }
+                        aPlace.add(address);
                     }
-                    aPlace.add(address);
-                }
 
 // цикл добавления именованных сущностей
-                if (Type.equals("Object")) {
-                    entities.put("start_node", StartNode);
-                    entities.put("end_node", EndNode);
-                    while (fit.hasNext()) {
-                        Map.Entry thisEntry = (Map.Entry) fit.next();
-                        String getKey = thisEntry.getKey().toString();
-                        String getValue = thisEntry.getValue().toString();
-                        entities.put(getKey, getValue);
+                    if (Type.equals("Object")) {
+                        entities.put("start_node", StartNode);
+                        entities.put("end_node", EndNode);
+                        while (fit.hasNext()) {
+                            Map.Entry thisEntry = (Map.Entry) fit.next();
+                            String getKey = thisEntry.getKey().toString();
+                            String getValue = thisEntry.getValue().toString();
+                            entities.put(getKey, getValue);
+                        }
+                        aEntities.add(entities);
                     }
-                    aEntities.add(entities);
-                }
 
 
 // цикл добавления местоположения
-                if (Type.equals("Loc")) {
-                    address.put("start_node", StartNode);
-                    address.put("end_node", EndNode);
-                    while (fit.hasNext()) {
-                        Map.Entry thisEntry = (Map.Entry) fit.next();
-                        String getKey = thisEntry.getKey().toString();
-                        if (getKey.equals("ProperName"))
-                        {
-                            String getValue = thisEntry.getValue().toString();
-                            if (!getValue.equals("Россия") && !getValue.equals("Украина")) {
-                                address.put("view_name", getValue);
-                            }
-                            if (getValue.equals("Россия"))
+                    if (Type.equals("Loc")) {
+                        address.put("start_node", StartNode);
+                        address.put("end_node", EndNode);
+                        while (fit.hasNext()) {
+                            Map.Entry thisEntry = (Map.Entry) fit.next();
+                            String getKey = thisEntry.getKey().toString();
+                            if (getKey.equals("ProperName"))
                             {
-                                rus = true;
-                                //aPlace.add(address);
+                                String getValue = thisEntry.getValue().toString();
+                                if (!getValue.equals("Россия") && !getValue.equals("Украина")) {
+                                    address.put("view_name", getValue);
+                                }
+                                if (getValue.equals("Россия"))
+                                {
+                                    rus = true;
+                                    //aPlace.add(address);
+                                }
+                                if (getValue.equals("Украина"))
+                                {
+                                    rus = false;
+                                    //false);
+                                }
                             }
-                            if (getValue.equals("Украина"))
+                            if (getKey.equals("Parent")|getKey.equals("PreParent")|getKey.equals("PrePreParent")|getKey.equals("PrePrePreParent") )
                             {
-                                rus = false;
-                                //false);
-                            }
-                        }
-                        if (getKey.equals("Parent")|getKey.equals("PreParent")|getKey.equals("PrePreParent")|getKey.equals("PrePrePreParent") )
-                        {
-                            String getValue = thisEntry.getValue().toString();
-                              address.put(getKey, getValue);
-                            if (getValue.equals("Россия"))
-                            {
-                                rus = true;
-                                aPlace.add(address);
+                                String getValue = thisEntry.getValue().toString();
+                                address.put(getKey, getValue);
+                                if (getValue.equals("Россия"))
+                                {
+                                    rus = true;
+                                    aPlace.add(address);
 //                                System.out.println("Россия " + rus);
+                                }
                             }
                         }
-                    }
-                    if (rus.equals(false))
+                        if (rus.equals(false))
 
-                        no_rus = true;
+                            no_rus = true;
                         aPlace.add(address);
-                }
+                    }
 
 // цикл для угроз
-                if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")
-                        | Type.equals("Threat_BuildingCollapse")  | Type.equals("Threat_Flooding")  ) {
-                    while (fit.hasNext()) {
-                        Map.Entry thisEntry = (Map.Entry) fit.next();
-                        String getKey = thisEntry.getKey().toString();
-                        String getValue = thisEntry.getValue().toString();
-                        indicator.put("start_node", StartNode);
-                        indicator.put("end_node", EndNode);
-                        indicator.put(getKey, getValue);
 
-                        int rank_value = 0;
-                        if (getKey.equals("rank")) {
-                            rank_value = Integer.valueOf(getValue);
+                    if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")
+                            | Type.equals("Threat_BuildingCollapse")  | Type.equals("Threat_Flooding")  ) {
+                        while (fit.hasNext()) {
+                            Map.Entry thisEntry = (Map.Entry) fit.next();
+                            String getKey = thisEntry.getKey().toString();
+                            String getValue = thisEntry.getValue().toString();
+                            indicator.put("start_node", StartNode);
+                            indicator.put("end_node", EndNode);
+                            indicator.put(getKey, getValue);
+
+                            int rank_value = 0;
+                            if (getKey.equals("rank")) {
+                                rank_value = Integer.valueOf(getValue);
+                            }
+                            //System.out.println("rank = " + rank);
+                            rank = rank + rank_value;
                         }
-                        //System.out.println("rank = " + rank);
-                        rank = rank + rank_value;
+                        ar.add(indicator);
+                        resultJson.put("accident_type", Type);
+                        resultJson.put("message_type", "threat");
                     }
-                    ar.add(indicator);
-                    resultJson.put("accident_type", Type);
-                    resultJson.put("message_type", "threat");
-                }
 
 // цикл для фактов
-                if (Type.equals("Fact_RoadAccident") | Type.equals("Fact_Wildfire")
-                        | Type.equals("Fact_BuildingCollapse") ) {
-                    while (fit.hasNext()) {
-                        Map.Entry thisEntry = (Map.Entry) fit.next();
-                        String getKey = thisEntry.getKey().toString();
-                        String getValue = thisEntry.getValue().toString();
-                        indicator.put("start_node", StartNode);
-                        indicator.put("end_node", EndNode);
-                        indicator.put(getKey, getValue);
+                    if (Type.equals("Fact_RoadAccident") | Type.equals("Fact_Wildfire")
+                            | Type.equals("Fact_BuildingCollapse") ) {
+                        while (fit.hasNext()) {
+                            Map.Entry thisEntry = (Map.Entry) fit.next();
+                            String getKey = thisEntry.getKey().toString();
+                            String getValue = thisEntry.getValue().toString();
+                            indicator.put("start_node", StartNode);
+                            indicator.put("end_node", EndNode);
+                            indicator.put(getKey, getValue);
 
-                        int rank_value = 0;
-                        if (getKey.equals("rank")) {
-                            rank_value = Integer.valueOf(getValue);
+                            int rank_value = 0;
+                            if (getKey.equals("rank")) {
+                                rank_value = Integer.valueOf(getValue);
+                            }
+                            //System.out.println("rank = " + rank);
+                            rank = rank + rank_value;
                         }
-                        //System.out.println("rank = " + rank);
-                        rank = rank + rank_value;
+                        ar.add(indicator);
+                        resultJson.put("accident_type", Type);
+                        resultJson.put("message_type", "fact");
                     }
-                    ar.add(indicator);
-                    resultJson.put("accident_type", Type);
-                    resultJson.put("message_type", "fact");
-                }
-                k++;
+                    k++;
 //                System.out.println("==== " + k);
-            }
-            resultJson.put("rank", rank);
-            if (ar.size() != 0) {
-                resultJson.put("indicators", ar);
-            }
-            resultJson.put("placement", aPlace);
-            resultJson.put("named_entities", aEntities);
+                }
+                resultJson.put("rank", rank);
+                if (ar.size() != 0) {
+                    resultJson.put("indicators", ar);
+                }
+                resultJson.put("placement", aPlace);
+                resultJson.put("named_entities", aEntities);
 //            System.out.println("rus = " + rus);
 //            System.out.println("no_rus = " + no_rus);
-            if (rus.equals(true) &&  no_rus.equals(false)) resultJson.put("russia", true);
-            if (rus.equals(false) &&  no_rus.equals(true)) resultJson.put("russia", false);
-            if (resultJson.size() != 0)
-                out.write(resultJson.toString());
+                if (rus.equals(true) &&  no_rus.equals(false)) resultJson.put("russia", true);
+                if (rus.equals(false) &&  no_rus.equals(true)) resultJson.put("russia", false);
+                if (resultJson.size() != 0)
+                    out.write(resultJson.toString());
 
 
 //            if(annotTypesToWrite != null) {
@@ -270,17 +271,17 @@ public class BatchProcessApp {
 //                docXMLString = doc.toXml();
 //            }
 
-            // Release the document, as it is no longer needed
-            Factory.deleteResource(doc);
+                // Release the document, as it is no longer needed
+                Factory.deleteResource(doc);
 
 
-            out.close();
-            System.out.println("done");
-        }
-        catch (Exception e) {
-            System.out.println("Exception " + e);
-            corpus.clear();
-        }
+                out.close();
+                System.out.println("done");
+            }
+            catch (Exception e) {
+                System.out.println("Exception " + e);
+                corpus.clear();
+            }
 
         } // for each file
 
