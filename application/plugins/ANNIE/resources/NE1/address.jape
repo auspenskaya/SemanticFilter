@@ -3,7 +3,7 @@ Input: Token Split Lookup Morph Threat_RoadAccident
 Options: control = all
 
 
-Rule: Address_inv
+Rule: Address_inv   // Невский проспект
 (
 ({Token.orth == upperInitial, Token.length >3}
 ): name
