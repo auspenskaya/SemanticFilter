@@ -16,6 +16,7 @@
 маяк:threat_indicator=signal_damage
 ограждение:threat_indicator=fence_damage
 дорожный знак:threat_indicator=road_sign_damage
+знак уступить дорога:threat_indicator=road_sign_damage
 дорожный разметка:threat_indicator=road_marking_damage
 мост:threat_indicator=bridge_damage
 разметка:threat_indicator=road_marking_damage
