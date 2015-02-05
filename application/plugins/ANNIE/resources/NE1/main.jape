@@ -1,16 +1,4 @@
 /*
-*  main.jape
-*
-* Copyright (c) 1998-2001, The University of Sheffield.
-*
-*  This file is part of GATE (see http://gate.ac.uk/), and is free
-*  software, licenced under the GNU Library General Public License,
-*  Version 2, June 1991 (in the distribution as file licence.html,
-*  and also available at http://gate.ac.uk/gate/licence.html).
-*
-*  Angel Kirilov, 16 May 2003
-*
-*
 */
 
 MultiPhase:	TestTheGrammars
@@ -36,7 +24,6 @@ spuriousname
 final
 unknown
 clean
-//check_markup
 false_object_markup
 dtp_threat
 dtp_threat_2
@@ -63,3 +50,4 @@ location_del
 location_del
 address
 named_entities
+

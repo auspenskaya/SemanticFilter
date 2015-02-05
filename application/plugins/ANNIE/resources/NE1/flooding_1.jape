@@ -42,6 +42,9 @@ Rule: Flooding_danger
 |
 ((({Lookup.majorType == flood}) | ({Lookup.majorType == overflow}))
 ({Lookup.majorType == river})) //   разлилась река
+|
+(({Morph.baseForm == "паводок"}) |
+({Morph.baseForm == "половодье"}))
 )
 :bind -->
 :bind.Threat_Flooding = {threat_indicator = "flood"}

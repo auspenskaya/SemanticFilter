@@ -47,11 +47,8 @@ gate.FeatureMap features_bind = Factory.newFeatureMap(); // 2
 features_bind.put("view_name", street_name);
 features_bind.put("Rule", "Address_inv");
 outputAS.add(bindSet.firstNode(), bindSet.lastNode(), "Placement", features_bind);
-<<<<<<< HEAD
 }}}
-=======
-}}
->>>>>>> 10335d4a025def50f6ed80d64ef98d69ad53e93a
+
 
 /*
 Rule: Address_double
