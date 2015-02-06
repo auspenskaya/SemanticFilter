@@ -200,9 +200,9 @@ Rule: Skip
 ({Token.string == "светофорам"})
 ({Token.string == "звоните"}))
 |
-(({Token.string == "когда"})
-({Token.string == "нет"})
-({Token.string == "светофора"}))
+(({Token})
+({Morph.baseForm == "нет"})
+({Morph.baseForm == "светофор"}))
 |
 (
 ({Token.kikd == "word"})?

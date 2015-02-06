@@ -316,7 +316,7 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Object", features_pl);
 
 Rule: ObjectList
 (
-({Morph.baseForm == "университет"})
+({Morph.baseForm == "университет", Morph.multiplicity == "singular"})
 )
 :bind
 -->

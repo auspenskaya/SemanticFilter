@@ -2030,6 +2030,7 @@
 истра-2:ProperName=Истра-2:locType=город:region_checked=true:type_checked=true:Parent=Московская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 истра-3:ProperName=Истра-3:locType=город:region_checked=true:type_checked=true:Parent=Московская область:PreParent=Центральный федеральный округ:PrePreParent=Россия
 италия:ProperName=Италия:locType=страна:region_checked=true:type_checked=true
+черногория:ProperName=Черногория:locType=страна:region_checked=true:type_checked=true
 итальянская республика:ProperName=Италия:locType=страна:region_checked=true:type_checked=true
 итикава:ProperName=Итикава:locType=город:region_checked=true:type_checked=true:Parent=Япония
 итикава-си:ProperName=Итикава:locType=город:region_checked=true:type_checked=true:Parent=Япония
@@ -5398,7 +5399,7 @@
 танян:ProperName=Танян:locType=уезд:region_checked=true:type_checked=true:Parent=Южная Корея
 таормина:ProperName=Таормина:locType=город:region_checked=true:type_checked=true:Parent=Италия
 тапольца:ProperName=Тапольца:locType=город:region_checked=true:type_checked=true:Parent=Венгрия
-тара:ProperName=Тара:locType=город:region_checked=true:type_checked=true:Parent=Омская область:PreParent=Сибирский федеральный округ:PrePreParent=Россия
+тара:ProperName=Тара:locType=город:region_checked=true:type_checked=false:Parent=Омская область:PreParent=Сибирский федеральный округ:PrePreParent=Россия
 тараклия:ProperName=Тараклия:locType=город:region_checked=true:type_checked=true:Parent=Молдова
 таранто:ProperName=Таранто:locType=город:region_checked=true:type_checked=true:Parent=Италия
 тарасп:ProperName=Тарасп:locType=город:region_checked=true:type_checked=true:Parent=Швейцария

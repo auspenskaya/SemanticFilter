@@ -15,8 +15,9 @@ gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
 gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Morph");
 if (morphSet != null && morphSet.size() > 0){
 gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
+//System.out.println("morphAnn = " + morphAnn);
+if (morphAnn.getFeatures().get("pos").toString() != "verb"){
 String name = morphAnn.getFeatures().get("baseForm").toString();
-//System.out.println("name = " + name);
 if ( !(name.equals("больший") | (name.equals("большой"))| (name.equals("ночной"))| (name.equals("твой")) ))
 {gate.AnnotationSet strSet = (gate.AnnotationSet)bindings.get("st");
 gate.Annotation strAnn = (gate.Annotation)strSet.iterator().next();
@@ -47,7 +48,7 @@ gate.FeatureMap features_bind = Factory.newFeatureMap(); // 2
 features_bind.put("view_name", street_name);
 features_bind.put("Rule", "Address_inv");
 outputAS.add(bindSet.firstNode(), bindSet.lastNode(), "Placement", features_bind);
-}}}
+}}}}
 
 
 /*
@@ -445,7 +446,7 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 Rule: Street_short_first // На Ленинском...
 ((
 ({Token.string == "На"})
-({Token.orth == upperInitial, Token.length >3}): name
+({Token.orth == upperInitial, Token.length >3,  Token.string != "Новый"}): name
 ) :pl
 ({Token}): str
 ) : bind

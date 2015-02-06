@@ -28,11 +28,15 @@ Rule: Morph
 |
 (({Morph.baseForm == "фильм"})({Token})[0,2]({Morph.baseForm == "дурак"}) )
 |
-((({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"}))
-(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"})))
+(
+(({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"}))
+(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"}))
+)
 |
-((({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"}))
-(({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"})))
+(
+(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"}))
+(({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"}))
+)
 )
 : bind
 
