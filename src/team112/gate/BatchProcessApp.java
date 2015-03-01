@@ -164,7 +164,7 @@ public class BatchProcessApp {
                                     //false);
                                 }
                             }
-                            if (getKey.equals("Parent")|getKey.equals("PreParent")|getKey.equals("PrePreParent")|getKey.equals("PrePrePreParent") )
+                            if (getKey.equals("Parent")|getKey.equals("PreParent")|getKey.equals("PrePreParent")|getKey.equals("PrePrePreParent")|getKey.equals("place_type") )
                             {
                                 String getValue = thisEntry.getValue().toString();
                                 address.put(getKey, getValue);

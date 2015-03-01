@@ -103,7 +103,7 @@ Rule: BadRoad // 10 плохая дорога, дорога очень плох�
 :bind.Threat_RoadAccident = {threat_indicator = "hole_on_road"}
 
 
-Rule: BadObject // 11 неисправный светофор, нет разметки,
+Rule: BadObject // 11 неисправный светофор, нет разметки !!Не работал светофор - не должно!
 ((({Lookup.majorType == defective})|({Lookup.majorType == lack_for}))  ({Morph.pos == adverb} )?
 (({Token.kind == word}) ({Morph.baseForm == "или"}) )?
 (({Lookup.majorType == object}):obj))

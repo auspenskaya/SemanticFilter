@@ -147,6 +147,14 @@ Rule: Skip
 ({Token.string == "на"})
 ({Token.string == "дорогом"})
 )
+|
+(
+({Token})
+({Morph.baseForm == "въезжать"})
+({Morph.baseForm == "на"})
+({Morph.baseForm == "мост"})
+)
+
 )
 :skip -->
 {

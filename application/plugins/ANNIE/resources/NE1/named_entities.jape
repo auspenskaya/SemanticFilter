@@ -41,7 +41,7 @@ Macro: SINGLECLOSINGQUOTE
 Rule: Object // Гаврильцевские болота
 (
 
-({Token.orth == upperInitial, Token.string != "Большая"}) : name
+({Token.orth == upperInitial, Token.string != "Большая", Token.string != "Автобусная"}) : name
 
 ({Lookup.majorType == aux_object, Lookup.ProperName != "дорога"})  : obj
 )
@@ -242,11 +242,11 @@ Rule: Object_Quotes_AndDTP
 ((
 (({Morph.baseForm == "на"})|({Morph.baseForm == "возле"})|({Morph.baseForm == "около"})|({Morph.baseForm == "у"}) |({Morph.baseForm == "с"}))
 ({Token.kind == word})[0,3]
-({Token.kind=="punctuation",Token.length == "1"})
+({Token.kind=="punctuation",Token.length == "1", Token.string != ".", Token.string != ","})
 (({Token.orth == upperInitial}) | ({Token.orth == allCaps})): name
-({Token.kind=="punctuation",Token.length == "1"})
+({Token.kind=="punctuation",Token.length == "1", Token.string != ".", Token.string != ","})
 ) :pl
-({Token})[0,3]
+({Morph})[0,3]
 ({Threat_RoadAccident})
 ) :bind
 -->

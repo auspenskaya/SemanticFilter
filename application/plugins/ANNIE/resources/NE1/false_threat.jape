@@ -9,7 +9,7 @@ Rule: False_Threat
 ((({Morph.baseForm == "например"})|({Morph.baseForm == "не"})|({Morph.baseForm == "чтобы"})|({Morph.baseForm == "если"})|({Morph.baseForm == "для"})
 |({Morph.baseForm == "словно"})|({Morph.baseForm == "будто"})|({Morph.baseForm == "нет"}) |({Morph.baseForm == "почти"})|({Morph.baseForm == "каждый"})
 |({Morph.baseForm == "устранение"})|({Morph.baseForm == "возможный"})|(({Morph.baseForm == "во"}) ({Morph.baseForm == "время"}))
-|({Morph.baseForm == "ликвидация"}) |({Morph.baseForm == "мочь"})
+|({Morph.baseForm == "ликвидация"}) |({Morph.baseForm == "мочь"}) |({Morph.baseForm == "где"})
 )
 (({Threat_RoadAccident})|
 ({Threat_Wildfire})|

@@ -417,13 +417,16 @@ Rule: Street_short // на Ленинском сломан светофор
 -->
 {
 gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+gate.AnnotationSet locSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Loc");
+if (locSet == null | !(locSet.size() > 0) ){
 gate.Annotation nameAnn = (gate.Annotation)nameSet.iterator().next();
 String name = nameAnn.getFeatures().get("string").toString();
 gate.FeatureMap features_pl = Factory.newFeatureMap();
 features_pl.put("view_name", name);
+features_pl.put("Rule", "Street_short");
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
-}
+}}
 
 Rule: Street_short_inv //сломан светофор на Ленинском
 (

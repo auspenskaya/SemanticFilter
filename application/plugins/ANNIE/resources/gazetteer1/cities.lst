@@ -1590,11 +1590,9 @@
 дмитровское:ProperName=Дмитровское:locType=город:region_checked=false:type_checked=false:Parent=Узбекистан:place_type=city
 дмитровск-орловский:ProperName=Дмитровск-Орловский:locType=город:region_checked=true:type_checked=true:Parent=Орловская область:PreParent=Центральный федеральный округ:PrePreParent=Россия:place_type=city
 днепродзержинск:ProperName=Днепродзержинск:locType=город:region_checked=true:type_checked=true:Parent=Украина:place_type=city
-каменское:ProperName=Днепродзержинск:locType=город:region_checked=false:type_checked=true:Parent=Украина:place_type=city
+каменское:ProperName=Днепродзержинск:locType=город:region_checked=false:type_checked=false:Parent=Украина:place_type=city
 днепропетровск:ProperName=Днепропетровск:locType=город:region_checked=true:type_checked=true:Parent=Украина:place_type=city
 екатеринослав:ProperName=Днепропетровск:locType=город:region_checked=true:type_checked=true:Parent=Украина:place_type=city
-новороссийск:ProperName=Днепропетровск:locType=город:region_checked=false:type_checked=true:Parent=Украина:place_type=city
-дно:ProperName=Дно:locType=город:region_checked=true:type_checked=false:Parent=Псковская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия:place_type=city
 добеле:ProperName=Добеле:locType=город:region_checked=true:type_checked=true:Parent=Латвия:place_type=city
 добржиховице:ProperName=Добржиховице:locType=город:region_checked=true:type_checked=true:Parent=Чехия:place_type=city
 добришовице:ProperName=Добржиховице:locType=город:region_checked=true:type_checked=true:Parent=Чехия:place_type=city
@@ -3727,6 +3725,7 @@
 новопсков:ProperName=Новопсков:locType=город:region_checked=true:type_checked=true:Parent=Украина:place_type=city
 новоржев:ProperName=Новоржев:locType=город:region_checked=true:type_checked=true:Parent=Псковская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия:place_type=city
 новороссийск:ProperName=Новороссийск:locType=город:region_checked=true:type_checked=true:Parent=Краснодарский край:PreParent=Южный федеральный округ:PrePreParent=Россия:place_type=city
+новоросс:ProperName=Новороссийск:locType=город:region_checked=true:type_checked=true:Parent=Краснодарский край:PreParent=Южный федеральный округ:PrePreParent=Россия:place_type=city
 ново-селец:ProperName=Новоселец:locType=город:region_checked=true:type_checked=true:Parent=Хорватия:place_type=city
 новоселец:ProperName=Новоселец:locType=город:region_checked=true:type_checked=true:Parent=Хорватия:place_type=city
 новоселица:ProperName=Новоселица:locType=город:region_checked=true:type_checked=false:Parent=Украина:place_type=city

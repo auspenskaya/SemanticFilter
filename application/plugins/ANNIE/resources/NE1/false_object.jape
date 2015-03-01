@@ -13,7 +13,7 @@ Rule: False_Object
 ({Fact_Wildfire})|
 ({Fact_BuildingCollapse}))[0,10])
 : bind1
-(({False_Object}))
+(({False_Object})[0,10])
 : f_obj
 (((({Threat_RoadAccident})|
 ({Threat_Wildfire})|
@@ -25,29 +25,26 @@ Rule: False_Object
 : bind2
  -->
 {
-//System.out.println("False_Object 1" );
 gate.AnnotationSet falseSet = (gate.AnnotationSet)bindings.get("f_obj");
+if (falseSet != null && falseSet.size() > 0 ) {
 gate.Annotation falseAnn = (gate.Annotation)falseSet.iterator().next();
 String threatType = falseAnn.getFeatures().get("threatType").toString();
 gate.AnnotationSet bind1Set = (gate.AnnotationSet)bindings.get("bind1");
-if (bind1Set != null && bind1Set.size() > 0 && threatType.equals("all")) inputAS.removeAll(bind1Set);
-if (bind1Set != null && bind1Set.size() > 0 && !threatType.equals("all"))
-{
+if (bind1Set != null && bind1Set.size() > 0 && threatType.equals("all")){
+    inputAS.removeAll(bind1Set);
+}
+if (bind1Set != null && bind1Set.size() > 0 && !threatType.equals("all"))  {
     gate.Annotation bind1Ann = (gate.Annotation)bind1Set.iterator().next();
     String bind1Type = bind1Ann.getType().toString();
     if (bind1Type.equals(threatType)) inputAS.remove(bind1Ann);
 }
-
-
 gate.AnnotationSet bind2Set = (gate.AnnotationSet)bindings.get("bind2");
 if (bind2Set != null && bind2Set.size() > 0 && threatType.equals("all")) inputAS.removeAll(bind2Set);
-if (bind2Set != null && bind2Set.size() > 0 && !threatType.equals("all"))
-{
+if (bind2Set != null && bind2Set.size() > 0 && !threatType.equals("all")){
     gate.Annotation bind2Ann = (gate.Annotation)bind2Set.iterator().next();
     String bind2Type = bind2Ann.getType().toString();
     if (bind2Type.equals(threatType)) inputAS.remove(bind2Ann);
-}
-}
+}}}
 
 
 Rule: False_Object2
@@ -60,7 +57,7 @@ Rule: False_Object2
 ({Fact_Wildfire})|
 ({Fact_BuildingCollapse}))[0,10])?)
 : bind1
-(({False_Object}))
+(({False_Object})[0,10])
 : f_obj
 ((({Threat_RoadAccident})|
 ({Threat_Wildfire})|
@@ -74,6 +71,7 @@ Rule: False_Object2
 {
 //System.out.println("False_Object2");
 gate.AnnotationSet falseSet = (gate.AnnotationSet)bindings.get("f_obj");
+if (falseSet != null && falseSet.size() > 0 ) {
 gate.Annotation falseAnn = (gate.Annotation)falseSet.iterator().next();
 String threatType = falseAnn.getFeatures().get("threatType").toString();
 gate.AnnotationSet bind1Set = (gate.AnnotationSet)bindings.get("bind1");
@@ -91,5 +89,4 @@ if (bind2Set != null && bind2Set.size() > 0 && !threatType.equals("all"))
     gate.Annotation bind2Ann = (gate.Annotation)bind2Set.iterator().next();
     String bind2Type = bind2Ann.getType().toString();
     if (bind2Type.equals(threatType)) inputAS.remove(bind2Ann);
-}
-}
+}}}
