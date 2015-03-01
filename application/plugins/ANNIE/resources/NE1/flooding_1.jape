@@ -42,16 +42,17 @@ Rule: Flooding_danger
 |
 ((({Lookup.majorType == flood}) | ({Lookup.majorType == overflow}))
 ({Lookup.majorType == river})) //   разлилась река
-|
-(({Morph.baseForm == "паводок"}) |
-({Morph.baseForm == "половодье"}))
+//|
+//(({Morph.baseForm == "паводок"}) |
+//({Morph.baseForm == "половодье"}))
 )
 :bind -->
 :bind.Threat_Flooding = {threat_indicator = "flood"}
 
 Rule: Skip
 
-((({Morph.baseForm == "угроза"})({Token})[1,5](({Morph.baseForm == "миновать"}) | ({Morph.baseForm == "ликвидировать"})))
+((({Morph.baseForm == "угроза"})({Token})[1,5](({Morph.baseForm == "миновать"})
+| ({Morph.baseForm == "ликвидировать"}) | ({Morph.baseForm == "отступать"})))
 |
 (({Morph.pos == "verb", Morph.tense == "past", Morph.aspect == "imperfect" }) ({Morph.baseForm == "угроза"})({Token})[1,2])
 )

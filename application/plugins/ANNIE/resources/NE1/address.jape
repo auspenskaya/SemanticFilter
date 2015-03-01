@@ -179,6 +179,7 @@ if (r_gend.equals("f") &&  ( n.equals("ий") || n.equals("ый")))
 String region_name = name + " " + reg;
 gate.FeatureMap features_pl = Factory.newFeatureMap();
 features_pl.put("view_name", region_name);
+features_pl.put("place_type", "city");
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 }}
@@ -203,6 +204,7 @@ if (rAnn.getType().toString().equals("Lookup"))
 String region_name = reg + " " + name;
 gate.FeatureMap features_pl = Factory.newFeatureMap();
 features_pl.put("view_name", region_name);
+features_pl.put("place_type", "city");
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 }}
