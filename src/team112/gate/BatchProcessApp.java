@@ -115,33 +115,39 @@ public class BatchProcessApp {
 
 // цикл добавления адреса
                     if (Type.equals("Placement")) {
+                        Boolean pres = true ;
                         address.put("start_node", StartNode);
                         address.put("end_node", EndNode);
                         while (fit.hasNext()) {
                             Map.Entry thisEntry = (Map.Entry) fit.next();
                             String getKey = thisEntry.getKey().toString();
                             String getValue = thisEntry.getValue().toString();
+                            if (getKey.equals("place_type")&& getValue.equals("imprecise") ) pres = false;
                             address.put(getKey, getValue);
+                            if (pres.equals(true)) address.put("place_type", "precise");
                         }
                         aPlace.add(address);
                     }
 
 // цикл добавления именованных сущностей
                     if (Type.equals("Object")) {
+                        Boolean pres = true ;
                         entities.put("start_node", StartNode);
                         entities.put("end_node", EndNode);
                         while (fit.hasNext()) {
                             Map.Entry thisEntry = (Map.Entry) fit.next();
                             String getKey = thisEntry.getKey().toString();
                             String getValue = thisEntry.getValue().toString();
+                            if (getKey.equals("place_type")&& getValue.equals("imprecise") ) pres = false;
                             entities.put(getKey, getValue);
+                            if (pres.equals(true)) entities.put("place_type", "precise");
                         }
                         aEntities.add(entities);
                     }
 
-
 // цикл добавления местоположения
                     if (Type.equals("Loc")) {
+                        Boolean pres = true ;
                         address.put("start_node", StartNode);
                         address.put("end_node", EndNode);
                         while (fit.hasNext()) {
@@ -153,21 +159,20 @@ public class BatchProcessApp {
                                 if (!getValue.equals("Россия") && !getValue.equals("Украина")) {
                                     address.put("view_name", getValue);
                                 }
-                                if (getValue.equals("Россия"))
-                                {
+                                if (getValue.equals("Россия")){
                                     rus = true;
                                     //aPlace.add(address);
                                 }
-                                if (getValue.equals("Украина"))
-                                {
+                                if (getValue.equals("Украина")){
                                     rus = false;
                                     //false);
                                 }
                             }
-                            if (getKey.equals("Parent")|getKey.equals("PreParent")|getKey.equals("PrePreParent")|getKey.equals("PrePrePreParent")|getKey.equals("place_type") )
-                            {
+                            if (getKey.equals("Parent")|getKey.equals("PreParent")|getKey.equals("PrePreParent")|getKey.equals("PrePrePreParent")|getKey.equals("place_type")){
                                 String getValue = thisEntry.getValue().toString();
+                                if (getKey.equals("place_type")&& getValue.equals("imprecise") ) pres = false;
                                 address.put(getKey, getValue);
+                                if (pres.equals(true)) address.put("place_type", "precise");
                                 if (getValue.equals("Россия"))
                                 {
                                     rus = true;
