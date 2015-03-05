@@ -3709,6 +3709,7 @@
 новогрудок:ProperName=Новогрудок:locType=город:region_checked=true:type_checked=true:Parent=Беларусь:place_type=imprecise
 новодвинск:ProperName=Новодвинск:locType=город:region_checked=true:type_checked=true:Parent=Архангельская область:PreParent=Северо-Западный федеральный округ:PrePreParent=Россия:place_type=imprecise
 новозыбков:ProperName=Новозыбков:locType=город:region_checked=true:type_checked=true:Parent=Брянская область:PreParent=Центральный федеральный округ:PrePreParent=Россия:place_type=imprecise
+кубань:ProperName=Кубань:locType=край:region_checked=true:type_checked=true:Parent=Краснодарский край:PreParent=Южный федеральный округ:PrePreParent=Россия:place_type=imprecise
 новокубанск:ProperName=Новокубанск:locType=город:region_checked=true:type_checked=true:Parent=Краснодарский край:PreParent=Южный федеральный округ:PrePreParent=Россия:place_type=imprecise
 новокузнецк:ProperName=Новокузнецк:locType=город:region_checked=true:type_checked=true:Parent=Кемеровская область:PreParent=Сибирский федеральный округ:PrePreParent=Россия:place_type=imprecise
 новокуйбышевск:ProperName=Новокуйбышевск:locType=город:region_checked=true:type_checked=true:Parent=Самарская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия:place_type=imprecise
