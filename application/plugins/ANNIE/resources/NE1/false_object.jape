@@ -11,7 +11,7 @@ Rule: False_Object
 ({Threat_Flooding})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
-({Fact_BuildingCollapse}))[0,10])
+({Fact_BuildingCollapse} ))[0,10])
 : bind1
 (({False_Object})[0,10])
 : f_obj
