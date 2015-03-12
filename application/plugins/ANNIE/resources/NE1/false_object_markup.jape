@@ -38,12 +38,15 @@ Rule: Morph
 (
 (({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"})
 |({Morph.baseForm == "МЧС"})|({Morph.baseForm == "ДПС"}))
-(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"}))
+(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"})
+|({Morph.baseForm == "стоять"}))
 )
 |
 (
-(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"}))
-(({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"}))
+(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"})
+|({Morph.baseForm == "стоять"}))
+(({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"})
+|({Morph.baseForm == "МЧС"})|({Morph.baseForm == "ДПС"}))
 )
 )
 : bind
