@@ -124,7 +124,7 @@ public class BatchProcessApp {
                             String getValue = thisEntry.getValue().toString();
                             if (getKey.equals("place_type")&& getValue.equals("imprecise") ) pres = false;
                             address.put(getKey, getValue);
-                            if (pres.equals(true)) address.put("place_type", "precise");
+                            if (pres.equals(true)) address.put("place_type", "precise"); // точный адрес
                         }
                         aPlace.add(address);
                     }
