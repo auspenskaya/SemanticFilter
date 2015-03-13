@@ -4127,7 +4127,7 @@
 пендлтон:ProperName=Пендлтон:locType=город:region_checked=true:type_checked=true:Parent=Орегон:PreParent=США:place_type=imprecise
 пенела:ProperName=Пенела (Коимбра):locType=поселок:region_checked=true:type_checked=true:Parent=Португалия:place_type=imprecise
 пенела (коимбра):ProperName=Пенела (Коимбра):locType=поселок:region_checked=true:type_checked=true:Parent=Португалия:place_type=imprecise
-пенза:ProperName=Пенза:locType=город:region_checked=true:type_checked=false:Parent=Пензенская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия:place_type=imprecise
+пенза:ProperName=Пенза:locType=город:region_checked=true:type_checked=true:Parent=Пензенская область:PreParent=Приволжский федеральный округ:PrePreParent=Россия:place_type=imprecise
 пензанс:ProperName=Пензанс:locType=город:region_checked=true:type_checked=true:Parent=Великобритания:place_type=imprecise
 пензенская:ProperName=Пензенская область:locType=область:region_checked=true:type_checked=false:Parent=Приволжский федеральный округ:PreParent=Россия:place_type=imprecise
 пенсакола:ProperName=Пенсакола:locType=город:region_checked=true:type_checked=true:Parent=Флорида:PreParent=США:place_type=imprecise

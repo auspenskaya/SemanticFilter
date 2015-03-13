@@ -300,6 +300,10 @@ Rule: Skip
 ({Token.string == "горят"})
 ({Token.string == "леса"}))
 |
+(({Morph.baseForm == "уборка"})
+({Token.string == "мусор"})
+({Token})[1,4])
+|
 (({Token.string == "как"})
 ({Token.string == "сухая"})
 ({Token.string == "ветвь"}))

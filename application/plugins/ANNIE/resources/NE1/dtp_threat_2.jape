@@ -205,10 +205,12 @@ Rule: Skip
 ({Morph.baseForm == "светофор"}))
 |
 (
-({Token.kikd == "word"})?
+({Token.kikd == "word"})[1,4]
 ({Token.string == "люк"})
 ( ({Morph.baseForm == "шлюзовый"})
-|
+ |
+ ({Morph.baseForm == "самолет"})
+ |
 (({Token.string == "космодесантного"})|({Token.string == "бота"})|
 (({Token.string == "в"})
 ({Token.string == "доме"})))
@@ -230,6 +232,12 @@ Rule: Skip
 ({Token})
 ({Token.string == "люк"})
 ({Token.string == "танка"}))
+|
+(
+({Token})
+({Morph.baseForm == "люк"})
+({Morph.baseForm == "из"})
+{Morph.baseForm == "салон"})
 )
 :skip -->
 {
