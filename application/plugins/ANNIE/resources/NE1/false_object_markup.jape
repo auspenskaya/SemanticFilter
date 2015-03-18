@@ -20,7 +20,7 @@ Rule: Morph
 |
 (({Token.kind == number})({Morph.baseForm == "глава"}))
 |
-(({Morph.baseForm == "в"})({Token.kind == number})({Morph.baseForm == "год"}) )
+(({Morph.baseForm == "в"})?({Token.kind == number})({Morph.baseForm == "год"}) )
 |
 ({Date})
 |
@@ -37,16 +37,20 @@ Rule: Morph
 |
 (
 (({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"})
-|({Morph.baseForm == "МЧС"})|({Morph.baseForm == "ДПС"}))
-(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"})
-|({Morph.baseForm == "стоять"}))
+|({Morph.baseForm == "МЧС"})|({Morph.baseForm == "ДПС"})|({Morph.baseForm == "патруль"}))
+({Token})?
+(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})
+|({Morph.baseForm == "работать"})|({Morph.baseForm == "стоять"})
+|({Morph.baseForm == "рулить"}))
 )
 |
 (
-(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})|({Morph.baseForm == "работать"})
-|({Morph.baseForm == "стоять"}))
+(({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})
+|({Morph.baseForm == "работать"}) |({Morph.baseForm == "стоять"})
+|({Morph.baseForm == "рулить"}))
+({Token})?
 (({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"})
-|({Morph.baseForm == "МЧС"})|({Morph.baseForm == "ДПС"}))
+|({Morph.baseForm == "МЧС"})|({Morph.baseForm == "ДПС"})|({Morph.baseForm == "патруль"}))
 )
 )
 : bind

@@ -138,7 +138,8 @@ gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset
 if (morphSet != null &&  morphSet.size() > 0 ){
 gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
 String name = morphAnn.getFeatures().get("baseForm").toString();
-if (name.length()>2){
+String pos = morphAnn.getFeatures().get("pos").toString();
+if (name.length()>2 && pos != "verb"){
 gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
 gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
 if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){

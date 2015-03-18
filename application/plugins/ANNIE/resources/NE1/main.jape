@@ -25,6 +25,7 @@ final
 unknown
 clean
 false_object_markup
+false_lookup_delete
 dtp_threat
 dtp_threat_2
 dtp_fact

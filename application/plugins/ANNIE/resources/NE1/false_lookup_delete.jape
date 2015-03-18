@@ -1,0 +1,18 @@
+Phase:  false_lookup_delete
+Input:  Lookup
+Options: control = appelt
+
+Rule: Burned
+({Lookup.majorType == "burn"})
+: bind
+ -->
+{
+gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
+gate.AnnotationSet morphSet = inputAS.getContained(bindSet.firstNode().getOffset(), bindSet.lastNode().getOffset()).get("Morph");
+if (morphSet != null && morphSet.size() > 0){
+gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
+//System.out.println("morphAnn = " + morphAnn);
+if ((morphAnn.getFeatures().get("baseForm").toString().equals("гореть")) && (morphAnn.getFeatures().get("tense").toString().equals("past"))){
+inputAS.removeAll(bindSet);
+}}}
+
