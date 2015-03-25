@@ -138,8 +138,11 @@ gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset
 if (morphSet != null &&  morphSet.size() > 0 ){
 gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
 String name = morphAnn.getFeatures().get("baseForm").toString();
-String pos = morphAnn.getFeatures().get("pos").toString();
-if (name.length()>2 && pos != "verb"){
+String pos = "null";
+if (morphAnn.getFeatures().get("pos") != null){
+pos = morphAnn.getFeatures().get("pos").toString();
+}
+if (name.length()>2 && pos != "verb"&& pos != "null"){
 gate.AnnotationSet objSet = (gate.AnnotationSet)bindings.get("obj");
 gate.AnnotationSet morphobj_Set = inputAS.getContained(objSet.firstNode().getOffset(), objSet.lastNode().getOffset()).get("Morph");
 if (morphobj_Set != null &&  morphobj_Set.size() > 0 ){
@@ -292,7 +295,7 @@ Rule: Object_WithNumber
 
 (
 ({Lookup.majorType == aux_object}) : obj
-(({Token.string == "№"}) | ({Morph.baseForm == "номер"}))
+(({Token.string == "№"}) | ({Morph.baseForm == "номер"})| ({Morph.baseForm == "No"})| ({Morph.baseForm == "N"}))
 ({Token.kind == "number"}) : numb
 )
 :bind

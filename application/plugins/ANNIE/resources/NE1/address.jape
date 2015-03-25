@@ -16,8 +16,15 @@ gate.AnnotationSet morphSet = inputAS.getContained(nameSet.firstNode().getOffset
 if (morphSet != null && morphSet.size() > 0){
 gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
 //System.out.println("morphAnn = " + morphAnn);
-if ((morphAnn.getFeatures().get("pos").toString() != "verb") && (morphAnn.getFeatures().get("pos").toString() != "substantive")  ){
-String name = morphAnn.getFeatures().get("baseForm").toString();
+String pos = "null";
+if (morphAnn.getFeatures().get("pos") != null){
+pos = morphAnn.getFeatures().get("pos").toString();
+}
+if ((pos != "verb") && (pos != "substantive")  ){
+String name = "";
+if ((morphAnn.getFeatures().get("baseForm")) != null){
+name = morphAnn.getFeatures().get("baseForm").toString();
+}
 if ( !(name.equals("больший") | (name.equals("большой"))| (name.equals("ночной"))| (name.equals("твой")) ))
 {gate.AnnotationSet strSet = (gate.AnnotationSet)bindings.get("st");
 gate.Annotation strAnn = (gate.Annotation)strSet.iterator().next();
