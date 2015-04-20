@@ -51,7 +51,7 @@ Rule: Flooding_danger
 
 Rule: Skip
 
-((({Morph.baseForm == "угроза"})({Token})[1,5](({Morph.baseForm == "миновать"})
+((({Morph.baseForm == "угроза"})({Token})[1,5](({Morph.baseForm == "миновать"}) // 111
 | ({Morph.baseForm == "ликвидировать"}) | ({Morph.baseForm == "отступать"})))
 |
 (({Morph.pos == "verb", Morph.tense == "past", Morph.aspect == "imperfect" }) ({Morph.baseForm == "угроза"})({Token})[1,2])
