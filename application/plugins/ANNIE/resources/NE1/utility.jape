@@ -1,0 +1,40 @@
+Phase: Utility
+Input: Token Lookup Split Morph
+Options: control = appelt
+
+Rule: tube
+(
+(({Lookup.majorType == defective})
+({Morph.baseForm == "труба"}))
+|
+(({Morph.baseForm == "труба"})
+({Lookup.majorType == defective}))
+)
+:bind -->
+:bind.Threat_Utility = {threat_indicator = "tube_damage"}
+
+
+Rule: trench
+(
+((({Morph.baseForm == "незарытый"}) | ({Morph.baseForm == "незарыто"}) )
+({Morph.baseForm == "котлован"}))
+|
+(({Morph.baseForm == "котлован"})
+(({Morph.baseForm == "незарытый"}) | ({Morph.baseForm == "незарыто"})))
+)
+:bind -->
+:bind.Threat_Utility = {threat_indicator = "trench"}
+
+Rule: sewer
+(
+((({Morph.baseForm == "засоряться"}) | ({Morph.baseForm == "засорять"}) )
+({Morph.baseForm == "сток"}))
+|
+(({Morph.baseForm == "сток"})
+(({Morph.baseForm == "засоряться"}) | ({Morph.baseForm == "засорять"})))
+|
+(({Lookup.majorType == rubbish})
+({Morph.baseForm == "в"}) ({Morph.baseForm == "решетка"}))
+)
+:bind -->
+:bind.Threat_Utility = {threat_indicator = "sewer"}

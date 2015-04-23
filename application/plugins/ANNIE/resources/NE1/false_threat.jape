@@ -1,5 +1,6 @@
 Phase:  False_Threat
 Input:  Morph Token Threat_RoadAccident Threat_Wildfire Threat_BuildingCollapse Threat_Flooding Fact_RoadAccident Fact_Wildfire Fact_BuildingCollapse Lookup
+Threat_PowerFailure Threat_Utility
 Options: control = appelt
 
 
@@ -15,6 +16,8 @@ Rule: False_Threat
 ({Threat_Wildfire})|
 ({Threat_BuildingCollapse})|
 ({Threat_Flooding})|
+({Threat_PowerFailure})|
+({Threat_Utility})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
 ({Fact_BuildingCollapse})))
@@ -23,6 +26,8 @@ Rule: False_Threat
 ({Threat_Wildfire})|
 ({Threat_BuildingCollapse})|
 ({Threat_Flooding})|
+({Threat_PowerFailure})|
+({Threat_Utility})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
 ({Fact_BuildingCollapse}))

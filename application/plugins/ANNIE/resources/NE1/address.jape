@@ -83,6 +83,7 @@ gate.Annotation strAnn = (gate.Annotation)strSet.iterator().next();
 String street = strAnn.getFeatures().get("ProperName").toString();
 String str_gend = strAnn.getFeatures().get("gend").toString();
 if (name.length()>2){
+
 String n = name.substring(name.length()-2, name.length());
 if (str_gend.equals("f") &&  ( n.equals("ий") || n.equals("ый") ))
  {name = name.substring(0, name.length()-2) + "ая";}
@@ -93,6 +94,7 @@ else {
 gate.Annotation nameAnn = (gate.Annotation)nameSet.iterator().next();
 name = nameAnn.getFeatures().get("string").toString();
 if (name.length()>2){
+System.out.println("name = " + name);
 String n = name.substring(name.length()-2, name.length());
 if (str_gend.equals("f") &&  ( n.equals("ую") || n.equals("ой") ))
  {name = name.substring(0, name.length()-2) + "ая";}
@@ -104,6 +106,7 @@ gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
 gate.Annotation bindAnn = (gate.Annotation)bindSet.iterator().next();
 String street_name = street + " " + name;
 gate.FeatureMap features_bind = Factory.newFeatureMap();
+features_bind.put("Rule", "Address1");
 features_bind.put("view_name", street_name);
 outputAS.add(bindSet.firstNode(), bindSet.lastNode(), "Placement", features_bind);
 }}

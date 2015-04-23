@@ -190,7 +190,8 @@ public class BatchProcessApp {
 // цикл для угроз
 
                     if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")
-                            | Type.equals("Threat_BuildingCollapse")  | Type.equals("Threat_Flooding")  ) {
+                            | Type.equals("Threat_BuildingCollapse")  | Type.equals("Threat_Flooding")
+                            | Type.equals("Threat_PowerFailure") | Type.equals("Threat_Utility")  ) {
                         while (fit.hasNext()) {
                             Map.Entry thisEntry = (Map.Entry) fit.next();
                             String getKey = thisEntry.getKey().toString();

@@ -1,5 +1,7 @@
 Phase:  False_Object
-Input:  False_Object Threat_RoadAccident Threat_Wildfire Threat_BuildingCollapse Fact_RoadAccident Fact_Wildfire Fact_BuildingCollapse Threat_Flooding
+Input:  False_Object Threat_RoadAccident Threat_Wildfire Threat_BuildingCollapse
+Fact_RoadAccident Fact_Wildfire Fact_BuildingCollapse
+Threat_Flooding Threat_PowerFailure Threat_Utility
 Options: control = all
 
 
@@ -9,6 +11,8 @@ Rule: False_Object
 ({Threat_Wildfire})|
 ({Threat_BuildingCollapse})|
 ({Threat_Flooding})|
+({Threat_PowerFailure})|
+({Threat_Utility})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
 ({Fact_BuildingCollapse} ))[0,10])
@@ -19,6 +23,8 @@ Rule: False_Object
 ({Threat_Wildfire})|
 ({Threat_BuildingCollapse})|
 ({Threat_Flooding})|
+({Threat_PowerFailure})|
+({Threat_Utility})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
 ({Fact_BuildingCollapse}))[0,10])?)
@@ -53,6 +59,8 @@ Rule: False_Object2
 ({Threat_Wildfire})|
 ({Threat_BuildingCollapse})|
 ({Threat_Flooding})|
+({Threat_PowerFailure})|
+({Threat_Utility})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
 ({Fact_BuildingCollapse}))[0,10])?)
@@ -63,6 +71,8 @@ Rule: False_Object2
 ({Threat_Wildfire})|
 ({Threat_BuildingCollapse})|
 ({Threat_Flooding})|
+({Threat_PowerFailure})|
+({Threat_Utility})|
 ({Fact_RoadAccident})|
 ({Fact_Wildfire})|
 ({Fact_BuildingCollapse}))[0,10])

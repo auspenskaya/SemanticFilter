@@ -40,6 +40,7 @@ flood_river.lst:river
 flood_accumulation.lst:accumulation
 flood_rise.lst:rise
 flood_overflow.lst:overflow
+power_line.lst:power_line
 collapse_building.lst:building
 collapse_crack.lst:crack
 collapse_being.lst:being

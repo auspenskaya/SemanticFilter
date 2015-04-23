@@ -1,0 +1,82 @@
+Phase:  Electric
+Input: Token Lookup Split Morph
+Options: control = appelt
+
+Rule: ice_power_line
+(
+({Lookup.majorType == ice})
+({Morph.baseForm == "на"})?
+({Lookup.majorType == power_line, Lookup.ProperName != "линия" })
+)
+:bind -->
+:bind.Threat_PowerFailure = {threat_indicator = "ice_power_line"}
+
+Rule: transmission_tower
+(
+({Lookup.majorType == defective})
+(({Morph.baseForm == "опора"}) | ({Morph.baseForm == "столб"}))
+({Morph.baseForm == "воздушный"})?
+({Lookup.majorType == power_line, Lookup.ProperName != "линия" })
+)
+:bind -->
+:bind.Threat_PowerFailure = {threat_indicator = "transmission_tower"}
+
+Rule: line_sag
+(
+(({Morph.baseForm == "обвисать"}) | ({Morph.baseForm == "провисать"})
+| ({Morph.baseForm == "оборвать"})
+| (({Morph.baseForm == "висеть"})({Morph.baseForm == "низко"}))
+| (({Morph.baseForm == "низко"})({Morph.baseForm == "висеть"})))
+({Lookup.majorType == power_line, Lookup.ProperName != "линия" })
+)
+:bind -->
+:bind.Threat_PowerFailure = {threat_indicator = "line_sag"}
+
+Rule: branch_on_line
+(
+({Lookup.majorType == trees})
+(({Morph.baseForm == "повиснуть"})| ({Morph.baseForm == "повисать"}) )?
+(({Morph.baseForm == "на"})|({Morph.baseForm == "около"})|(({Morph.baseForm == "рядом"})({Morph.baseForm == "с"}))|({Morph.baseForm == "возле"})|({Morph.baseForm == "в"})
+| ({Morph.baseForm == "касаться"}))
+({Lookup.majorType == power_line, Lookup.ProperName != "линия" })
+)
+:bind -->
+:bind.Threat_PowerFailure = {threat_indicator = "branch_on_line"}
+
+Rule: insulator_damage
+(
+({Lookup.majorType == defective})
+({Morph})?
+({Morph.baseForm == "изолятор"})
+)
+:bind -->
+:bind.Threat_PowerFailure = {threat_indicator = "insulator_damage"}
+
+Rule: cable_on_ground
+(
+({Lookup.majorType == power_line, Lookup.ProperName != "линия" })
+({Morph.baseForm == "на"})
+({Morph.baseForm == "земля"})
+)
+:bind -->
+:bind.Threat_PowerFailure = {threat_indicator = "cable_on_ground"}
+
+
+
+
+/*
+
+Rule: Skip
+
+((({Morph.baseForm == "угроза"})({Token})[1,5](({Morph.baseForm == "миновать"}) // 111
+| ({Morph.baseForm == "ликвидировать"}) | ({Morph.baseForm == "отступать"})))
+|
+(({Morph.pos == "verb", Morph.tense == "past", Morph.aspect == "imperfect" }) ({Morph.baseForm == "угроза"})({Token})[1,2])
+)
+:skip -->
+{
+gate.AnnotationSet sk = (gate.AnnotationSet)bindings.get("skip");
+inputAS.removeAll(sk);
+}
+
+*/
