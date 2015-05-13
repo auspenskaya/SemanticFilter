@@ -8,7 +8,7 @@ Options: control = appelt
 ({Morph.pos == verb, Morph.representation == participle} | {Morph.pos == a-pronoun}| {Morph.pos == adjective} )[1, 4]
 )
 
-Rule: 1_squall // шквалистый ветер
+Rule: squall // шквалистый ветер
 (
 ({Morph.baseForm == "шквалистый"})
 ({Morph.baseForm == "ветер"})
@@ -16,9 +16,9 @@ Rule: 1_squall // шквалистый ветер
 :bind -->
 :bind.Threat_Meteo = {threat_indicator = "squall"}
 
-// Rule: 2_whirlwind // Смерч
+// Rule: whirlwind // Смерч
 
-Rule: 3_downpour // ливень
+Rule: downpour // ливень
 (
 ({Morph.baseForm == "сильный"})
 ({Morph.baseForm == "ливень"})
@@ -26,7 +26,7 @@ Rule: 3_downpour // ливень
 :bind -->
 :bind.Threat_Meteo = {threat_indicator = "downpour"}
 
-Rule: 4_snow // снег
+Rule: snow // снег
 (
 ({Morph.baseForm == "сильный"})
 (({Morph.baseForm == "снег"}) | ({Morph.baseForm == "снегопад"}))
@@ -34,7 +34,7 @@ Rule: 4_snow // снег
 :bind -->
 :bind.Threat_Meteo = {threat_indicator = "snow"}
 
-Rule: 5_hail // град
+Rule: hail // град
 (
 (({Morph.baseForm == "сильный"}) | ({Morph.baseForm == "пойти"})| ({Morph.baseForm == "идти"}))
 ({Morph.baseForm == "град"})
@@ -42,7 +42,7 @@ Rule: 5_hail // град
 :bind -->
 :bind.Threat_Meteo = {threat_indicator = "hail"}
 
-Rule: 6_snowstorm // метель
+Rule: snowstorm // метель
 (
 (({Morph.baseForm == "сильный"}) | ({Morph.baseForm == "начаться"}))
 ({Morph.baseForm == "метель"})
@@ -50,9 +50,9 @@ Rule: 6_snowstorm // метель
 :bind -->
 :bind.Threat_Meteo = {threat_indicator = "snowstorm"}
 
-// Rule: 7_sandstorm // песчаная буря
+// Rule: sandstorm // песчаная буря
 
-Rule: 8_fog // туман
+Rule: fog // туман
 (
 (({Morph.baseForm == "сильный"}) | ({Morph.baseForm == "начаться"})| ({Morph.baseForm == "сплошной"}))
 ({Morph.baseForm == "туман"})
@@ -60,7 +60,7 @@ Rule: 8_fog // туман
 :bind -->
 :bind.Threat_Meteo = {threat_indicator = "fog"}
 
-Rule: 9_frost // мороз
+Rule: frost // мороз
 (
 (({Morph.baseForm == "сильный"}) | ({Morph.baseForm == "начаться"}))
 ({Morph.baseForm == "мороз"})
@@ -68,7 +68,7 @@ Rule: 9_frost // мороз
 :bind -->
 :bind.Threat_Meteo = {threat_indicator = "frost"}
 
-Rule: 10_heat // жара
+Rule: heat // жара
 (
 (({Morph.baseForm == "сильный"}) | ({Morph.baseForm == "начаться"})| ({Morph.baseForm == "стоять"}))
 ({Morph.baseForm == "жара"})
