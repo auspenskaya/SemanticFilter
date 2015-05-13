@@ -32,7 +32,7 @@ dtp_fact
 wildfire
 collapse_threat
 collapse_fact
-flooding_1
+flooding_1 // наводнение
 flooding_2
 flooding_3
 flooding_4
@@ -40,6 +40,7 @@ flooding_5
 flooding_6
 electric
 utility
+meteo
 new_facts
 false_object
 false_threat

@@ -191,7 +191,8 @@ public class BatchProcessApp {
 
                     if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")
                             | Type.equals("Threat_BuildingCollapse")  | Type.equals("Threat_Flooding")
-                            | Type.equals("Threat_PowerFailure") | Type.equals("Threat_Utility")  ) {
+                            | Type.equals("Threat_PowerFailure") | Type.equals("Threat_Utility")
+                            | Type.equals("Threat_Meteo")  ) {
                         while (fit.hasNext()) {
                             Map.Entry thisEntry = (Map.Entry) fit.next();
                             String getKey = thisEntry.getKey().toString();
