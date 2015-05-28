@@ -187,12 +187,12 @@ public class BatchProcessApp {
                         aPlace.add(address);
                     }
 
-// цикл для угроз
+// цикл для угроз Threat_Conduit
 
                     if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")
                             | Type.equals("Threat_BuildingCollapse")  | Type.equals("Threat_Flooding")
                             | Type.equals("Threat_PowerFailure") | Type.equals("Threat_Utility")
-                            | Type.equals("Threat_Meteo")  ) {
+                            | Type.equals("Threat_Meteo") | Type.equals("Threat_Conduit") ) {
                         while (fit.hasNext()) {
                             Map.Entry thisEntry = (Map.Entry) fit.next();
                             String getKey = thisEntry.getKey().toString();

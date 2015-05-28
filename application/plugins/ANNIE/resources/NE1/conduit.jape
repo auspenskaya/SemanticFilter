@@ -1,0 +1,57 @@
+Phase:  Conduit
+Input: Token Lookup Split Morph Fact_Wildfire
+Options: control = appelt
+
+ Macro: NEAR
+(
+({Morph.baseForm == "близко"}) | (({Morph.baseForm == "рядом"})({Morph.baseForm == "с"})) | (({Morph.baseForm == "недалеко"})({Morph.baseForm == "от"})?)
+)
+
+Rule: near_house //
+(
+({Lookup.majorType == conduit})
+(NEAR)
+(({Morph.baseForm == "дом"}) | ({Morph.baseForm == "здание"}))
+)
+:bind -->
+:bind.Threat_Conduit = {threat_indicator = "near_house"}
+
+Rule: tube_damage
+(
+(({Lookup.majorType == defective})
+({Lookup.majorType == conduit})
+)
+|
+(
+({Lookup.majorType == conduit})
+({Lookup.majorType == defective}))
+)
+:bind -->
+:bind.Threat_Conduit = {threat_indicator = "tube_damage"}
+
+Rule: insert
+
+(({Morph.baseForm == "врезка"})
+({Token.kind == word})[0,2]
+({Lookup.majorType == conduit}))
+
+:bind -->
+:bind.Threat_Conduit = {threat_indicator = "insert"}
+
+Rule: Fact_Wildfire
+
+(({Fact_Wildfire})
+(NEAR)
+({Lookup.majorType == conduit}))
+
+:bind -->
+:bind.Threat_Conduit = {threat_indicator = "fact_wildfire"}
+
+Rule: Building
+(
+(({Morph.baseForm == "строительство"}) | ({Morph.baseForm == "стройка"}))
+(NEAR)
+({Lookup.majorType == conduit})
+)
+:bind -->
+:bind.Threat_Conduit = {threat_indicator = "building"}
