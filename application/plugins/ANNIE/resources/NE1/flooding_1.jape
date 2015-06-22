@@ -54,7 +54,7 @@ Rule: Skip
 ((({Morph.baseForm == "угроза"})({Token})[1,5](({Morph.baseForm == "миновать"}) // 111
 | ({Morph.baseForm == "ликвидировать"}) | ({Morph.baseForm == "отступать"})))
 |
-(({Morph.pos == "verb", Morph.tense == "past", Morph.aspect == "imperfect" }) ({Morph.baseForm == "угроза"})({Token})[1,2])
+((({Morph.pos == "verb", Morph.tense == "past", Morph.aspect == "imperfect" }) ({Morph.baseForm == "угроза"}))   | ({Morph.baseForm == "протекать"}) ({Token})[1,2])
 )
 :skip -->
 {

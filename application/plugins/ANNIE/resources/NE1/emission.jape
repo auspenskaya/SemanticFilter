@@ -1,0 +1,38 @@
+Phase:  Emission
+Input: Token Lookup Split Morph Fact_Wildfire
+Options: control = appelt
+
+Rule: lead //
+(
+({Morph.baseForm == "выброс"})  ({Morph.baseForm == "свинец"})
+)
+:bind -->
+:bind.Threat_Emission = {threat_indicator = "lead"}
+
+Rule: mercury //
+(
+({Morph.baseForm == "выброс"})  ({Morph.baseForm == "ртуть"})
+)
+:bind -->
+:bind.Threat_Emission = {threat_indicator = "mercury"}
+
+Rule: ammonia //
+(
+(({Lookup.majorType == fire_smell})| ({Morph.baseForm == "выброс"}) ) ({Morph.baseForm == "аммиак"})
+)
+:bind -->
+:bind.Threat_Emission = {threat_indicator = "ammonia"}
+
+Rule: hydrogen_sulphide //
+(
+(({Lookup.majorType == fire_smell})| ({Morph.baseForm == "выброс"}) ) ({Morph.baseForm == "сероводород"})
+)
+:bind -->
+:bind.Threat_Emission = {threat_indicator = "hydrogen_sulphide"}
+
+Rule: burnt //
+(
+({Lookup.majorType == fire_smell}) ({Morph.baseForm == "гарm"})
+)
+:bind -->
+:bind.Threat_Emission = {threat_indicator = "burnt"}

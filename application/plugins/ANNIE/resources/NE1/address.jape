@@ -5,7 +5,7 @@ Options: control = all
 
 Rule: Address_inv   // Невский проспект
 (
-({Token.orth == upperInitial, Token.length >3}
+({Token.orth == upperInitial, Token.length >3, Token.string != "Питерской", Token.string != "Питерская" }
 ): name
 ({Lookup.majorType == street, Lookup.ProperName != "проезжая часть"}): st
 )

@@ -19,7 +19,7 @@
 знак уступить дорога:threat_indicator=road_sign_damage
 знак главный дорога:threat_indicator=road_sign_damage
 дорожный разметка:threat_indicator=road_marking_damage
-мост:threat_indicator=bridge_damage
+мост:threat_indicator=hole_on_road
 разметка:threat_indicator=road_marking_damage
 стоп линия:threat_indicator=road_marking_damage
 шлагбаум:threat_indicator=railway_crossing_damage
