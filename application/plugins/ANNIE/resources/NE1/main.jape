@@ -38,11 +38,11 @@ flooding_3
 flooding_4
 flooding_5
 flooding_6
-electric
-utility
-meteo
-conduit
-emission
+electric // Авария на электроэнергетич.сист
+utility // Авария на коммун.сист
+meteo // Опасные метеорологические явления
+conduit // Авария на Магистральных трубопроводах
+emission // Выбросы опасных химических веществ
 new_facts
 false_object
 false_threat
