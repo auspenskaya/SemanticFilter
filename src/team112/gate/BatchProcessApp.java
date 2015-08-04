@@ -68,6 +68,11 @@ public class BatchProcessApp {
                 //JSONObject obj = (JSONObject) JSONValue.parse(jsonInput);
                 JSONObject dataObject = (JSONObject) obj.get("data");
                 String textValue = dataObject.get("text").toString();
+                if (dataObject.get("corrected_text") != null) {
+                    String textValue_corrected = dataObject.get("corrected_text").toString();
+                    textValue = textValue + ". \n\r" + textValue_corrected;
+                }
+                //System.out.println("textValue =  " + textValue);
                 Document doc = Factory.newDocument(textValue);
                 // put the document in the corpus
                 String content = doc.getContent().toString();
@@ -187,14 +192,13 @@ public class BatchProcessApp {
                         aPlace.add(address);
                     }
 
-// цикл для угроз Threat_Conduit
+// цикл для угроз 
 
-                    if (Type.equals("Threat_RoadAccident") | Type.equals("Threat_Wildfire")
-                            | Type.equals("Threat_BuildingCollapse")  | Type.equals("Threat_Flooding")
-                            | Type.equals("Threat_PowerFailure") | Type.equals("Threat_Utility")
-                            | Type.equals("Threat_Meteo") | Type.equals("Threat_Conduit")
-                            | Type.equals("Threat_Emission")
-                            ) {
+                    String TypePrefix = "";
+                    if (Type.length() > 7 ) {
+                        TypePrefix = Type.toString().substring(0,7);
+                    }
+                    if (TypePrefix.equals("Threat_")) {
                         while (fit.hasNext()) {
                             Map.Entry thisEntry = (Map.Entry) fit.next();
                             String getKey = thisEntry.getKey().toString();
@@ -216,8 +220,10 @@ public class BatchProcessApp {
                     }
 
 // цикл для фактов
-                    if (Type.equals("Fact_RoadAccident") | Type.equals("Fact_Wildfire")
-                            | Type.equals("Fact_BuildingCollapse") ) {
+                    if (Type.length() > 5 ) {
+                       TypePrefix = Type.toString().substring(0,5);
+                    }
+                    if (TypePrefix.equals("Fact_") ) {
                         while (fit.hasNext()) {
                             Map.Entry thisEntry = (Map.Entry) fit.next();
                             String getKey = thisEntry.getKey().toString();
