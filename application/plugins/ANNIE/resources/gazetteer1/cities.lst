@@ -148,7 +148,9 @@
 алма:ProperName=Алма:locType=город:region_checked=true:type_checked=true:Parent=Израиль:place_type=imprecise
 алма-ата:ProperName=Алма-Ата:locType=город:region_checked=true:type_checked=true:Parent=Казахстан:place_type=imprecise
 алма-ата:ProperName=Алма-Ата:locType=город:region_checked=true:type_checked=true:Parent=Казахстан:place_type=imprecise
+алматы:ProperName=Алма-Ата:locType=город:region_checked=true:type_checked=true:Parent=Казахстан:PreParent=Казахстан:place_type=imprecise
 алматы:ProperName=Алма-Ата:locType=город:region_checked=true:type_checked=true:Parent=Казахстан:place_type=imprecise
+алмат:ProperName=Алма-Ата:locType=город:region_checked=true:type_checked=true:Parent=Казахстан:place_type=imprecise
 верный:ProperName=Алма-Ата:locType=город:region_checked=false:type_checked=true:Parent=Казахстан:place_type=imprecise
 заилийский:ProperName=Алма-Ата:locType=город:region_checked=true:type_checked=true:Parent=Казахстан:place_type=imprecise
 алмада:ProperName=Алмада:locType=город:region_checked=true:type_checked=true:Parent=Португалия:place_type=imprecise
@@ -6600,6 +6602,8 @@
 ашвилл:ProperName=Эшвилл:locType=город:region_checked=false:type_checked=true:Parent=Северная Каролина:PreParent=США:place_type=imprecise
 эшвилл:ProperName=Эшвилл:locType=город:region_checked=false:type_checked=true:Parent=Северная Каролина:PreParent=США:place_type=imprecise
 юар:ProperName=ЮАР:locType=страна:region_checked=true:type_checked=true:place_type=imprecise
+африка:ProperName=африка:locType=континент:region_checked=true:type_checked=true:Parent=африка:place_type=imprecise
+танзания:ProperName=танзания:locType=страна:region_checked=true:type_checked=true:Parent=танзания:place_type=imprecise
 южно-африканская республика:ProperName=ЮАР:locType=страна:region_checked=true:type_checked=true:place_type=imprecise
 юбилейный:ProperName=Юбилейный:locType=город:region_checked=true:type_checked=false:Parent=Московская область:PreParent=Центральный федеральный округ:PrePreParent=Россия:place_type=imprecise
 йювяскюля:ProperName=Ювяскюля:locType=город:region_checked=true:type_checked=true:Parent=Финляндия:place_type=imprecise
