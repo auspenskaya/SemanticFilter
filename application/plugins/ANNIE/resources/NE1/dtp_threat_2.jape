@@ -100,7 +100,7 @@ Rule: BadRoad // 10 плохая дорога, дорога очень плох�
 ({Lookup.majorType == defective, Lookup.mess_type != "fact"}))
 ) 
 :bind -->
-:bind.Threat_RoadAccident = {threat_indicator = "hole_on_road"}
+:bind.Threat_RoadAccident = {threat_indicator = "hole_on_road", rule = "BadRoad"}
 
 
 Rule: BadObject // 11 неисправный светофор, нет разметки !!Не работал светофор - не должно!
@@ -112,6 +112,7 @@ Rule: BadObject // 11 неисправный светофор, нет разме
 gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
 gate.FeatureMap features = Factory.newFeatureMap();
 features.put("threat_indicator", objAnn.getFeatures().get("threat_indicator"));
+features.put("rule", "BadObject");
 gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
 outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
 inputAS.removeAll(obj);
@@ -129,6 +130,7 @@ Rule: BadObject2 // 12 светофор неисправен  // Светофо�
 gate.Annotation objAnn = (gate.Annotation)obj.iterator().next();
 gate.FeatureMap features = Factory.newFeatureMap();
 features.put("threat_indicator", objAnn.getFeatures().get("threat_indicator"));
+features.put("rule", "BadObject2");
 gate.AnnotationSet bind = (gate.AnnotationSet)bindings.get("bind");
 outputAS.add(bind.firstNode(), bind.lastNode(), "Threat_RoadAccident", features);
 
@@ -223,7 +225,9 @@ Rule: Skip
 ({Token.string == "канаву"}))
 |
 (
-(({Morph.baseForm == "проездить"})| ({Morph.baseForm == "ездить"}))
+(({Morph.baseForm == "проездить"})| ({Morph.baseForm == "ездить"})
+| ({Morph.baseForm == "автомобиль"}) | ({Morph.baseForm == "машина"})
+| ({Morph.baseForm == "кар"})| ({Morph.baseForm == "каре"})| ({Morph.baseForm == "кара"}))
 ({Token.string == "с"})
 ({Token.string == "открытым"})
 ({Token.string == "люком"}))

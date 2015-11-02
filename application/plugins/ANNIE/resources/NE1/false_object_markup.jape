@@ -26,19 +26,25 @@ Rule: Morph
 |
 (({Morph.baseForm == "я"})({Token.kind == word})({Morph.baseForm == "сниться"}) )
 |
-(({Morph.baseForm == "комиссия"})({Token})[0,2] ({Morph.baseForm == "обследовать"}) )
+(({Morph.baseForm == "комиссия"})({Token.kind == word})[0,2] ({Morph.baseForm == "обследовать"}) )
 |
-(({Morph.baseForm == "управление"})({Token})[0,4] ({Morph.baseForm == "дорожный"})({Morph.baseForm == "движение"}) )
+(({Morph.baseForm == "управление"})({Token.kind == word})[0,4] ({Morph.baseForm == "дорожный"})({Morph.baseForm == "движение"}) )
+|
+((({Morph.baseForm == "приступить"})| ({Morph.baseForm == "приступать"}))({Token.kind == word})[0,4] ({Morph.baseForm == "работа"}) )
+|
+(({Morph.baseForm == "самый"})({Token.kind == word})[0,6] ({Morph.baseForm == "в"})({Morph.baseForm == "мир"}) )
+
+
 
 
 
 |
-(({Morph.baseForm == "фильм"})({Token})[0,2]({Morph.baseForm == "дурак"}) )
+(({Morph.baseForm == "фильм"})({Token.kind == word})[0,2]({Morph.baseForm == "дурак"}) )
 |
 (
 (({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"})
 |({Morph.baseForm == "МЧС"})|({Morph.baseForm == "ДПС"})|({Morph.baseForm == "патруль"}))
-({Token})?
+({Token.kind == word})?
 (({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})
 |({Morph.baseForm == "работать"})|({Morph.baseForm == "стоять"})
 |({Morph.baseForm == "рулить"}))
@@ -48,7 +54,7 @@ Rule: Morph
 (({Morph.baseForm == "регулировать"})|({Morph.baseForm == "разруливать"})
 |({Morph.baseForm == "работать"}) |({Morph.baseForm == "стоять"})
 |({Morph.baseForm == "рулить"}))
-({Token})?
+({Token.kind == word})?
 (({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"})
 |({Morph.baseForm == "МЧС"})|({Morph.baseForm == "ДПС"})|({Morph.baseForm == "патруль"}))
 )

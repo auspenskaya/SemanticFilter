@@ -16,7 +16,7 @@ Rule: near_house //
 :bind -->
 :bind.Threat_Conduit = {threat_indicator = "near_house"}
 
-Rule: tube_damage
+Rule: conduit_damage
 (
 (({Lookup.majorType == defective})
 ({Lookup.majorType == conduit})
@@ -27,7 +27,7 @@ Rule: tube_damage
 ({Lookup.majorType == defective}))
 )
 :bind -->
-:bind.Threat_Conduit = {threat_indicator = "tube_damage"}
+:bind.Threat_Conduit = {threat_indicator = "conduit_damage"}
 
 Rule: insert
 
@@ -47,11 +47,3 @@ Rule: Fact_Wildfire
 :bind -->
 :bind.Threat_Conduit = {threat_indicator = "fact_wildfire"}
 
-Rule: Building
-(
-(({Morph.baseForm == "строительство"}) | ({Morph.baseForm == "стройка"}))
-(NEAR)
-({Lookup.majorType == conduit})
-)
-:bind -->
-:bind.Threat_Conduit = {threat_indicator = "building"}

@@ -32,11 +32,14 @@ Rule: sewer
 |
 (({Morph.baseForm == "сток"})
 (({Morph.baseForm == "засоряться"}) | ({Morph.baseForm == "засорять"})))
-|
-(({Lookup.majorType == rubbish})
-({Morph.baseForm == "в"}) ({Morph.baseForm == "решетка"}))
 )
 :bind -->
 :bind.Threat_Utility = {threat_indicator = "sewer"}
 
-
+Rule: rubbish_utility
+(
+({Lookup.majorType == rubbish})
+(({Morph.baseForm == "в"})|({Morph.baseForm == "на"})) ({Morph.baseForm == "решетка"})
+)
+:bind -->
+:bind.Threat_Utility = {threat_indicator = "rubbish_utility"}

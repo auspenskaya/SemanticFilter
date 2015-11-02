@@ -2,30 +2,12 @@
 */
 
 MultiPhase:	TestTheGrammars
-Phases: 
+Phases:
 
-first
-remove_upper
-firstname
-gazlocation
-person
-name
-name_post
-date_pre
-date
-reldate
-number
-url_pre
-url
-email
-identifier
-jobtitle
-spuriousname
-final
-unknown
-clean
+//правила 1 приоритета
 false_object_markup
 false_lookup_delete
+//правила 2 приоритета
 dtp_threat
 dtp_threat_2
 dtp_fact
@@ -39,11 +21,15 @@ flooding_4
 flooding_5
 flooding_6
 electric // Авария на электроэнергетич.сист
-utility // Авария на коммун. системах 
+utility // Авария на коммун.сист
 meteo // Опасные метеорологические явления
 conduit // Авария на Магистральных трубопроводах
 emission // Выбросы опасных химических веществ
+law_water //
+invasion
+asfv
 new_facts
+//правила 3 приоритета
 false_object
 false_threat
 rank
@@ -54,5 +40,5 @@ location_del
 location_del
 location_del
 location_del
-address
+address_street
 named_entities

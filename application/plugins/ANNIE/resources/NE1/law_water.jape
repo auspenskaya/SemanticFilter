@@ -1,0 +1,28 @@
+Phase:  law_water
+Input: Token Lookup Split Morph
+Options: control = appelt
+
+
+Rule: less_water //
+(
+((({Lookup.majorType == dry}) | ({Morph.baseForm == "обмелеть"}) | ({Morph.baseForm == "обмеление"})
+| ({Morph.baseForm == "обмелелый"}) | ({Morph.baseForm == "мелеть"}) )
+({Token.kind == word})[0,4]
+(({Morph.baseForm == "река"}) |({Morph.baseForm == "приток"})
+| ({Morph.baseForm == "озеро"})  | ({Morph.baseForm == "море"})))
+|
+(({Morph.baseForm == "река"})  |({Morph.baseForm == "приток"})| ({Morph.baseForm == "озеро"}))
+({Token.kind == word})[0,4]
+(({Lookup.majorType == dry}) | ({Morph.baseForm == "обмелеть"})
+| ({Morph.baseForm == "обмелелый"})| ({Morph.baseForm == "мелеть"}))
+|
+(({Morph.baseForm == "мало"}) ({Morph.baseForm == "вода"}) ({Morph.baseForm == "в"})
+(({Morph.baseForm == "река"}) | ({Morph.baseForm == "озеро"})))
+|
+(({Morph.baseForm == "спад"}) ({Morph.baseForm == "уровня"}) ({Morph.baseForm == "вода"}))
+)
+:bind -->
+:bind.Threat_LawWater = {threat_indicator = "less_water"}
+
+
+

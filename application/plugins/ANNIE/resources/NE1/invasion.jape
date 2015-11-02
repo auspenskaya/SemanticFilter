@@ -1,0 +1,27 @@
+Phase:  invasion
+Input: Token Lookup Split Morph
+Options: control = appelt
+
+
+Rule: invasion //
+(
+((({Morph.baseForm == "много"}) | ({Morph.baseForm == "скопление"}) | ({Morph.baseForm == "рой"})
+| ({Morph.baseForm == "поле"})| ({Morph.baseForm == "нашествие"})| ({Morph.baseForm == "облака"})
+| ({Morph.baseForm == "атаковать"})| ({Morph.baseForm == "сотня"})| ({Morph.baseForm == "множество"})
+| ({Morph.baseForm == "атака"})| ({Morph.baseForm == "полчище"}))
+({Token.kind == word})[0,2]
+(({Morph.baseForm == "саранча"}) | ({Morph.baseForm == "муравей"})| ({Morph.baseForm == "вредитель"})))
+|
+(
+(({Morph.baseForm == "саранча"}) | ({Morph.baseForm == "муравей"})| ({Morph.baseForm == "муравьиный"}))
+({Token.kind == word})[0,2]
+(({Morph.baseForm == "много"}) | ({Morph.baseForm == "скопление"}) | ({Morph.baseForm == "рой"})
+| ({Morph.baseForm == "поле"})| ({Morph.baseForm == "нашествие"})| ({Morph.baseForm == "облако"})
+| ({Morph.baseForm == "атаковать"})| ({Morph.baseForm == "сотня"})| ({Morph.baseForm == "множество"})
+| ({Morph.baseForm == "атака"})| ({Morph.baseForm == "полчище"})))
+)
+:bind -->
+:bind.Threat_Invasion = {threat_indicator = "invasion"}
+
+
+
