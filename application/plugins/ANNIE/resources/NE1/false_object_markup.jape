@@ -20,7 +20,9 @@ Rule: Morph
 |
 (({Token.kind == number})({Morph.baseForm == "глава"}))
 |
-(({Morph.baseForm == "в"})?({Token.kind == number})({Morph.baseForm == "год"}) )
+(({Morph.baseForm == "в"})({Token.kind == number})({Morph.baseForm == "год"}) )
+|
+(({Token.kind == number})({Morph.baseForm == "год"}) ({Morph.baseForm == "назад"}))
 |
 ({Date})
 |
@@ -33,11 +35,6 @@ Rule: Morph
 ((({Morph.baseForm == "приступить"})| ({Morph.baseForm == "приступать"}))({Token.kind == word})[0,4] ({Morph.baseForm == "работа"}) )
 |
 (({Morph.baseForm == "самый"})({Token.kind == word})[0,6] ({Morph.baseForm == "в"})({Morph.baseForm == "мир"}) )
-
-
-
-
-
 |
 (({Morph.baseForm == "фильм"})({Token.kind == word})[0,2]({Morph.baseForm == "дурак"}) )
 |
@@ -58,6 +55,8 @@ Rule: Morph
 (({Morph.baseForm == "гаишник"})|({Morph.baseForm == "гаец"})|({Morph.baseForm == "регулировщик"})
 |({Morph.baseForm == "МЧС"})|({Morph.baseForm == "ДПС"})|({Morph.baseForm == "патруль"}))
 )
+|({Morph.baseForm == "ожидаться", Morph.tense == nopast, Morph.mood == indicative})
+|({Morph.baseForm == "начинаться", Morph.tense == nopast, Morph.mood == indicative})
 )
 : bind
 

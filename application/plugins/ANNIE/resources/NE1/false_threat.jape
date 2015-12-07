@@ -17,6 +17,8 @@ Rule: False_Threat
 |(({Morph.baseForm == "во"}) ({Morph.baseForm == "время"}))
 |({Morph.baseForm == "ликвидация"}) |({Morph.baseForm == "мочь"})
 |({Morph.baseForm == "где"})|({Morph.baseForm == "уборка"})
+|({Morph.baseForm == "ожидаться", Morph.tense == nopast, Morph.mood == indicative})
+|({Morph.baseForm == "начинаться", Morph.tense == nopast, Morph.mood == indicative})
 )
 (({Threat_RoadAccident})|
 ({Threat_Wildfire})|
@@ -44,6 +46,8 @@ Rule: False_Threat
 (({Morph.baseForm == "не"}) (({Morph.baseForm == "видеть"}) | ({Morph.baseForm == "надо"})))
 |({Morph.baseForm == "слеза"}) |({Morph.baseForm == "сосед"} )
 |({Morph.baseForm == "прогнозировать"}) |({Morph.baseForm == "самолет"}) |({Morph.baseForm == "нет"})
+|({Morph.baseForm == "ожидаться", Morph.tense == nopast, Morph.mood == indicative})
+|({Morph.baseForm == "начинаться", Morph.tense == nopast, Morph.mood == indicative})
 )
 
 )

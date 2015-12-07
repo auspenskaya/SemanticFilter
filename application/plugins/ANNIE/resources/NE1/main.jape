@@ -27,7 +27,6 @@ conduit // Авария на Магистральных трубопровода
 emission // Выбросы опасных химических веществ
 law_water //
 invasion
-asfv
 new_facts
 //правила 3 приоритета
 false_object
@@ -42,3 +41,4 @@ location_del
 location_del
 address_street
 named_entities
+address_del

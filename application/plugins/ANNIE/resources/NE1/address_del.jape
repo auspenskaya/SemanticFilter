@@ -1,0 +1,16 @@
+Phase:  Delete_false_addr
+Input:  Placement
+Options: control = all
+
+
+Rule: Delete_false // удаляет непроверенные адреса
+(({Placement}))
+: bind  -->
+{
+gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("bind");
+gate.AnnotationSet LocSet = inputAS.getContained(nameSet.firstNode().getOffset(), nameSet.lastNode().getOffset()).get("Loc");
+if (LocSet != null && LocSet.size() > 0){
+gate.AnnotationSet bindSet = (gate.AnnotationSet)bindings.get("bind");
+inputAS.removeAll(bindSet);
+}}
+

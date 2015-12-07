@@ -232,6 +232,7 @@ gate.Annotation nameAnn = (gate.Annotation)nameSet.iterator().next();
 String name = nameAnn.getFeatures().get("string").toString();
 gate.FeatureMap features_pl = Factory.newFeatureMap();
 features_pl.put("view_name", name);
+features_pl.put("Rule", "Viezd");
 outputAS.add(nameSet.firstNode(), nameSet.lastNode(), "Placement", features_pl);
 }
 
@@ -292,6 +293,8 @@ gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 }
 
+
+
 Rule: Crossroad_oneToken
 (
 (({Lookup.majorType == aux_crossroad})):obj
@@ -341,6 +344,7 @@ if (str.equals("-") | str.equals("–"))
 {
 String crossroad_name = name;
 gate.FeatureMap features_pl = Factory.newFeatureMap();
+features_pl.put("Rule", "Crossroad_oneToken_afterThreat");
 features_pl.put("view_name", crossroad_name);
 gate.AnnotationSet plSet = (gate.AnnotationSet)bindings.get("pl");
 outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
@@ -401,6 +405,7 @@ outputAS.add(plSet.firstNode(), plSet.lastNode(), "Placement", features_pl);
 }
 
 
+
 Rule: Crossroad_in // перекресток в Ростове
 (
 (({Lookup.majorType == aux_crossroad}) | ({Lookup.majorType == street, Lookup.short == false}))
@@ -416,17 +421,21 @@ gate.Annotation morphAnn = (gate.Annotation)morphSet.iterator().next();
 String name = morphAnn.getFeatures().get("baseForm").toString();
 gate.FeatureMap features_pl = Factory.newFeatureMap();
 features_pl.put("view_name", name);
+features_pl.put("Rule", "Crossroad_in");
 outputAS.add(nameSet.firstNode(), nameSet.lastNode(), "Placement", features_pl);
 }}
-
-
 
 
 
 Rule: Street_short // на Ленинском сломан светофор
 ((
 (({Morph.baseForm == "на"}) | ({Morph.baseForm == "по"}) | ({Morph.baseForm == "в"}))
-({Token.orth == upperInitial, Token.length >3}): name
+({Token.orth == upperInitial, Token.length >3,
+Token.string != "Росавтодор",
+Token.string != "Автодор",
+Token.string != "Росавтодоре",
+Token.string != "Автодоре"
+}): name
 ) :pl
 ({Token.kind == word})[0,2]
 ({Threat_RoadAccident})
@@ -563,6 +572,7 @@ Rule: MKAD // мкад
 ) : bind
 -->
 :bind.Placement = {view_name = "МКАД"}
+
 
 /*
 
